@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { t } from "@lingui/macro";
 import { X } from "@phosphor-icons/react";
-import { CustomSection, customSectionSchema, defaultCustomSection } from "@reactive-resume/schema";
+import type { CustomSection } from "@reactive-resume/schema";
+import { customSectionSchema, defaultCustomSection } from "@reactive-resume/schema";
 import {
   Badge,
   BadgeInput,
@@ -17,10 +18,10 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import type { z } from "zod";
 
 import { AiActions } from "@/client/components/ai-actions";
-import { DialogName, useDialog } from "@/client/stores/dialog";
+import { useDialog } from "@/client/stores/dialog";
 
 import { SectionDialog } from "../sections/shared/section-dialog";
 import { URLInput } from "../sections/shared/url-input";
@@ -39,12 +40,13 @@ export const CustomSectionDialog = () => {
 
   const [pendingKeyword, setPendingKeyword] = useState("");
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!payload) return null;
 
   return (
     <SectionDialog<FormValues>
       form={form}
-      id={payload.id as DialogName}
+      id={payload.id}
       defaultValues={defaultCustomSection}
       pendingKeyword={pendingKeyword}
     >
@@ -129,10 +131,18 @@ export const CustomSectionDialog = () => {
                 <RichInput
                   {...field}
                   content={field.value}
-                  onChange={(value) => field.onChange(value)}
                   footer={(editor) => (
-                    <AiActions value={editor.getText()} onChange={editor.commands.setContent} />
+                    <AiActions
+                      value={editor.getText()}
+                      onChange={(value) => {
+                        editor.commands.setContent(value, true);
+                        field.onChange(value);
+                      }}
+                    />
                   )}
+                  onChange={(value) => {
+                    field.onChange(value);
+                  }}
                 />
               </FormControl>
               <FormMessage />
@@ -160,8 +170,8 @@ export const CustomSectionDialog = () => {
                 <AnimatePresence>
                   {field.value.map((item, index) => (
                     <motion.div
-                      layout
                       key={item}
+                      layout
                       initial={{ opacity: 0, y: -50 }}
                       animate={{ opacity: 1, y: 0, transition: { delay: index * 0.1 } }}
                       exit={{ opacity: 0, x: -50 }}

@@ -1,11 +1,12 @@
-import { ExecutionContext } from "@nestjs/common";
+import type { ExecutionContext } from "@nestjs/common";
 import { createParamDecorator } from "@nestjs/common";
-import { UserWithSecrets } from "@reactive-resume/dto";
-import { Request } from "express";
+import type { UserWithSecrets } from "@reactive-resume/dto";
 
-export const User = createParamDecorator((data: keyof UserWithSecrets, ctx: ExecutionContext) => {
-  const request = ctx.switchToHttp().getRequest() as Request;
-  const user = request.user as UserWithSecrets;
+export const User = createParamDecorator(
+  (data: keyof UserWithSecrets | undefined, ctx: ExecutionContext) => {
+    const request = ctx.switchToHttp().getRequest();
+    const user = request.user as UserWithSecrets;
 
-  return data ? user?.[data] : user;
-});
+    return data ? user[data] : user;
+  },
+);

@@ -1,8 +1,8 @@
-import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Injectable, Logger } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
+import { createId } from "@paralleldrive/cuid2";
 import { User } from "@prisma/client";
-import { processUsername } from "@reactive-resume/utils";
-import { ErrorMessage } from "@reactive-resume/utils";
+import { ErrorMessage, processUsername } from "@reactive-resume/utils";
 import { Profile, Strategy, StrategyOptions } from "passport-github2";
 
 import { UserService } from "@/server/user/user.service";
@@ -26,29 +26,29 @@ export class GitHubStrategy extends PassportStrategy(Strategy, "github") {
   ) {
     const { displayName, emails, photos, username } = profile;
 
-    const email = emails?.[0].value ?? `${username}@github.com`;
+    const email = (emails?.[0].value ?? `${username}@github.com`).toLocaleLowerCase();
     const picture = photos?.[0].value;
 
     let user: User | null = null;
 
-    if (!email || !username) throw new BadRequestException();
+    if (!email) throw new BadRequestException(ErrorMessage.InvalidCredentials);
 
     try {
-      const user =
-        (await this.userService.findOneByIdentifier(email)) ||
-        (await this.userService.findOneByIdentifier(username));
+      user =
+        (await this.userService.findOneByIdentifier(email)) ??
+        (username ? await this.userService.findOneByIdentifier(username) : null);
 
-      if (!user) throw new UnauthorizedException();
+      if (!user) throw new BadRequestException(ErrorMessage.InvalidCredentials);
 
       done(null, user);
-    } catch (error) {
+    } catch {
       try {
         user = await this.userService.create({
           email,
           picture,
           locale: "en-US",
-          name: displayName,
           provider: "github",
+          name: displayName || createId(),
           emailVerified: true, // auto-verify emails
           username: processUsername(username ?? email.split("@")[0]),
           secrets: { create: {} },
@@ -56,6 +56,8 @@ export class GitHubStrategy extends PassportStrategy(Strategy, "github") {
 
         done(null, user);
       } catch (error) {
+        Logger.error(error);
+
         throw new BadRequestException(ErrorMessage.UserAlreadyExists);
       }
     }

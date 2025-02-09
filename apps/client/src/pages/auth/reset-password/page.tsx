@@ -16,8 +16,8 @@ import {
 import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { z } from "zod";
+import { useNavigate, useSearchParams } from "react-router";
+import type { z } from "zod";
 
 import { useResetPassword } from "@/client/services/auth";
 
@@ -26,7 +26,7 @@ type FormValues = z.infer<typeof resetPasswordSchema>;
 export const ResetPasswordPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const token = searchParams.get("token") || "";
+  const token = searchParams.get("token") ?? "";
 
   const { resetPassword, loading } = useResetPassword();
 
@@ -42,15 +42,15 @@ export const ResetPasswordPage = () => {
     try {
       await resetPassword(data);
 
-      navigate("/auth/login");
-    } catch (error) {
+      void navigate("/auth/login");
+    } catch {
       form.reset();
     }
   };
 
   // Redirect the user to the forgot password page if the token is not present.
   useEffect(() => {
-    if (!token) navigate("/auth/forgot-password");
+    if (!token) void navigate("/auth/forgot-password");
   }, [token, navigate]);
 
   return (
@@ -82,7 +82,7 @@ export const ResetPasswordPage = () => {
                 <FormItem>
                   <FormLabel>{t`Password`}</FormLabel>
                   <FormControl>
-                    <Input type="password" {...field} />
+                    <Input type="password" autoComplete="new-password" {...field} />
                   </FormControl>
                   <FormDescription>
                     <Trans>

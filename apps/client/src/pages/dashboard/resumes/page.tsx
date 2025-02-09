@@ -23,8 +23,10 @@ export const ResumesPage = () => {
 
       <Tabs
         value={layout}
-        onValueChange={(value) => setLayout(value as Layout)}
         className="space-y-4"
+        onValueChange={(value) => {
+          setLayout(value as Layout);
+        }}
       >
         <div className="flex items-center justify-between">
           <motion.h1
@@ -47,7 +49,10 @@ export const ResumesPage = () => {
           </TabsList>
         </div>
 
-        <ScrollArea className="h-[calc(100vh-140px)] lg:h-[calc(100vh-88px)]">
+        <ScrollArea
+          allowOverflow
+          className="h-[calc(100vh-140px)] overflow-visible lg:h-[calc(100vh-88px)]"
+        >
           <TabsContent value="grid">
             <GridView />
           </TabsContent>

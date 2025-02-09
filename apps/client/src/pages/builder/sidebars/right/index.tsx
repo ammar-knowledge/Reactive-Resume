@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Copyright } from "@/client/components/copyright";
 import { ThemeSwitch } from "@/client/components/theme-switch";
 
+import { CssSection } from "./sections/css";
 import { ExportSection } from "./sections/export";
 import { InformationSection } from "./sections/information";
 import { LayoutSection } from "./sections/layout";
@@ -37,6 +38,8 @@ export const RightSidebar = () => {
           <Separator />
           <ThemeSection />
           <Separator />
+          <CssSection />
+          <Separator />
           <PageSection />
           <Separator />
           <SharingSection />
@@ -60,28 +63,79 @@ export const RightSidebar = () => {
           <SectionIcon
             id="template"
             name={t`Template`}
-            onClick={() => scrollIntoView("#template")}
+            onClick={() => {
+              scrollIntoView("#template");
+            }}
           />
-          <SectionIcon id="layout" name={t`Layout`} onClick={() => scrollIntoView("#layout")} />
+          <SectionIcon
+            id="layout"
+            name={t`Layout`}
+            onClick={() => {
+              scrollIntoView("#layout");
+            }}
+          />
           <SectionIcon
             id="typography"
             name={t`Typography`}
-            onClick={() => scrollIntoView("#typography")}
+            onClick={() => {
+              scrollIntoView("#typography");
+            }}
           />
-          <SectionIcon id="theme" name={t`Theme`} onClick={() => scrollIntoView("#theme")} />
-          <SectionIcon id="page" name={t`Page`} onClick={() => scrollIntoView("#page")} />
-          <SectionIcon id="sharing" name={t`Sharing`} onClick={() => scrollIntoView("#sharing")} />
+          <SectionIcon
+            id="theme"
+            name={t`Theme`}
+            onClick={() => {
+              scrollIntoView("#theme");
+            }}
+          />
+          <SectionIcon
+            id="css"
+            name={t`Custom CSS`}
+            onClick={() => {
+              scrollIntoView("#css");
+            }}
+          />
+          <SectionIcon
+            id="page"
+            name={t`Page`}
+            onClick={() => {
+              scrollIntoView("#page");
+            }}
+          />
+          <SectionIcon
+            id="sharing"
+            name={t`Sharing`}
+            onClick={() => {
+              scrollIntoView("#sharing");
+            }}
+          />
           <SectionIcon
             id="statistics"
             name={t`Statistics`}
-            onClick={() => scrollIntoView("#statistics")}
+            onClick={() => {
+              scrollIntoView("#statistics");
+            }}
           />
-          <SectionIcon id="export" name={t`Export`} onClick={() => scrollIntoView("#export")} />
-          <SectionIcon id="notes" name={t`Notes`} onClick={() => scrollIntoView("#notes")} />
+          <SectionIcon
+            id="export"
+            name={t`Export`}
+            onClick={() => {
+              scrollIntoView("#export");
+            }}
+          />
+          <SectionIcon
+            id="notes"
+            name={t`Notes`}
+            onClick={() => {
+              scrollIntoView("#notes");
+            }}
+          />
           <SectionIcon
             id="information"
             name={t`Information`}
-            onClick={() => scrollIntoView("#information")}
+            onClick={() => {
+              scrollIntoView("#information");
+            }}
           />
         </div>
 

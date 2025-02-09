@@ -11,6 +11,7 @@ import {
   Res,
   UseGuards,
 } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 import { ApiTags } from "@nestjs/swagger";
 import {
   authResponseSchema,
@@ -29,12 +30,12 @@ import { ErrorMessage } from "@reactive-resume/utils";
 import type { Response } from "express";
 
 import { User } from "../user/decorators/user.decorator";
-import { UtilsService } from "../utils/utils.service";
 import { AuthService } from "./auth.service";
 import { GitHubGuard } from "./guards/github.guard";
 import { GoogleGuard } from "./guards/google.guard";
 import { JwtGuard } from "./guards/jwt.guard";
 import { LocalGuard } from "./guards/local.guard";
+import { OpenIDGuard } from "./guards/openid.guard";
 import { RefreshGuard } from "./guards/refresh.guard";
 import { TwoFactorGuard } from "./guards/two-factor.guard";
 import { getCookieOptions } from "./utils/cookie";
@@ -45,7 +46,7 @@ import { payloadSchema } from "./utils/payload";
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-    private readonly utils: UtilsService,
+    private readonly configService: ConfigService,
   ) {}
 
   private async exchangeToken(id: string, email: string, isTwoFactorAuth = false) {
@@ -72,7 +73,8 @@ export class AuthController {
   ) {
     let status = "authenticated";
 
-    const redirectUrl = new URL(`${this.utils.getUrl()}/auth/callback`);
+    const baseUrl = this.configService.get("PUBLIC_URL");
+    const redirectUrl = new URL(`${baseUrl}/auth/callback`);
 
     const { accessToken, refreshToken } = await this.exchangeToken(
       user.id,
@@ -146,6 +148,23 @@ export class AuthController {
     return this.handleAuthenticationResponse(user, response, false, true);
   }
 
+  @ApiTags("OAuth", "OpenID")
+  @Get("openid")
+  @UseGuards(OpenIDGuard)
+  openidLogin() {
+    return;
+  }
+
+  @ApiTags("OAuth", "OpenID")
+  @Get("openid/callback")
+  @UseGuards(OpenIDGuard)
+  async openidCallback(
+    @User() user: UserWithSecrets,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    return this.handleAuthenticationResponse(user, response, false, true);
+  }
+
   @Post("refresh")
   @UseGuards(RefreshGuard)
   async refresh(@User() user: UserWithSecrets, @Res({ passthrough: true }) response: Response) {
@@ -154,8 +173,11 @@ export class AuthController {
 
   @Patch("password")
   @UseGuards(TwoFactorGuard)
-  async updatePassword(@User("email") email: string, @Body() { password }: UpdatePasswordDto) {
-    await this.authService.updatePassword(email, password);
+  async updatePassword(
+    @User("email") email: string,
+    @Body() { currentPassword, newPassword }: UpdatePasswordDto,
+  ) {
+    await this.authService.updatePassword(email, currentPassword, newPassword);
 
     return { message: "Your password has been successfully updated." };
   }
@@ -252,7 +274,7 @@ export class AuthController {
   async forgotPassword(@Body() { email }: ForgotPasswordDto) {
     try {
       await this.authService.forgotPassword(email);
-    } catch (error) {
+    } catch {
       // pass
     }
 
@@ -270,7 +292,7 @@ export class AuthController {
       await this.authService.resetPassword(token, password);
 
       return { message: "Your password has been successfully reset." };
-    } catch (error) {
+    } catch {
       throw new BadRequestException(ErrorMessage.InvalidResetToken);
     }
   }

@@ -1,10 +1,8 @@
 import { Injectable, InternalServerErrorException, Logger, OnModuleInit } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { createId } from "@paralleldrive/cuid2";
-import { RedisService } from "@songkeys/nestjs-redis";
-import { Redis } from "ioredis";
-import { Client } from "minio";
-import { MinioService } from "nestjs-minio-client";
+import slugify from "@sindresorhus/slugify";
+import { MinioClient, MinioService } from "nestjs-minio-client";
 import sharp from "sharp";
 
 import { Config } from "../config/schema";
@@ -34,37 +32,32 @@ const PUBLIC_ACCESS_POLICY = {
       ],
     },
   ],
-};
+} as const;
 
 @Injectable()
 export class StorageService implements OnModuleInit {
-  private readonly redis: Redis;
   private readonly logger = new Logger(StorageService.name);
 
-  private client: Client;
+  private client: MinioClient;
   private bucketName: string;
-
-  private skipCreateBucket: boolean;
 
   constructor(
     private readonly configService: ConfigService<Config>,
     private readonly minioService: MinioService,
-    private readonly redisService: RedisService,
-  ) {
-    this.redis = this.redisService.getClient();
-  }
+  ) {}
 
   async onModuleInit() {
     this.client = this.minioService.client;
     this.bucketName = this.configService.getOrThrow<string>("STORAGE_BUCKET");
-    this.skipCreateBucket = this.configService.getOrThrow<boolean>("STORAGE_SKIP_CREATE_BUCKET");
 
-    if (this.skipCreateBucket) {
-      this.logger.log("Skipping the creation of the storage bucket.");
-      this.logger.warn("Make sure that the following paths are publicly accessible: ");
-      this.logger.warn("- /pictures/*");
-      this.logger.warn("- /previews/*");
-      this.logger.warn("- /resumes/*");
+    const skipBucketCheck = this.configService.getOrThrow<boolean>("STORAGE_SKIP_BUCKET_CHECK");
+
+    if (skipBucketCheck) {
+      this.logger.warn("Skipping the verification of whether the storage bucket exists.");
+      this.logger.warn(
+        "Make sure that the following paths are publicly accessible: `/{pictures,previews,resumes}/*`",
+      );
+
       return;
     }
 
@@ -73,7 +66,9 @@ export class StorageService implements OnModuleInit {
       // if it exists, log that we were able to connect to the storage service
       const bucketExists = await this.client.bucketExists(this.bucketName);
 
-      if (!bucketExists) {
+      if (bucketExists) {
+        this.logger.log("Successfully connected to the storage service.");
+      } else {
         const bucketPolicy = JSON.stringify(PUBLIC_ACCESS_POLICY).replace(
           /{{bucketName}}/g,
           this.bucketName,
@@ -81,7 +76,7 @@ export class StorageService implements OnModuleInit {
 
         try {
           await this.client.makeBucket(this.bucketName);
-        } catch (error) {
+        } catch {
           throw new InternalServerErrorException(
             "There was an error while creating the storage bucket.",
           );
@@ -89,7 +84,7 @@ export class StorageService implements OnModuleInit {
 
         try {
           await this.client.setBucketPolicy(this.bucketName, bucketPolicy);
-        } catch (error) {
+        } catch {
           throw new InternalServerErrorException(
             "There was an error while applying the policy to the storage bucket.",
           );
@@ -98,15 +93,13 @@ export class StorageService implements OnModuleInit {
         this.logger.log(
           "A new storage bucket has been created and the policy has been applied successfully.",
         );
-      } else {
-        this.logger.log("Successfully connected to the storage service.");
       }
     } catch (error) {
       throw new InternalServerErrorException(error);
     }
   }
 
-  async bucketExists() {
+  async bucketExists(): Promise<true> {
     const exists = await this.client.bucketExists(this.bucketName);
 
     if (!exists) {
@@ -114,6 +107,8 @@ export class StorageService implements OnModuleInit {
         "There was an error while checking if the storage bucket exists.",
       );
     }
+
+    return exists;
   }
 
   async uploadObject(
@@ -121,17 +116,22 @@ export class StorageService implements OnModuleInit {
     type: UploadType,
     buffer: Buffer,
     filename: string = createId(),
-  ) {
+  ): Promise<string> {
     const extension = type === "resumes" ? "pdf" : "jpg";
-    const storageUrl = this.configService.get<string>("STORAGE_URL");
-    const filepath = `${userId}/${type}/${filename}.${extension}`;
+    const storageUrl = this.configService.getOrThrow<string>("STORAGE_URL");
+
+    let normalizedFilename = slugify(filename);
+    if (!normalizedFilename) normalizedFilename = createId();
+
+    const filepath = `${userId}/${type}/${normalizedFilename}.${extension}`;
     const url = `${storageUrl}/${filepath}`;
+
     const metadata =
       extension === "jpg"
         ? { "Content-Type": "image/jpeg" }
         : {
             "Content-Type": "application/pdf",
-            "Content-Disposition": `attachment; filename=${filename}.${extension}`,
+            "Content-Disposition": `attachment; filename=${normalizedFilename}.${extension}`,
           };
 
     try {
@@ -143,36 +143,29 @@ export class StorageService implements OnModuleInit {
           .toBuffer();
       }
 
-      await Promise.all([
-        this.client.putObject(this.bucketName, filepath, buffer, metadata),
-        this.redis.set(`user:${userId}:storage:${type}:${filename}`, url),
-      ]);
+      await this.client.putObject(this.bucketName, filepath, buffer, metadata);
 
       return url;
-    } catch (error) {
+    } catch {
       throw new InternalServerErrorException("There was an error while uploading the file.");
     }
   }
 
-  async deleteObject(userId: string, type: UploadType, filename: string) {
+  async deleteObject(userId: string, type: UploadType, filename: string): Promise<void> {
     const extension = type === "resumes" ? "pdf" : "jpg";
     const path = `${userId}/${type}/${filename}.${extension}`;
 
     try {
-      return await Promise.all([
-        this.redis.del(`user:${userId}:storage:${type}:${filename}`),
-        this.client.removeObject(this.bucketName, path),
-      ]);
-    } catch (error) {
+      await this.client.removeObject(this.bucketName, path);
+    } catch {
       throw new InternalServerErrorException(
         `There was an error while deleting the document at the specified path: ${path}.`,
       );
     }
   }
 
-  async deleteFolder(prefix: string) {
+  async deleteFolder(prefix: string): Promise<void> {
     const objectsList = [];
-
     const objectsStream = this.client.listObjectsV2(this.bucketName, prefix, true);
 
     for await (const object of objectsStream) {
@@ -180,8 +173,8 @@ export class StorageService implements OnModuleInit {
     }
 
     try {
-      return await this.client.removeObjects(this.bucketName, objectsList);
-    } catch (error) {
+      await this.client.removeObjects(this.bucketName, objectsList);
+    } catch {
       throw new InternalServerErrorException(
         `There was an error while deleting the folder at the specified path: ${this.bucketName}/${prefix}.`,
       );

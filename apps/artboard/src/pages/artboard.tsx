@@ -1,10 +1,12 @@
 import { useEffect, useMemo } from "react";
-import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { Outlet } from "react-router";
 import webfontloader from "webfontloader";
 
 import { useArtboardStore } from "../store/artboard";
 
 export const ArtboardPage = () => {
+  const name = useArtboardStore((state) => state.resume.basics.name);
   const metadata = useArtboardStore((state) => state.resume.metadata);
 
   const fontString = useMemo(() => {
@@ -39,21 +41,34 @@ export const ArtboardPage = () => {
       `${metadata.typography.lineHeight}`,
     );
 
-    document.documentElement.style.setProperty("--color-text", `${metadata.theme.text}`);
-    document.documentElement.style.setProperty("--color-primary", `${metadata.theme.primary}`);
-    document.documentElement.style.setProperty(
-      "--color-background",
-      `${metadata.theme.background}`,
-    );
+    document.documentElement.style.setProperty("--color-foreground", metadata.theme.text);
+    document.documentElement.style.setProperty("--color-primary", metadata.theme.primary);
+    document.documentElement.style.setProperty("--color-background", metadata.theme.background);
   }, [metadata]);
 
   // Typography Options
   useEffect(() => {
-    document.querySelectorAll(`[data-page]`).forEach((el) => {
+    // eslint-disable-next-line unicorn/prefer-spread
+    const elements = Array.from(document.querySelectorAll(`[data-page]`));
+
+    for (const el of elements) {
       el.classList.toggle("hide-icons", metadata.typography.hideIcons);
       el.classList.toggle("underline-links", metadata.typography.underlineLinks);
-    });
+    }
   }, [metadata]);
 
-  return <Outlet />;
+  return (
+    <>
+      <Helmet>
+        <title>{name} | Reactive Resume</title>
+        {metadata.css.visible && (
+          <style id="custom-css" lang="css">
+            {metadata.css.value}
+          </style>
+        )}
+      </Helmet>
+
+      <Outlet />
+    </>
+  );
 };

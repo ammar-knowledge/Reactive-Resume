@@ -1,4 +1,10 @@
 import dayjs from "dayjs";
+import { z } from "zod";
+
+export const dateSchema = z.union([z.date(), z.string().datetime()]).transform((value) => {
+  if (typeof value === "string") return dayjs(value).toDate();
+  return value;
+});
 
 export const sortByDate = <T>(a: T, b: T, key: keyof T, desc = true) => {
   if (!a[key] || !b[key]) return 0;
@@ -24,12 +30,10 @@ export const deepSearchAndParseDates = (obj: any, dateKeys: string[]): any => {
   for (const key of keys) {
     let value = obj[key];
 
-    if (dateKeys.includes(key)) {
-      if (typeof value === "string") {
-        const parsedDate = new Date(value);
-        if (!isNaN(parsedDate.getTime())) {
-          value = parsedDate;
-        }
+    if (dateKeys.includes(key) && typeof value === "string") {
+      const parsedDate = new Date(value);
+      if (!Number.isNaN(parsedDate.getTime())) {
+        value = parsedDate;
       }
     }
 

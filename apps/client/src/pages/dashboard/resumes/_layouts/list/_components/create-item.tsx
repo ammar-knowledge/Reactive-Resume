@@ -1,6 +1,6 @@
 import { t } from "@lingui/macro";
 import { Plus } from "@phosphor-icons/react";
-import { ResumeDto } from "@reactive-resume/dto";
+import type { ResumeDto } from "@reactive-resume/dto";
 import { KeyboardShortcut } from "@reactive-resume/ui";
 
 import { useDialog } from "@/client/stores/dialog";
@@ -13,7 +13,6 @@ export const CreateResumeListItem = () => {
   return (
     <BaseListItem
       start={<Plus size={18} />}
-      onClick={() => open("create")}
       title={
         <>
           <span>{t`Create a new resume`}</span>
@@ -22,6 +21,9 @@ export const CreateResumeListItem = () => {
         </>
       }
       description={t`Start building from scratch`}
+      onClick={() => {
+        open("create");
+      }}
     />
   );
 };

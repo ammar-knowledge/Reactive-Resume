@@ -17,8 +17,8 @@ import {
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { z } from "zod";
+import { useNavigate } from "react-router";
+import type { z } from "zod";
 
 import { useForgotPassword } from "@/client/services/auth";
 
@@ -81,7 +81,7 @@ export const ForgotPasswordPage = () => {
                 <FormItem>
                   <FormLabel>{t`Email`}</FormLabel>
                   <FormControl>
-                    <Input placeholder="john.doe@example.com" {...field} />
+                    <Input placeholder="john.doe@example.com" autoComplete="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -89,7 +89,13 @@ export const ForgotPasswordPage = () => {
             />
 
             <div className="mt-4 flex items-center gap-x-2">
-              <Button variant="link" className="px-5" onClick={() => navigate(-1)}>
+              <Button
+                variant="link"
+                className="px-5"
+                onClick={() => {
+                  void navigate(-1);
+                }}
+              >
                 <ArrowLeft size={14} className="mr-2" />
                 <span>{t`Back`}</span>
               </Button>

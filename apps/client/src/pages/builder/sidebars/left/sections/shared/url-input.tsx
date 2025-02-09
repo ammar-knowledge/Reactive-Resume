@@ -1,6 +1,7 @@
 import { t } from "@lingui/macro";
 import { Tag } from "@phosphor-icons/react";
-import { URL, urlSchema } from "@reactive-resume/schema";
+import type { URL } from "@reactive-resume/schema";
+import { urlSchema } from "@reactive-resume/schema";
 import {
   Button,
   Input,
@@ -11,28 +12,30 @@ import {
 } from "@reactive-resume/ui";
 import { forwardRef, useMemo } from "react";
 
-interface Props {
+type Props = {
   id?: string;
   value: URL;
   placeholder?: string;
   onChange: (value: URL) => void;
-}
+};
 
 export const URLInput = forwardRef<HTMLInputElement, Props>(
   ({ id, value, placeholder, onChange }, ref) => {
-    const hasError = useMemo(() => urlSchema.safeParse(value).success === false, [value]);
+    const hasError = useMemo(() => !urlSchema.safeParse(value).success, [value]);
 
     return (
       <>
         <div className="flex gap-x-1">
           <Input
-            id={id}
             ref={ref}
+            id={id}
             value={value.href}
             className="flex-1"
             hasError={hasError}
             placeholder={placeholder}
-            onChange={(event) => onChange({ ...value, href: event.target.value })}
+            onChange={(event) => {
+              onChange({ ...value, href: event.target.value });
+            }}
           />
 
           <Popover>
@@ -47,7 +50,9 @@ export const URLInput = forwardRef<HTMLInputElement, Props>(
               <Input
                 value={value.label}
                 placeholder={t`Label`}
-                onChange={(event) => onChange({ ...value, label: event.target.value })}
+                onChange={(event) => {
+                  onChange({ ...value, label: event.target.value });
+                }}
               />
             </PopoverContent>
           </Popover>

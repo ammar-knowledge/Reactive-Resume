@@ -1,7 +1,7 @@
+import type { DragEndEvent } from "@dnd-kit/core";
 import {
   closestCenter,
   DndContext,
-  DragEndEvent,
   KeyboardSensor,
   PointerSensor,
   useSensor,
@@ -16,7 +16,7 @@ import {
 } from "@dnd-kit/sortable";
 import { t } from "@lingui/macro";
 import { Plus } from "@phosphor-icons/react";
-import { SectionItem, SectionKey, SectionWithItem } from "@reactive-resume/schema";
+import type { SectionItem, SectionKey, SectionWithItem } from "@reactive-resume/schema";
 import { Button } from "@reactive-resume/ui";
 import { cn } from "@reactive-resume/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -25,7 +25,7 @@ import get from "lodash.get";
 import { useDialog } from "@/client/stores/dialog";
 import { useResumeStore } from "@/client/stores/resume";
 
-import { getSectionIcon } from "./section-icon";
+import { SectionIcon } from "./section-icon";
 import { SectionListItem } from "./section-list-item";
 import { SectionOptions } from "./section-options";
 
@@ -50,6 +50,7 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
     }),
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   if (!section) return null;
 
   const onDragEnd = (event: DragEndEvent) => {
@@ -66,10 +67,21 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
     }
   };
 
-  const onCreate = () => open("create", { id });
-  const onUpdate = (item: T) => open("update", { id, item });
-  const onDuplicate = (item: T) => open("duplicate", { id, item });
-  const onDelete = (item: T) => open("delete", { id, item });
+  const onCreate = () => {
+    open("create", { id });
+  };
+
+  const onUpdate = (item: T) => {
+    open("update", { id, item });
+  };
+
+  const onDuplicate = (item: T) => {
+    open("duplicate", { id, item });
+  };
+
+  const onDelete = (item: T) => {
+    open("delete", { id, item });
+  };
 
   const onToggleVisibility = (index: number) => {
     const visible = get(section, `items[${index}].visible`, true);
@@ -86,9 +98,8 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
     >
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          {getSectionIcon(id)}
-
-          <h2 className="line-clamp-1 text-3xl font-bold">{section.name}</h2>
+          <SectionIcon id={id} size={18} />
+          <h2 className="line-clamp-1 text-2xl font-bold lg:text-3xl">{section.name}</h2>
         </div>
 
         <div className="flex items-center gap-x-2">
@@ -100,8 +111,8 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
         {section.items.length === 0 && (
           <Button
             variant="outline"
-            onClick={onCreate}
             className="gap-x-2 border-dashed py-6 leading-relaxed hover:bg-secondary-accent"
+            onClick={onCreate}
           >
             <Plus size={14} />
             <span className="font-medium">
@@ -115,23 +126,31 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
 
         <DndContext
           sensors={sensors}
-          onDragEnd={onDragEnd}
           collisionDetection={closestCenter}
           modifiers={[restrictToParentElement]}
+          onDragEnd={onDragEnd}
         >
           <SortableContext items={section.items} strategy={verticalListSortingStrategy}>
             <AnimatePresence>
               {section.items.map((item, index) => (
                 <SectionListItem
-                  id={item.id}
                   key={item.id}
+                  id={item.id}
                   visible={item.visible}
                   title={title(item as T)}
                   description={description?.(item as T)}
-                  onUpdate={() => onUpdate(item as T)}
-                  onDelete={() => onDelete(item as T)}
-                  onDuplicate={() => onDuplicate(item as T)}
-                  onToggleVisibility={() => onToggleVisibility(index)}
+                  onUpdate={() => {
+                    onUpdate(item as T);
+                  }}
+                  onDelete={() => {
+                    onDelete(item as T);
+                  }}
+                  onDuplicate={() => {
+                    onDuplicate(item as T);
+                  }}
+                  onToggleVisibility={() => {
+                    onToggleVisibility(index);
+                  }}
                 />
               ))}
             </AnimatePresence>
@@ -141,7 +160,11 @@ export const SectionBase = <T extends SectionItem>({ id, title, description }: P
 
       {section.items.length > 0 && (
         <footer className="flex items-center justify-end">
-          <Button variant="outline" className="ml-auto gap-x-2" onClick={onCreate}>
+          <Button
+            variant="outline"
+            className="ml-auto gap-x-2 text-xs lg:text-sm"
+            onClick={onCreate}
+          >
             <Plus />
             <span>
               {t({

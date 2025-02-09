@@ -1,13 +1,12 @@
-import * as LabelPrimitive from "@radix-ui/react-label";
+import type * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 import { FormFieldContext, FormItemContext, useFormField } from "@reactive-resume/hooks";
 import { cn } from "@reactive-resume/utils";
 import { forwardRef, useId } from "react";
-import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider } from "react-hook-form";
+import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 import { Label } from "./label";
-
-export const Form = FormProvider;
 
 export const FormField = <
   TFieldValues extends FieldValues = FieldValues,
@@ -63,7 +62,7 @@ export const FormControl = forwardRef<
       ref={ref}
       id={formItemId}
       aria-invalid={!!error}
-      aria-describedby={!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`}
+      aria-describedby={error ? `${formDescriptionId} ${formMessageId}` : formDescriptionId}
       {...props}
     />
   );
@@ -94,7 +93,7 @@ export const FormMessage = forwardRef<
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
   const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message) : children;
+  const body = error ? String(error.message) : children;
 
   if (!body) {
     return null;
@@ -113,3 +112,5 @@ export const FormMessage = forwardRef<
 });
 
 FormMessage.displayName = "FormMessage";
+
+export { FormProvider as Form } from "react-hook-form";

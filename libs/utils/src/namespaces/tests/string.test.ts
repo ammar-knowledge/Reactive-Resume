@@ -6,7 +6,6 @@ import {
   getInitials,
   isEmptyString,
   isUrl,
-  kebabCase,
   processUsername,
 } from "../string";
 
@@ -40,20 +39,10 @@ describe("extractUrl", () => {
   });
 });
 
-describe("kebabCase", () => {
-  it("converts a string to kebab-case", () => {
-    expect(kebabCase("fooBar")).toBe("foo-bar");
-    expect(kebabCase("Foo Bar")).toBe("foo-bar");
-    expect(kebabCase("foo_bar")).toBe("foo-bar");
-    expect(kebabCase("")).toBe("");
-    expect(kebabCase(null)).toBe("");
-  });
-});
-
 describe("generateRandomName", () => {
   it("generates a random name", () => {
     const name = generateRandomName();
-    expect(name).toMatch(/^[A-Z][a-z]+ [A-Z][a-z]+ [A-Z][a-z]+$/);
+    expect(name).toMatch(/^(?:[A-Z][a-z]+ ){2}[A-Z][a-z]+$/);
   });
 });
 

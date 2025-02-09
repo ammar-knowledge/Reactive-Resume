@@ -1,8 +1,15 @@
-import { t } from "@lingui/macro";
+import { t, Trans } from "@lingui/macro";
 import { createId } from "@paralleldrive/cuid2";
-import { DotsSixVertical, Plus, X } from "@phosphor-icons/react";
-import { CustomField as ICustomField } from "@reactive-resume/schema";
-import { Button, Input } from "@reactive-resume/ui";
+import { DotsSixVertical, Envelope, Plus, X } from "@phosphor-icons/react";
+import type { CustomField as ICustomField } from "@reactive-resume/schema";
+import {
+  Button,
+  Input,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Tooltip,
+} from "@reactive-resume/ui";
 import { cn } from "@reactive-resume/utils";
 import { AnimatePresence, Reorder, useDragControls } from "framer-motion";
 
@@ -17,8 +24,9 @@ type CustomFieldProps = {
 export const CustomField = ({ field, onChange, onRemove }: CustomFieldProps) => {
   const controls = useDragControls();
 
-  const handleChange = (key: "icon" | "name" | "value", value: string) =>
+  const handleChange = (key: "icon" | "name" | "value", value: string) => {
     onChange({ ...field, [key]: value });
+  };
 
   return (
     <Reorder.Item
@@ -29,34 +37,77 @@ export const CustomField = ({ field, onChange, onRemove }: CustomFieldProps) => 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
     >
-      <div className="flex items-end justify-between space-x-2">
+      <div className="flex items-end justify-between">
         <Button
           size="icon"
-          variant="link"
+          variant="ghost"
           className="shrink-0"
-          onPointerDown={(event) => controls.start(event)}
+          onPointerDown={(event) => {
+            controls.start(event);
+          }}
         >
           <DotsSixVertical />
         </Button>
 
+        <Popover>
+          <Tooltip content={t`Icon`}>
+            <PopoverTrigger asChild>
+              <Button size="icon" variant="ghost" className="shrink-0">
+                {field.icon ? <i className={cn(`ph ph-${field.icon}`)} /> : <Envelope />}
+              </Button>
+            </PopoverTrigger>
+          </Tooltip>
+          <PopoverContent side="bottom" align="start" className="flex flex-col gap-y-1.5 p-1.5">
+            <Input
+              value={field.icon}
+              placeholder={t`Enter Phosphor Icon`}
+              onChange={(event) => {
+                onChange({ ...field, icon: event.target.value });
+              }}
+            />
+
+            <p className="text-xs opacity-80">
+              <Trans>
+                Visit{" "}
+                <a
+                  href="https://phosphoricons.com/"
+                  target="_blank"
+                  className="underline"
+                  rel="noopener noreferrer nofollow"
+                >
+                  Phosphor Icons
+                </a>{" "}
+                for a list of available icons
+              </Trans>
+            </p>
+          </PopoverContent>
+        </Popover>
+
         <Input
+          className="mx-2"
           placeholder={t`Name`}
           value={field.name}
-          className="!ml-0"
-          onChange={(event) => handleChange("name", event.target.value)}
+          onChange={(event) => {
+            handleChange("name", event.target.value);
+          }}
         />
 
         <Input
+          className="mx-2"
           placeholder={t`Value`}
           value={field.value}
-          onChange={(event) => handleChange("value", event.target.value)}
+          onChange={(event) => {
+            handleChange("value", event.target.value);
+          }}
         />
 
         <Button
           size="icon"
-          variant="link"
-          className="!ml-0 shrink-0"
-          onClick={() => onRemove(field.id)}
+          variant="ghost"
+          className="shrink-0"
+          onClick={() => {
+            onRemove(field.id);
+          }}
         >
           <X />
         </Button>
@@ -76,13 +127,13 @@ export const CustomFieldsSection = ({ className }: Props) => {
   const onAddCustomField = () => {
     setValue("basics.customFields", [
       ...customFields,
-      { id: createId(), icon: "", name: "", value: "" },
+      { id: createId(), icon: "envelope", name: "", value: "" },
     ]);
   };
 
   const onChangeCustomField = (field: ICustomField) => {
     const index = customFields.findIndex((item) => item.id === field.id);
-    const newCustomFields = JSON.parse(JSON.stringify(customFields)) as ICustomField[];
+    const newCustomFields = JSON.parse(JSON.stringify(customFields));
     newCustomFields[index] = field;
 
     setValue("basics.customFields", newCustomFields);
@@ -110,8 +161,8 @@ export const CustomFieldsSection = ({ className }: Props) => {
         >
           {customFields.map((field) => (
             <CustomField
-              field={field}
               key={field.id}
+              field={field}
               onChange={onChangeCustomField}
               onRemove={onRemoveCustomField}
             />

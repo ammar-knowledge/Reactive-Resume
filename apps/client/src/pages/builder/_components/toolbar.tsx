@@ -2,6 +2,7 @@ import { t } from "@lingui/macro";
 import {
   ArrowClockwise,
   ArrowCounterClockwise,
+  ArrowsOutCardinal,
   CircleNotch,
   ClockClockwise,
   CubeFocus,
@@ -9,19 +10,29 @@ import {
   Hash,
   LineSegment,
   LinkSimple,
+  MagnifyingGlass,
   MagnifyingGlassMinus,
   MagnifyingGlassPlus,
 } from "@phosphor-icons/react";
 import { Button, Separator, Toggle, Tooltip } from "@reactive-resume/ui";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 import { useToast } from "@/client/hooks/use-toast";
 import { usePrintResume } from "@/client/services/resume";
 import { useBuilderStore } from "@/client/stores/builder";
 import { useResumeStore, useTemporalResumeStore } from "@/client/stores/resume";
 
+const openInNewTab = (url: string) => {
+  const win = window.open(url, "_blank");
+  if (win) win.focus();
+};
+
 export const BuilderToolbar = () => {
   const { toast } = useToast();
+
+  const [panMode, setPanMode] = useState<boolean>(true);
+
   const setValue = useResumeStore((state) => state.setValue);
   const undo = useTemporalResumeStore((state) => state.undo);
   const redo = useTemporalResumeStore((state) => state.redo);
@@ -35,11 +46,6 @@ export const BuilderToolbar = () => {
 
   const onPrint = async () => {
     const { url } = await printResume({ id });
-
-    const openInNewTab = (url: string) => {
-      const win = window.open(url, "_blank");
-      if (win) win.focus();
-    };
 
     openInNewTab(url);
   };
@@ -59,20 +65,46 @@ export const BuilderToolbar = () => {
   const onZoomOut = () => frameRef?.contentWindow?.postMessage({ type: "ZOOM_OUT" }, "*");
   const onResetView = () => frameRef?.contentWindow?.postMessage({ type: "RESET_VIEW" }, "*");
   const onCenterView = () => frameRef?.contentWindow?.postMessage({ type: "CENTER_VIEW" }, "*");
+  const onTogglePanMode = () => {
+    setPanMode(!panMode);
+    frameRef?.contentWindow?.postMessage({ type: "TOGGLE_PAN_MODE", panMode: !panMode }, "*");
+  };
 
   return (
     <motion.div className="fixed inset-x-0 bottom-0 mx-auto hidden py-6 text-center md:block">
       <div className="inline-flex items-center justify-center rounded-full bg-background px-4 shadow-xl">
         <Tooltip content={t`Undo`}>
-          <Button size="icon" variant="ghost" className="rounded-none" onClick={() => undo()}>
+          <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-none"
+            onClick={() => {
+              undo();
+            }}
+          >
             <ArrowCounterClockwise />
           </Button>
         </Tooltip>
 
         <Tooltip content={t`Redo`}>
-          <Button size="icon" variant="ghost" className="rounded-none" onClick={() => redo()}>
+          <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-none"
+            onClick={() => {
+              redo();
+            }}
+          >
             <ArrowClockwise />
           </Button>
+        </Tooltip>
+
+        <Separator orientation="vertical" className="h-9" />
+
+        <Tooltip content={panMode ? t`Scroll to Pan` : t`Scroll to Zoom`}>
+          <Toggle className="rounded-none" pressed={panMode} onPressedChange={onTogglePanMode}>
+            {panMode ? <ArrowsOutCardinal /> : <MagnifyingGlass />}
+          </Toggle>
         </Tooltip>
 
         <Separator orientation="vertical" className="h-9" />
@@ -134,8 +166,8 @@ export const BuilderToolbar = () => {
             size="icon"
             variant="ghost"
             className="rounded-none"
-            onClick={onCopy}
             disabled={!isPublic}
+            onClick={onCopy}
           >
             <LinkSimple />
           </Button>
@@ -145,9 +177,9 @@ export const BuilderToolbar = () => {
           <Button
             size="icon"
             variant="ghost"
-            onClick={onPrint}
             disabled={loading}
             className="rounded-none"
+            onClick={onPrint}
           >
             {loading ? <CircleNotch className="animate-spin" /> : <FilePdf />}
           </Button>

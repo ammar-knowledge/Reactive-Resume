@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { t } from "@lingui/macro";
 import { Check, UploadSimple, Warning } from "@phosphor-icons/react";
-import { UpdateUserDto, updateUserSchema } from "@reactive-resume/dto";
+import type { UpdateUserDto } from "@reactive-resume/dto";
+import { updateUserSchema } from "@reactive-resume/dto";
 import {
   Button,
   buttonVariants,
@@ -108,7 +109,7 @@ export const AccountSettings = () => {
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6 sm:grid-cols-2">
+        <form className="grid gap-6 sm:grid-cols-2" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             name="picture"
             control={form.control}
@@ -119,22 +120,22 @@ export const AccountSettings = () => {
                 <FormItem className="flex-1">
                   <FormLabel>{t`Picture`}</FormLabel>
                   <FormControl>
-                    <Input placeholder="https://..." {...field} value={field.value || ""} />
+                    <Input placeholder="https://..." {...field} value={field.value ?? ""} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
 
                 {!user.picture && (
                   <>
-                    <input hidden type="file" ref={inputRef} onChange={onSelectImage} />
+                    <input ref={inputRef} hidden type="file" onChange={onSelectImage} />
 
                     <motion.button
                       disabled={isUploading}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      onClick={() => inputRef.current?.click()}
                       className={cn(buttonVariants({ size: "icon", variant: "ghost" }))}
+                      onClick={() => inputRef.current?.click()}
                     >
                       <UploadSimple />
                     </motion.button>
@@ -151,7 +152,7 @@ export const AccountSettings = () => {
               <FormItem>
                 <FormLabel>{t`Name`}</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input autoComplete="name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -165,7 +166,7 @@ export const AccountSettings = () => {
               <FormItem>
                 <FormLabel>{t`Username`}</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input autoComplete="username" className="lowercase" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -179,7 +180,7 @@ export const AccountSettings = () => {
               <FormItem>
                 <FormLabel>{t`Email`}</FormLabel>
                 <FormControl>
-                  <Input type="email" {...field} />
+                  <Input type="email" autoComplete="email" className="lowercase" {...field} />
                 </FormControl>
                 <FormDescription
                   className={cn(

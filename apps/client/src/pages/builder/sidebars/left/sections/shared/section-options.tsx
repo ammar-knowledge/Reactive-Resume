@@ -10,10 +10,12 @@ import {
   Plus,
   TrashSimple,
 } from "@phosphor-icons/react";
-import { defaultSections, SectionKey, SectionWithItem } from "@reactive-resume/schema";
+import type { SectionKey, SectionWithItem } from "@reactive-resume/schema";
+import { defaultSections } from "@reactive-resume/schema";
 import {
   Button,
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
@@ -46,12 +48,33 @@ export const SectionOptions = ({ id }: Props) => {
   const hasItems = useMemo(() => "items" in section, [section]);
   const isCustomSection = useMemo(() => id.startsWith("custom"), [id]);
 
-  const onCreate = () => open("create", { id });
-  const toggleVisibility = () => setValue(`sections.${id}.visible`, !section.visible);
-  const onResetName = () => setValue(`sections.${id}.name`, originalName);
-  const onChangeColumns = (value: string) => setValue(`sections.${id}.columns`, Number(value));
-  const onResetItems = () => setValue(`sections.${id}.items`, []);
-  const onRemove = () => removeSection(id);
+  const onCreate = () => {
+    open("create", { id });
+  };
+
+  const toggleSeperateLinks = (checked: boolean) => {
+    setValue(`sections.${id}.separateLinks`, checked);
+  };
+
+  const toggleVisibility = () => {
+    setValue(`sections.${id}.visible`, !section.visible);
+  };
+
+  const onResetName = () => {
+    setValue(`sections.${id}.name`, originalName);
+  };
+
+  const onChangeColumns = (value: string) => {
+    setValue(`sections.${id}.columns`, Number(value));
+  };
+
+  const onResetItems = () => {
+    setValue(`sections.${id}.items`, []);
+  };
+
+  const onRemove = () => {
+    removeSection(id);
+  };
 
   return (
     <DropdownMenu>
@@ -60,14 +83,19 @@ export const SectionOptions = ({ id }: Props) => {
           <List weight="bold" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-48">
+      <DropdownMenuContent className="mr-4 w-48">
         {hasItems && (
           <>
             <DropdownMenuItem onClick={onCreate}>
               <Plus />
               <span className="ml-2">{t`Add a new item`}</span>
             </DropdownMenuItem>
-
+            <DropdownMenuCheckboxItem
+              checked={section.separateLinks}
+              onCheckedChange={toggleSeperateLinks}
+            >
+              <span className="ml-0">{t`Separate Links`}</span>
+            </DropdownMenuCheckboxItem>
             <DropdownMenuSeparator />
           </>
         )}
@@ -94,8 +122,8 @@ export const SectionOptions = ({ id }: Props) => {
                 <Button
                   size="icon"
                   variant="link"
-                  onClick={onResetName}
                   className="absolute inset-y-0 right-0"
+                  onClick={onResetName}
                 >
                   <ArrowCounterClockwise />
                 </Button>

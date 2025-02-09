@@ -1,10 +1,8 @@
+import type { DragEndEvent, DragOverEvent, DragStartEvent } from "@dnd-kit/core";
 import {
   closestCenter,
   DndContext,
-  DragEndEvent,
-  DragOverEvent,
   DragOverlay,
-  DragStartEvent,
   KeyboardSensor,
   PointerSensor,
   useDroppable,
@@ -18,23 +16,18 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { t, Trans } from "@lingui/macro";
+import { t } from "@lingui/macro";
 import { ArrowCounterClockwise, DotsSixVertical, Plus, TrashSimple } from "@phosphor-icons/react";
 import { defaultMetadata } from "@reactive-resume/schema";
 import { Button, Portal, Tooltip } from "@reactive-resume/ui";
-import {
-  cn,
-  LayoutLocator,
-  moveItemInLayout,
-  parseLayoutLocator,
-  SortablePayload,
-} from "@reactive-resume/utils";
+import type { LayoutLocator, SortablePayload } from "@reactive-resume/utils";
+import { cn, moveItemInLayout, parseLayoutLocator } from "@reactive-resume/utils";
 import get from "lodash.get";
 import { useState } from "react";
 
 import { useResumeStore } from "@/client/stores/resume";
 
-import { getSectionIcon } from "../shared/section-icon";
+import { SectionIcon } from "../shared/section-icon";
 
 type ColumnProps = {
   id: string;
@@ -92,9 +85,7 @@ type SectionProps = {
 };
 
 const Section = ({ id, isDragging = false }: SectionProps) => {
-  const name = useResumeStore((state) =>
-    get(state.resume.data.sections, `${id}.name`, id),
-  ) as string;
+  const name = useResumeStore((state) => get(state.resume.data.sections, `${id}.name`, id));
 
   return (
     <div
@@ -163,7 +154,7 @@ export const LayoutSection = () => {
   };
 
   const onAddPage = () => {
-    const layoutCopy = JSON.parse(JSON.stringify(layout)) as string[][][];
+    const layoutCopy = JSON.parse(JSON.stringify(layout));
 
     layoutCopy.push([[], []]);
 
@@ -171,7 +162,7 @@ export const LayoutSection = () => {
   };
 
   const onRemovePage = (page: number) => {
-    const layoutCopy = JSON.parse(JSON.stringify(layout)) as string[][][];
+    const layoutCopy = JSON.parse(JSON.stringify(layout));
 
     layoutCopy[0][0].push(...layoutCopy[page][0]); // Main
     layoutCopy[0][1].push(...layoutCopy[page][1]); // Sidebar
@@ -182,17 +173,17 @@ export const LayoutSection = () => {
   };
 
   const onResetLayout = () => {
-    const layoutCopy = JSON.parse(JSON.stringify(defaultMetadata.layout)) as string[][][];
+    const layoutCopy = JSON.parse(JSON.stringify(defaultMetadata.layout));
 
     // Loop through all pages and columns, and get any sections that start with "custom."
     // These should be appended to the first page of the new layout.
     const customSections: string[] = [];
 
-    layout.forEach((page) => {
-      page.forEach((column) => {
+    for (const page of layout) {
+      for (const column of page) {
         customSections.push(...column.filter((section) => section.startsWith("custom.")));
-      });
-    });
+      }
+    }
 
     if (customSections.length > 0) layoutCopy[0][0].push(...customSections);
 
@@ -203,8 +194,8 @@ export const LayoutSection = () => {
     <section id="layout" className="grid gap-y-6">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          {getSectionIcon("layout")}
-          <h2 className="line-clamp-1 text-3xl font-bold">{t`Layout`}</h2>
+          <SectionIcon id="layout" size={18} name={t`Layout`} />
+          <h2 className="line-clamp-1 text-2xl font-bold lg:text-3xl">{t`Layout`}</h2>
         </div>
 
         <Tooltip content={t`Reset Layout`}>
@@ -218,10 +209,10 @@ export const LayoutSection = () => {
         {/* Pages */}
         <DndContext
           sensors={sensors}
+          collisionDetection={closestCenter}
           onDragEnd={onDragEnd}
           onDragStart={onDragStart}
           onDragCancel={onDragCancel}
-          collisionDetection={closestCenter}
         >
           {layout.map((page, pageIndex) => {
             const mainIndex = `${pageIndex}.0`;
@@ -229,13 +220,12 @@ export const LayoutSection = () => {
 
             const main = page[0];
             const sidebar = page[1];
+            const pageNumber = pageIndex + 1;
 
             return (
               <div key={pageIndex} className="rounded border p-3 pb-4">
                 <div className="flex items-center justify-between">
-                  <p className="mb-3 text-xs font-bold">
-                    <Trans>Page {pageIndex + 1}</Trans>
-                  </p>
+                  <p className="mb-3 text-xs font-bold">{t`Page ${pageNumber}`}</p>
 
                   {pageIndex !== 0 && (
                     <Tooltip content={t`Remove Page`}>
@@ -243,7 +233,9 @@ export const LayoutSection = () => {
                         size="icon"
                         variant="ghost"
                         className="size-8"
-                        onClick={() => onRemovePage(pageIndex)}
+                        onClick={() => {
+                          onRemovePage(pageIndex);
+                        }}
                       >
                         <TrashSimple size={12} className="text-error" />
                       </Button>
@@ -260,13 +252,13 @@ export const LayoutSection = () => {
           })}
 
           <Portal>
-            <DragOverlay>{activeId && <Section id={activeId} isDragging />}</DragOverlay>
+            <DragOverlay>{activeId && <Section isDragging id={activeId} />}</DragOverlay>
           </Portal>
         </DndContext>
 
         <Button variant="outline" className="ml-auto" onClick={onAddPage}>
           <Plus />
-          <span className="ml-2">{t`Add New Page`}</span>
+          <span className="ml-2 text-xs lg:text-sm">{t`Add New Page`}</span>
         </Button>
       </main>
     </section>

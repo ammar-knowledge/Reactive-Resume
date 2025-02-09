@@ -1,8 +1,8 @@
-import { ResumeData } from "@reactive-resume/schema";
-import { ZodDto } from "nestjs-zod/dto";
-import { Schema } from "zod";
+import type { ResumeData } from "@reactive-resume/schema";
+import type { ZodDto } from "nestjs-zod/dto";
+import type { Schema } from "zod";
 
-export interface Parser<Data = unknown, T = ZodDto, Result = ResumeData> {
+export type Parser<Data = unknown, T = ZodDto, Result = ResumeData> = {
   schema?: Schema;
 
   readFile(file: File): Promise<Data>;
@@ -10,4 +10,4 @@ export interface Parser<Data = unknown, T = ZodDto, Result = ResumeData> {
   validate(data: Data): T | Promise<T>;
 
   convert(data: T): Result | Promise<Result>;
-}
+};

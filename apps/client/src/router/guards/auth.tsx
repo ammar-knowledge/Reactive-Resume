@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router";
 
 import { useUser } from "@/client/services/user";
 
@@ -14,5 +14,5 @@ export const AuthGuard = () => {
     return <Outlet />;
   }
 
-  return <Navigate to={`/auth/login?redirect=${redirectTo}`} replace />;
+  return <Navigate replace to={`/auth/login?redirect=${redirectTo}`} />;
 };

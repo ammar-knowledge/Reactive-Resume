@@ -1,13 +1,15 @@
-import { UserDto } from "@reactive-resume/dto";
+import type { UserDto } from "@reactive-resume/dto";
 import { useQuery } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
 import { useEffect } from "react";
 
 import { axios } from "@/client/libs/axios";
 import { useAuthStore } from "@/client/stores/auth";
 
 export const fetchUser = async () => {
-  const response = await axios.get<UserDto, AxiosResponse<UserDto>>("/user/me");
+  const response = await axios.get<UserDto | undefined, AxiosResponse<UserDto | undefined>>(
+    "/user/me",
+  );
 
   return response.data;
 };
@@ -25,7 +27,7 @@ export const useUser = () => {
   });
 
   useEffect(() => {
-    setUser(user ? user : null);
+    setUser(user ?? null);
   }, [user, setUser]);
 
   return { user: user, loading, error };

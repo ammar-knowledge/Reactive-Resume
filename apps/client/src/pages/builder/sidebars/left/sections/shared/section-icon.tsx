@@ -1,3 +1,4 @@
+import type { IconProps } from "@phosphor-icons/react";
 import {
   Article,
   Books,
@@ -7,7 +8,6 @@ import {
   GameController,
   GraduationCap,
   HandHeart,
-  IconProps,
   Medal,
   PuzzlePiece,
   ShareNetwork,
@@ -15,56 +15,74 @@ import {
   User,
   Users,
 } from "@phosphor-icons/react";
-import { defaultSection, SectionKey, SectionWithItem } from "@reactive-resume/schema";
-import { Button, ButtonProps, Tooltip } from "@reactive-resume/ui";
+import type { SectionKey, SectionWithItem } from "@reactive-resume/schema";
+import { defaultSection } from "@reactive-resume/schema";
+import type { ButtonProps } from "@reactive-resume/ui";
+import { Button, Tooltip } from "@reactive-resume/ui";
 import get from "lodash.get";
 
 import { useResumeStore } from "@/client/stores/resume";
 
-export const getSectionIcon = (id: SectionKey, props: IconProps = {}) => {
+const getSectionIcon = (id: SectionKey, props: IconProps = {}) => {
   switch (id) {
     // Left Sidebar
-    case "basics":
+    case "basics": {
       return <User size={18} {...props} />;
-    case "summary":
+    }
+    case "summary": {
       return <Article size={18} {...props} />;
-    case "awards":
+    }
+    case "awards": {
       return <Medal size={18} {...props} />;
-    case "profiles":
+    }
+    case "profiles": {
       return <ShareNetwork size={18} {...props} />;
-    case "experience":
+    }
+    case "experience": {
       return <Briefcase size={18} {...props} />;
-    case "education":
+    }
+    case "education": {
       return <GraduationCap size={18} {...props} />;
-    case "certifications":
+    }
+    case "certifications": {
       return <Certificate size={18} {...props} />;
-    case "interests":
+    }
+    case "interests": {
       return <GameController size={18} {...props} />;
-    case "languages":
+    }
+    case "languages": {
       return <Translate size={18} {...props} />;
-    case "volunteer":
+    }
+    case "volunteer": {
       return <HandHeart size={18} {...props} />;
-    case "projects":
+    }
+    case "projects": {
       return <PuzzlePiece size={18} {...props} />;
-    case "publications":
+    }
+    case "publications": {
       return <Books size={18} {...props} />;
-    case "skills":
+    }
+    case "skills": {
       return <CompassTool size={18} {...props} />;
-    case "references":
+    }
+    case "references": {
       return <Users size={18} {...props} />;
+    }
 
-    default:
+    default: {
       return null;
+    }
   }
 };
 
-type SectionIconProps = ButtonProps & {
+type SectionIconProps = Omit<ButtonProps, "size"> & {
   id: SectionKey;
   name?: string;
+  size?: number;
   icon?: React.ReactNode;
 };
 
-export const SectionIcon = ({ id, name, icon, ...props }: SectionIconProps) => {
+export const SectionIcon = ({ id, name, icon, size = 14, ...props }: SectionIconProps) => {
   const section = useResumeStore((state) =>
     get(state.resume.data.sections, id, defaultSection),
   ) as SectionWithItem;
@@ -72,7 +90,7 @@ export const SectionIcon = ({ id, name, icon, ...props }: SectionIconProps) => {
   return (
     <Tooltip side="right" content={name ?? section.name}>
       <Button size="icon" variant="ghost" className="size-8 rounded-full" {...props}>
-        {icon ?? getSectionIcon(id, { size: 14 })}
+        {icon ?? getSectionIcon(id, { size })}
       </Button>
     </Tooltip>
   );

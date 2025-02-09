@@ -1,3 +1,5 @@
+import { randomBytes } from "node:crypto";
+
 import {
   BadRequestException,
   ForbiddenException,
@@ -11,13 +13,11 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { AuthProvidersDto, LoginDto, RegisterDto, UserWithSecrets } from "@reactive-resume/dto";
 import { ErrorMessage } from "@reactive-resume/utils";
 import * as bcryptjs from "bcryptjs";
-import { randomBytes } from "crypto";
 import { authenticator } from "otplib";
 
 import { Config } from "../config/schema";
 import { MailService } from "../mail/mail.service";
 import { UserService } from "../user/user.service";
-import { UtilsService } from "../utils/utils.service";
 import { Payload } from "./utils/payload";
 
 @Injectable()
@@ -27,7 +27,6 @@ export class AuthService {
     private readonly userService: UserService,
     private readonly mailService: MailService,
     private readonly jwtService: JwtService,
-    private readonly utils: UtilsService,
   ) {}
 
   private hash(password: string): Promise<string> {
@@ -48,27 +47,33 @@ export class AuthService {
 
   generateToken(grantType: "access" | "refresh" | "reset" | "verification", payload?: Payload) {
     switch (grantType) {
-      case "access":
+      case "access": {
         if (!payload) throw new InternalServerErrorException("InvalidTokenPayload");
         return this.jwtService.sign(payload, {
           secret: this.configService.getOrThrow("ACCESS_TOKEN_SECRET"),
           expiresIn: "15m", // 15 minutes
         });
+      }
 
-      case "refresh":
+      case "refresh": {
         if (!payload) throw new InternalServerErrorException("InvalidTokenPayload");
         return this.jwtService.sign(payload, {
           secret: this.configService.getOrThrow("REFRESH_TOKEN_SECRET"),
           expiresIn: "2d", // 2 days
         });
+      }
 
       case "reset":
-      case "verification":
+      case "verification": {
         return randomBytes(32).toString("base64url");
-
-      default:
-        throw new InternalServerErrorException("InvalidGrantType: " + grantType);
+      }
     }
+  }
+
+  async setLastSignedIn(email: string) {
+    await this.userService.updateByEmail(email, {
+      secrets: { update: { lastSignedIn: new Date() } },
+    });
   }
 
   async setRefreshToken(email: string, token: string | null) {
@@ -108,7 +113,7 @@ export class AuthService {
       });
 
       // Do not `await` this function, otherwise the user will have to wait for the email to be sent before the response is returned
-      this.sendVerificationEmail(user.email);
+      void this.sendVerificationEmail(user.email);
 
       return user as UserWithSecrets;
     } catch (error) {
@@ -123,20 +128,17 @@ export class AuthService {
 
   async authenticate({ identifier, password }: LoginDto) {
     try {
-      const user = await this.userService.findOneByIdentifier(identifier);
-
-      if (!user) {
-        throw new BadRequestException(ErrorMessage.InvalidCredentials);
-      }
+      const user = await this.userService.findOneByIdentifierOrThrow(identifier);
 
       if (!user.secrets?.password) {
         throw new BadRequestException(ErrorMessage.OAuthUser);
       }
 
-      await this.validatePassword(password, user.secrets?.password);
+      await this.validatePassword(password, user.secrets.password);
+      await this.setLastSignedIn(user.email);
 
       return user;
-    } catch (error) {
+    } catch {
       throw new BadRequestException(ErrorMessage.InvalidCredentials);
     }
   }
@@ -149,18 +151,27 @@ export class AuthService {
       secrets: { update: { resetToken: token } },
     });
 
-    const url = `${this.utils.getUrl()}/auth/reset-password?token=${token}`;
+    const baseUrl = this.configService.get("PUBLIC_URL");
+    const url = `${baseUrl}/auth/reset-password?token=${token}`;
     const subject = "Reset your Reactive Resume password";
     const text = `Please click on the link below to reset your password:\n\n${url}`;
 
     await this.mailService.sendEmail({ to: email, subject, text });
   }
 
-  async updatePassword(email: string, password: string) {
-    const hashedPassword = await this.hash(password);
+  async updatePassword(email: string, currentPassword: string, newPassword: string) {
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
+
+    if (!user.secrets?.password) {
+      throw new BadRequestException(ErrorMessage.OAuthUser);
+    }
+
+    await this.validatePassword(currentPassword, user.secrets.password);
+
+    const newHashedPassword = await this.hash(newPassword);
 
     await this.userService.updateByEmail(email, {
-      secrets: { update: { password: hashedPassword } },
+      secrets: { update: { password: newHashedPassword } },
     });
   }
 
@@ -196,6 +207,19 @@ export class AuthService {
       providers.push("google");
     }
 
+    if (
+      this.configService.get("OPENID_AUTHORIZATION_URL") &&
+      this.configService.get("OPENID_CALLBACK_URL") &&
+      this.configService.get("OPENID_CLIENT_ID") &&
+      this.configService.get("OPENID_CLIENT_SECRET") &&
+      this.configService.get("OPENID_ISSUER") &&
+      this.configService.get("OPENID_SCOPE") &&
+      this.configService.get("OPENID_TOKEN_URL") &&
+      this.configService.get("OPENID_USER_INFO_URL")
+    ) {
+      providers.push("openid");
+    }
+
     return providers;
   }
 
@@ -209,7 +233,8 @@ export class AuthService {
         secrets: { update: { verificationToken: token } },
       });
 
-      const url = `${this.utils.getUrl()}/auth/verify-email?token=${token}`;
+      const baseUrl = this.configService.get("PUBLIC_URL");
+      const url = `${baseUrl}/auth/verify-email?token=${token}`;
       const subject = "Verify your email address";
       const text = `Please verify your email address by clicking on the link below:\n\n${url}`;
 
@@ -238,7 +263,7 @@ export class AuthService {
   // Two-Factor Authentication Flows
   async setup2FASecret(email: string) {
     // If the user already has 2FA enabled, throw an error
-    const user = await this.userService.findOneByIdentifier(email);
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
 
     if (user.twoFactorEnabled) {
       throw new BadRequestException(ErrorMessage.TwoFactorAlreadyEnabled);
@@ -255,7 +280,7 @@ export class AuthService {
   }
 
   async enable2FA(email: string, code: string) {
-    const user = await this.userService.findOneByIdentifier(email);
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
 
     // If the user already has 2FA enabled, throw an error
     if (user.twoFactorEnabled) {
@@ -268,7 +293,7 @@ export class AuthService {
     }
 
     const verified = authenticator.verify({
-      secret: user.secrets?.twoFactorSecret,
+      secret: user.secrets.twoFactorSecret,
       token: code,
     });
 
@@ -288,7 +313,7 @@ export class AuthService {
   }
 
   async disable2FA(email: string) {
-    const user = await this.userService.findOneByIdentifier(email);
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
 
     // If the user doesn't have 2FA enabled, throw an error
     if (!user.twoFactorEnabled) {
@@ -302,7 +327,7 @@ export class AuthService {
   }
 
   async verify2FACode(email: string, code: string) {
-    const user = await this.userService.findOneByIdentifier(email);
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
 
     // If the user doesn't have 2FA enabled, or does not have a 2FA secret set, throw an error
     if (!user.twoFactorEnabled || !user.secrets?.twoFactorSecret) {
@@ -310,7 +335,7 @@ export class AuthService {
     }
 
     const verified = authenticator.verify({
-      secret: user.secrets?.twoFactorSecret,
+      secret: user.secrets.twoFactorSecret,
       token: code,
     });
 
@@ -322,21 +347,21 @@ export class AuthService {
   }
 
   async useBackup2FACode(email: string, code: string) {
-    const user = await this.userService.findOneByIdentifier(email);
+    const user = await this.userService.findOneByIdentifierOrThrow(email);
 
     // If the user doesn't have 2FA enabled, or does not have a 2FA secret set, throw an error
     if (!user.twoFactorEnabled || !user.secrets?.twoFactorSecret) {
       throw new BadRequestException(ErrorMessage.TwoFactorNotEnabled);
     }
 
-    const verified = user.secrets?.twoFactorBackupCodes.includes(code);
+    const verified = user.secrets.twoFactorBackupCodes.includes(code);
 
     if (!verified) {
       throw new BadRequestException(ErrorMessage.InvalidTwoFactorBackupCode);
     }
 
     // Remove the used backup code from the database
-    const backupCodes = user.secrets?.twoFactorBackupCodes.filter((c) => c !== code);
+    const backupCodes = user.secrets.twoFactorBackupCodes.filter((c) => c !== code);
     await this.userService.updateByEmail(email, {
       secrets: { update: { twoFactorBackupCodes: backupCodes } },
     });

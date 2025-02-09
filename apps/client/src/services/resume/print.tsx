@@ -1,5 +1,5 @@
 import { t } from "@lingui/macro";
-import { UrlDto } from "@reactive-resume/dto";
+import type { UrlDto } from "@reactive-resume/dto";
 import { useMutation } from "@tanstack/react-query";
 
 import { toast } from "@/client/hooks/use-toast";
@@ -19,7 +19,7 @@ export const usePrintResume = () => {
   } = useMutation({
     mutationFn: printResume,
     onError: (error) => {
-      const message = error?.message;
+      const message = error.message;
 
       toast({
         variant: "error",

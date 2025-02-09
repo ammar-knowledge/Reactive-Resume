@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { t } from "@lingui/macro";
 import { CaretDown, Flask, MagicWand, Plus } from "@phosphor-icons/react";
-import { createResumeSchema, ResumeDto } from "@reactive-resume/dto";
+import type { ResumeDto } from "@reactive-resume/dto";
+import { createResumeSchema } from "@reactive-resume/dto";
 import { idSchema, sampleResume } from "@reactive-resume/schema";
 import {
   AlertDialog,
@@ -33,7 +34,8 @@ import {
   Input,
   Tooltip,
 } from "@reactive-resume/ui";
-import { cn, generateRandomName, kebabCase } from "@reactive-resume/utils";
+import { cn, generateRandomName } from "@reactive-resume/utils";
+import slugify from "@sindresorhus/slugify";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -42,7 +44,7 @@ import { useCreateResume, useDeleteResume, useUpdateResume } from "@/client/serv
 import { useImportResume } from "@/client/services/resume/import";
 import { useDialog } from "@/client/stores/dialog";
 
-const formSchema = createResumeSchema.extend({ id: idSchema.optional() });
+const formSchema = createResumeSchema.extend({ id: idSchema.optional(), slug: z.string() });
 
 type FormValues = z.infer<typeof formSchema>;
 
@@ -71,7 +73,7 @@ export const ResumeDialog = () => {
   }, [isOpen, payload]);
 
   useEffect(() => {
-    const slug = kebabCase(form.watch("title"));
+    const slug = slugify(form.watch("title"));
     form.setValue("slug", slug);
   }, [form.watch("title")]);
 
@@ -84,7 +86,7 @@ export const ResumeDialog = () => {
       if (!payload.item?.id) return;
 
       await updateResume({
-        ...payload.item,
+        id: payload.item.id,
         title: values.title,
         slug: values.slug,
       });
@@ -103,7 +105,7 @@ export const ResumeDialog = () => {
     if (isDelete) {
       if (!payload.item?.id) return;
 
-      await deleteResume({ id: payload.item?.id });
+      await deleteResume({ id: payload.item.id });
     }
 
     close();
@@ -122,16 +124,15 @@ export const ResumeDialog = () => {
   const onGenerateRandomName = () => {
     const name = generateRandomName();
     form.setValue("title", name);
-    form.setValue("slug", kebabCase(name));
+    form.setValue("slug", slugify(name));
   };
 
   const onCreateSample = async () => {
     const randomName = generateRandomName();
-    const { title, slug } = form.getValues();
 
     await duplicateResume({
-      title: title || randomName,
-      slug: slug || kebabCase(randomName),
+      title: randomName,
+      slug: slugify(randomName),
       data: sampleResume,
     });
 

@@ -1,6 +1,5 @@
 import { idSchema } from "@reactive-resume/schema";
-import { createZodDto } from "nestjs-zod/dto";
-import { z } from "nestjs-zod/z";
+import { z } from "zod";
 
 export const secretsSchema = z.object({
   id: idSchema,
@@ -13,5 +12,3 @@ export const secretsSchema = z.object({
   resetToken: z.string().nullable(),
   userId: idSchema,
 });
-
-export class SecretsDto extends createZodDto(secretsSchema) {}

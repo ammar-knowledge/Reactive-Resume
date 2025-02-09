@@ -1,6 +1,6 @@
-import { FilterKeys } from "@reactive-resume/utils";
 import { z } from "zod";
 
+import type { FilterKeys } from "../shared";
 import { idSchema } from "../shared";
 import { awardSchema } from "./award";
 import { certificationSchema } from "./certification";
@@ -20,6 +20,7 @@ import { volunteerSchema } from "./volunteer";
 export const sectionSchema = z.object({
   name: z.string(),
   columns: z.number().min(1).max(5).default(1),
+  separateLinks: z.boolean().default(true),
   visible: z.boolean().default(true),
 });
 
@@ -98,6 +99,7 @@ export type CustomSectionGroup = z.infer<typeof customSchema>;
 export const defaultSection: Section = {
   name: "",
   columns: 1,
+  separateLinks: true,
   visible: true,
 };
 

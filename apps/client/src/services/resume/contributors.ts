@@ -1,4 +1,4 @@
-import { ContributorDto } from "@reactive-resume/dto";
+import type { ContributorDto } from "@reactive-resume/dto";
 import { useQuery } from "@tanstack/react-query";
 
 import { axios } from "@/client/libs/axios";
@@ -34,7 +34,7 @@ export const useContributors = () => {
     queryFn: fetchCrowdinContributors,
   });
 
-  const error = githubError || crowdinError;
+  const error = githubError ?? crowdinError;
   const loading = githubLoading || crowdinLoading;
 
   return { github, crowdin, loading, error };

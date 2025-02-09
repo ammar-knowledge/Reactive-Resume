@@ -1,8 +1,9 @@
 import { t } from "@lingui/macro";
-import { ResumeDto } from "@reactive-resume/dto";
+import type { ResumeDto } from "@reactive-resume/dto";
 import { useCallback, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { LoaderFunction, redirect } from "react-router-dom";
+import type { LoaderFunction } from "react-router";
+import { redirect } from "react-router";
 
 import { queryClient } from "@/client/libs/query-client";
 import { findResumeById } from "@/client/services/resume";
@@ -16,21 +17,41 @@ export const BuilderPage = () => {
   const resume = useResumeStore((state) => state.resume);
   const title = useResumeStore((state) => state.resume.title);
 
-  const updateResumeInFrame = useCallback(() => {
-    if (!frameRef || !frameRef.contentWindow) return;
-    const message = { type: "SET_RESUME", payload: resume.data };
-    (() => frameRef.contentWindow.postMessage(message, "*"))();
-  }, [frameRef, resume.data]);
+  const syncResumeToArtboard = useCallback(() => {
+    setImmediate(() => {
+      if (!frameRef?.contentWindow) return;
+      const message = { type: "SET_RESUME", payload: resume.data };
+      frameRef.contentWindow.postMessage(message, "*");
+    });
+  }, [frameRef?.contentWindow, resume.data]);
 
   // Send resume data to iframe on initial load
   useEffect(() => {
     if (!frameRef) return;
-    frameRef.addEventListener("load", updateResumeInFrame);
-    return () => frameRef.removeEventListener("load", updateResumeInFrame);
+
+    frameRef.addEventListener("load", syncResumeToArtboard);
+
+    return () => {
+      frameRef.removeEventListener("load", syncResumeToArtboard);
+    };
+  }, [frameRef]);
+
+  // Persistently check if iframe has loaded using setInterval
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (frameRef?.contentWindow?.document.readyState === "complete") {
+        syncResumeToArtboard();
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [frameRef]);
 
   // Send resume data to iframe on change of resume data
-  useEffect(updateResumeInFrame, [resume.data]);
+  useEffect(syncResumeToArtboard, [resume.data]);
 
   return (
     <>
@@ -53,7 +74,8 @@ export const BuilderPage = () => {
 
 export const builderLoader: LoaderFunction<ResumeDto> = async ({ params }) => {
   try {
-    const id = params.id as string;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const id = params.id!;
 
     const resume = await queryClient.fetchQuery({
       queryKey: ["resume", { id }],
@@ -64,7 +86,7 @@ export const builderLoader: LoaderFunction<ResumeDto> = async ({ params }) => {
     useResumeStore.temporal.getState().clear();
 
     return resume;
-  } catch (error) {
+  } catch {
     return redirect("/dashboard");
   }
 };

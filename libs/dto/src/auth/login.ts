@@ -1,20 +1,18 @@
 import { createZodDto } from "nestjs-zod/dto";
-import { z } from "nestjs-zod/z";
+import { z } from "zod";
 
 import { usernameSchema } from "../user";
 
 export const loginSchema = z
   .object({
-    identifier: z.string(),
-    password: z.password().min(6),
+    identifier: z.string().transform((value) => value.toLowerCase()),
+    password: z.string().min(6),
   })
   .refine(
     (value) => {
-      if (value.identifier.includes("@")) {
-        return z.string().email().parse(value.identifier);
-      } else {
-        return usernameSchema.parse(value.identifier);
-      }
+      return value.identifier.includes("@")
+        ? z.string().email().parse(value.identifier)
+        : usernameSchema.parse(value.identifier);
     },
     { message: "InvalidCredentials" },
   );

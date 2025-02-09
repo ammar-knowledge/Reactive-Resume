@@ -1,6 +1,8 @@
-import { Dispatch, forwardRef, SetStateAction, useCallback, useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
+import { forwardRef, useCallback, useEffect, useState } from "react";
 
-import { Input, InputProps } from "./input";
+import type { InputProps } from "./input";
+import { Input } from "./input";
 
 type BadgeInputProps = Omit<InputProps, "value" | "onChange"> & {
   value: string[];
@@ -47,7 +49,9 @@ export const BadgeInput = forwardRef<HTMLInputElement, BadgeInputProps>(
         ref={ref}
         value={label}
         onKeyDown={onKeyDown}
-        onChange={(event) => setLabel(event.target.value)}
+        onChange={(event) => {
+          setLabel(event.target.value);
+        }}
       />
     );
   },

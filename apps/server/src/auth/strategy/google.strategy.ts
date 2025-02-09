@@ -1,8 +1,8 @@
-import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Injectable, Logger } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
+import { createId } from "@paralleldrive/cuid2";
 import { User } from "@prisma/client";
-import { processUsername } from "@reactive-resume/utils";
-import { ErrorMessage } from "@reactive-resume/utils";
+import { ErrorMessage, processUsername } from "@reactive-resume/utils";
 import { Profile, Strategy, StrategyOptions, VerifyCallback } from "passport-google-oauth20";
 
 import { UserService } from "@/server/user/user.service";
@@ -26,27 +26,29 @@ export class GoogleStrategy extends PassportStrategy(Strategy, "google") {
   ) {
     const { displayName, emails, photos, username } = profile;
 
-    const email = emails?.[0].value ?? `${username}@google.com`;
+    const email = (emails?.[0].value ?? `${username}@google.com`).toLocaleLowerCase();
     const picture = photos?.[0].value;
 
     let user: User | null = null;
 
-    if (!email) throw new BadRequestException();
+    if (!email) throw new BadRequestException(ErrorMessage.InvalidCredentials);
 
     try {
-      const user = await this.userService.findOneByIdentifier(email);
+      user =
+        (await this.userService.findOneByIdentifier(email)) ??
+        (username ? await this.userService.findOneByIdentifier(username) : null);
 
-      if (!user) throw new UnauthorizedException();
+      if (!user) throw new BadRequestException(ErrorMessage.InvalidCredentials);
 
       done(null, user);
-    } catch (error) {
+    } catch {
       try {
         user = await this.userService.create({
           email,
           picture,
           locale: "en-US",
-          name: displayName,
           provider: "google",
+          name: displayName || createId(),
           emailVerified: true, // auto-verify emails
           username: processUsername(username ?? email.split("@")[0]),
           secrets: { create: {} },
@@ -54,6 +56,8 @@ export class GoogleStrategy extends PassportStrategy(Strategy, "google") {
 
         done(null, user);
       } catch (error) {
+        Logger.error(error);
+
         throw new BadRequestException(ErrorMessage.UserAlreadyExists);
       }
     }

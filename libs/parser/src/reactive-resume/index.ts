@@ -1,8 +1,9 @@
-import { ResumeData, resumeDataSchema } from "@reactive-resume/schema";
-import { Json } from "@reactive-resume/utils";
-import { Schema } from "zod";
+import type { ResumeData } from "@reactive-resume/schema";
+import { resumeDataSchema } from "@reactive-resume/schema";
+import type { Json } from "@reactive-resume/utils";
+import type { Schema } from "zod";
 
-import { Parser } from "../interfaces/parser";
+import type { Parser } from "../interfaces/parser";
 
 export class ReactiveResumeParser implements Parser<Json, ResumeData> {
   schema: Schema;
@@ -15,19 +16,22 @@ export class ReactiveResumeParser implements Parser<Json, ResumeData> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
 
+      // eslint-disable-next-line unicorn/prefer-add-event-listener
       reader.onload = () => {
         try {
           const result = JSON.parse(reader.result as string) as Json;
           resolve(result);
-        } catch (error) {
+        } catch {
           reject(new Error("Failed to parse JSON"));
         }
       };
 
+      // eslint-disable-next-line unicorn/prefer-add-event-listener
       reader.onerror = () => {
         reject(new Error("Failed to read the file"));
       };
 
+      // eslint-disable-next-line unicorn/prefer-blob-reading-methods
       reader.readAsText(file);
     });
   }

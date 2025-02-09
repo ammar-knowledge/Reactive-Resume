@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import * as ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router";
 
 import { router } from "./router";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = ReactDOM.createRoot(document.querySelector("#root")!);
 
 root.render(
   <StrictMode>

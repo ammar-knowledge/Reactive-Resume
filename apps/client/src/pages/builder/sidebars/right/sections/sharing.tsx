@@ -7,7 +7,7 @@ import { useToast } from "@/client/hooks/use-toast";
 import { useUser } from "@/client/services/user";
 import { useResumeStore } from "@/client/stores/resume";
 
-import { getSectionIcon } from "../shared/section-icon";
+import { SectionIcon } from "../shared/section-icon";
 
 export const SharingSection = () => {
   const { user } = useUser();
@@ -35,8 +35,8 @@ export const SharingSection = () => {
     <section id="sharing" className="grid gap-y-6">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          {getSectionIcon("sharing")}
-          <h2 className="line-clamp-1 text-3xl font-bold">{t`Sharing`}</h2>
+          <SectionIcon id="sharing" size={18} name={t`Sharing`} />
+          <h2 className="line-clamp-1 text-2xl font-bold lg:text-3xl">{t`Sharing`}</h2>
         </div>
       </header>
 
@@ -73,7 +73,7 @@ export const SharingSection = () => {
               <Label htmlFor="resume-url">{t`URL`}</Label>
 
               <div className="flex gap-x-1.5">
-                <Input id="resume-url" readOnly value={url} className="flex-1" />
+                <Input readOnly id="resume-url" value={url} className="flex-1" />
 
                 <Tooltip content={t`Copy to Clipboard`}>
                   <Button size="icon" variant="ghost" onClick={onCopy}>
