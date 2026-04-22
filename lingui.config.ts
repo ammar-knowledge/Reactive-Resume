@@ -1,13 +1,14 @@
-import type { LinguiConfig } from "@lingui/conf";
+import { defineConfig } from "@lingui/cli";
+import { formatter } from "@lingui/format-po";
 
-const config: LinguiConfig = {
-  format: "po",
+export default defineConfig({
   sourceLocale: "en-US",
-  fallbackLocales: { default: "en-US" },
+  pseudoLocale: "zu-ZA",
   locales: [
     "af-ZA",
     "am-ET",
     "ar-SA",
+    "az-AZ",
     "bg-BG",
     "bn-BD",
     "ca-ES",
@@ -16,6 +17,7 @@ const config: LinguiConfig = {
     "de-DE",
     "el-GR",
     "en-US",
+    "en-GB",
     "es-ES",
     "fa-IR",
     "fi-FI",
@@ -30,8 +32,10 @@ const config: LinguiConfig = {
     "kn-IN",
     "ko-KR",
     "lt-LT",
+    "lv-LV",
     "ml-IN",
     "mr-IN",
+    "ms-MY",
     "ne-NP",
     "nl-NL",
     "no-NO",
@@ -41,6 +45,9 @@ const config: LinguiConfig = {
     "pt-PT",
     "ro-RO",
     "ru-RU",
+    "sk-SK",
+    "sl-SI",
+    "sq-AL",
     "sr-SP",
     "sv-SE",
     "ta-IN",
@@ -48,16 +55,23 @@ const config: LinguiConfig = {
     "th-TH",
     "tr-TR",
     "uk-UA",
+    "uz-UZ",
     "vi-VN",
     "zh-CN",
     "zh-TW",
+    "zu-ZA",
   ],
+  fallbackLocales: {
+    "zu-ZA": "en-US",
+    default: "en-US",
+  },
+  format: formatter({
+    lineNumbers: false,
+  }),
   catalogs: [
     {
-      include: ["<rootDir>/apps/client/src"],
-      path: "<rootDir>/apps/client/src/locales/{locale}/messages",
+      path: "<rootDir>/locales/{locale}",
+      include: ["src"],
     },
   ],
-};
-
-export default config;
+});
