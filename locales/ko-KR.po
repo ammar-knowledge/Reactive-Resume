@@ -8,7 +8,7 @@ msgstr ""
 "Language: ko\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-27 08:46\n"
+"PO-Revision-Date: 2026-04-27 13:13\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -66,7 +66,7 @@ msgstr "{diffDays, plural, one {#일전} other {#일전}}"
 msgid "{months, plural, one {# month ago} other {# months ago}}"
 msgstr "{months, plural, one {# 한달 전} other {# 한달 전}}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "{used} of {limit} requests used ({remaining} remaining)"
 msgstr "{used} 사용된 {limit} 요청 중 ({remaining} 남은)"
 
@@ -311,7 +311,7 @@ msgid "And many more..."
 msgstr "그 외에도 더 많은 기능이 있습니다..."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "인류학적 클로드"
 
@@ -343,7 +343,7 @@ msgstr "링크가 있는 사람은 누구나 이력서를 보고 다운로드할
 msgid "API Access"
 msgstr "API 액세스"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "API Key"
 msgstr "API Key"
 
@@ -354,10 +354,11 @@ msgid "API Keys"
 msgstr "API Key"
 
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Reference"
 msgstr "API 레퍼런스"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Usage"
 msgstr "API 사용"
 
@@ -435,8 +436,7 @@ msgid "Area of Study"
 msgstr "연구 분야"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Artificial Intelligence"
 msgstr "인공지능"
 
@@ -481,7 +481,7 @@ msgstr "배경 색상"
 msgid "Backup codes copied to clipboard."
 msgstr "백업 코드가 클립보드에 복사되었습니다."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Base URL (Optional)"
 msgstr "기본 URL(선택 사항)"
 
@@ -782,7 +782,7 @@ msgid "Could not fetch jobs from JSearch API. Please try again."
 msgstr "JSearch API에서 작업을 가져올 수 없습니다. 다시 시도하세요."
 
 #. Error shown when JSearch API connection test fails in job search settings
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Could not reach JSearch API. Check your API key and try again."
 msgstr "JSearch API에 연결할 수 없습니다. API 키를 확인하고 다시 시도하세요."
 
@@ -793,7 +793,7 @@ msgstr "JSearch API에 연결할 수 없습니다. API 키를 확인하고 다�
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "AI 제공업체에 연결할 수 없습니다. 다시 시도하세요."
 
@@ -936,7 +936,7 @@ msgstr "이력서를 생성하는 중입니다..."
 msgid "Current Password"
 msgstr "현재 비밀번호"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "사용자 지정"
 
@@ -1088,7 +1088,7 @@ msgstr "2단계 인증 비활성화"
 msgid "Disable Two-Factor Authentication"
 msgstr "2단계 인증 비활성화"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Disabled"
 msgstr "비활성화됨"
 
@@ -1201,7 +1201,7 @@ msgid "e.g. frontend developer jobs in Berlin"
 msgstr "예: 베를린의 프론트엔드 개발자 채용 정보"
 
 #. Example model-name placeholder in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "e.g., gpt-4, claude-3-opus, gemini-pro"
 msgstr "예: GPT-4, 클로드-3-오퍼스, 제미니-프로"
 
@@ -1251,7 +1251,7 @@ msgstr "사용"
 msgid "Enable 2FA"
 msgstr "2단계 인증 활성화"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enable AI Features"
 msgstr "AI 기능 활성화"
 
@@ -1259,7 +1259,7 @@ msgstr "AI 기능 활성화"
 msgid "Enable Two-Factor Authentication"
 msgstr "2단계 인증 활성화"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enabled"
 msgstr "활성화됨"
 
@@ -1311,7 +1311,7 @@ msgstr "2단계 인증을 설정하려면 비밀번호를 입력해 확인하세
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "2단계 인증을 비활성화하려면 비밀번호를 입력하세요. 2단계 인증을 사용하지 않으면 계정 보안이 낮아집니다."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Enter your RapidAPI key"
 msgstr "RapidAPI 키를 입력하세요."
 
@@ -1319,7 +1319,7 @@ msgstr "RapidAPI 키를 입력하세요."
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "크든 작든 모든 기여는 프로젝트에 큰 변화를 가져옵니다.<0/>후원해 주셔서 감사합니다!"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Everything entered here is stored locally on your browser. Your data is only sent to the server when making a request to the AI provider, and is never stored or logged on our servers."
 msgstr "여기에 입력한 모든 내용은 브라우저에 로컬로 저장됩니다. 데이터는 AI 제공자에게 요청을 보낼 때에만 서버로 전송되며, 서버에 저장되거나 기록되지 않습니다."
 
@@ -1476,12 +1476,12 @@ msgid "Failed to sync skills"
 msgstr "스킬 동기화에 실패했습니다."
 
 #. Fallback toast when testing AI provider connection fails
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Failed to test AI provider connection. Please try again."
 msgstr "AI 공급자 연결을 테스트하지 못했습니다. 다시 시도하세요."
 
 #. Fallback toast when testing RapidAPI job search connection fails
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Failed to test RapidAPI connection. Please try again."
 msgstr "RapidAPI 연결을 테스트하지 못했습니다. 다시 시도하세요."
 
@@ -1639,7 +1639,7 @@ msgstr "전체 점수, 주요 강점, 실용적인 제안을 통해 이력서에
 msgid "Get Started"
 msgstr "시작하기"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
 msgstr "JSearch API를 구독하여 RapidAPI에서 API 키를 받으세요."
 
@@ -1660,14 +1660,14 @@ msgstr "뒤로 가기"
 msgid "Go to dashboard"
 msgstr "대시보드로 이동"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Integrations"
+msgstr "통합으로 이동"
+
 #. Accessible label for button navigating from builder to resumes dashboard
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Go to resumes dashboard"
 msgstr "이력서 대시보드로 이동"
-
-#: src/routes/dashboard/job-search/index.tsx
-msgid "Go to Settings"
-msgstr "설정으로 이동"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1681,7 +1681,7 @@ msgid "Google"
 msgstr "Google"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Google Gemini"
 msgstr "구글 제미니 자리"
 
@@ -1864,6 +1864,12 @@ msgstr "인라인 코드"
 msgid "Insert Table"
 msgstr "표 삽입"
 
+#: src/components/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/integrations/route.tsx
+msgid "Integrations"
+msgstr "통합"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
@@ -1874,7 +1880,7 @@ msgid "Intern"
 msgstr "인턴"
 
 #. Error shown when AI provider credentials or base URL are invalid in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Invalid AI provider configuration. Please check your settings."
 msgstr "잘못된 AI 공급자 구성입니다. 설정을 확인하세요."
 
@@ -1904,11 +1910,11 @@ msgstr "일본어"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Job Search"
 msgstr "채용 정보 검색"
 
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/components/command-palette/pages/navigation.tsx
 msgid "Job Search API"
 msgstr "채용 정보 검색 API"
 
@@ -1942,13 +1948,9 @@ msgstr "john.doe"
 msgid "john.doe@example.com"
 msgstr "john.doe@example.com"
 
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
-msgstr "JSearch는 Google 채용 정보를 사용하여 여러 구인 게시판의 채용 공고를 집계합니다. 국가(ISO 알파-2 코드), 게시된 날짜, 직종, 원격 옵션, 경력 수준별로 필터링할 수 있습니다."
-
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch API Documentation"
-msgstr "JSearch API 문서"
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
+msgid "JSearch aggregates job listings from multiple job boards. You can filter by country, date posted, job type, remote options, and experience level."
+msgstr "JSearch는 여러 구인 게시판의 채용 공고를 집계합니다. 국가, 게시 날짜, 직종, 원격 옵션, 경력 수준별로 필터링할 수 있습니다."
 
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
@@ -2199,7 +2201,7 @@ msgstr "Microsoft Word"
 msgid "Minimum Salary"
 msgstr "최저 급여"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Model"
 msgstr "모델"
 
@@ -2317,7 +2319,7 @@ msgid "Odia"
 msgstr "오디아어"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Ollama"
 msgstr "Ollama"
 
@@ -2336,26 +2338,26 @@ msgstr "지속적인 유지 관리"
 msgid "Open"
 msgstr "열기"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Open AI Settings"
-msgstr "AI 설정 열기"
-
 #. Button label to open the user's default email app
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "이메일 클라이언트 열기"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open Integrations Settings"
+msgstr "통합 설정 열기"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "오픈 소스"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenAI"
 msgstr "OpenAI"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenRouter"
 msgstr "OpenRouter"
 
@@ -2546,7 +2548,7 @@ msgstr "직책"
 msgid "Preferences"
 msgstr "환경 설정"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Presets"
 msgstr "사전 설정"
 
@@ -2599,7 +2601,7 @@ msgstr "비밀번호로 이력서를 보호해, 허가되지 않은 접근을 �
 msgid "Protect your resume with a password, and let only people with the password view it."
 msgstr "이력서를 비밀번호로 보호해, 비밀번호를 아는 사람만 볼 수 있도록 하세요."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Provider"
 msgstr "제공자"
 
@@ -2617,7 +2619,7 @@ msgstr "발행인"
 msgid "Quota: {0} remaining"
 msgstr "할당량: {0} 남은"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI 키"
 
@@ -3006,7 +3008,7 @@ msgstr "비밀번호 표시"
 #: src/components/ui/sidebar.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "사이드바"
+msgstr "사이드바<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -3269,8 +3271,8 @@ msgstr "템플릿 갤러리"
 msgid "Templates"
 msgstr "템플릿"
 
-#: src/routes/dashboard/settings/ai.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Test Connection"
 msgstr "연결 테스트"
 
@@ -3715,7 +3717,7 @@ msgstr "사진을 업로드하는 중입니다..."
 msgid "URL"
 msgstr "URL"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Use color {color}"
 msgstr "색상 사용 {color}"
 
@@ -3739,7 +3741,7 @@ msgid "Valid URLs must start with http:// or https://."
 msgstr "유효한 URL은 http:// 또는 https://로 시작해야 합니다."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Vercel AI Gateway"
 msgstr "버셀 AI 게이트웨이"
 
@@ -3805,7 +3807,7 @@ msgstr "웹사이트"
 msgid "What do you want to rename this section to?"
 msgstr "이 섹션의 이름을 무엇으로 바꾸고 싶으신가요?"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "What is JSearch API?"
 msgstr "JSearch API란 무엇인가요?"
 
@@ -3880,7 +3882,7 @@ msgstr "변경 사항은 자동으로 저장됩니다."
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "데이터는 안전하게 보호되며, 누구와도 공유하거나 판매하지 않습니다."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Your data is stored locally"
 msgstr "데이터는 브라우저에 로컬로 저장됩니다"
 
@@ -3904,7 +3906,7 @@ msgstr "비밀번호가 성공적으로 업데이트되었습니다."
 msgid "Your profile has been updated successfully."
 msgstr "프로필이 성공적으로 업데이트되었습니다."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
 msgstr "RapidAPI 키는 브라우저에 로컬로 저장됩니다. 작업 검색을 요청할 때만 서버로 전송되며, 당사 서버에 저장되거나 기록되지 않습니다."
 

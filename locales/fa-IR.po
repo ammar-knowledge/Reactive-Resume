@@ -8,7 +8,7 @@ msgstr ""
 "Language: fa\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-27 08:46\n"
+"PO-Revision-Date: 2026-04-27 13:13\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -66,7 +66,7 @@ msgstr "{diffDays, plural, one {# روز پیش} other {# روز پیش}}"
 msgid "{months, plural, one {# month ago} other {# months ago}}"
 msgstr "{months, plural, one {# ماه پیش} other {# ماه پیش}}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "{used} of {limit} requests used ({remaining} remaining)"
 msgstr "{used} تعداد درخواست‌های {limit} استفاده‌شده ({remaining} باقی‌مانده)"
 
@@ -311,7 +311,7 @@ msgid "And many more..."
 msgstr "و بسیاری موارد دیگر..."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "کلود آنتروپیک"
 
@@ -343,7 +343,7 @@ msgstr "هر کسی که لینک را داشته باشد می‌تواند ر�
 msgid "API Access"
 msgstr "دسترسی از طریق API"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "API Key"
 msgstr "کلید API"
 
@@ -354,10 +354,11 @@ msgid "API Keys"
 msgstr "کلیدهای API"
 
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Reference"
 msgstr "راهنمای API"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Usage"
 msgstr "استفاده از API"
 
@@ -435,8 +436,7 @@ msgid "Area of Study"
 msgstr "حوزهٔ تحصیل"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Artificial Intelligence"
 msgstr "هوش مصنوعی"
 
@@ -481,7 +481,7 @@ msgstr "رنگ پس‌زمینه"
 msgid "Backup codes copied to clipboard."
 msgstr "کدهای پشتیبان در کلیپ‌بورد کپی شدند."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Base URL (Optional)"
 msgstr "Base URL (اختیاری)"
 
@@ -782,7 +782,7 @@ msgid "Could not fetch jobs from JSearch API. Please try again."
 msgstr "نمی‌توانست مشاغل را از API JSearch بازیابی کند. لطفاً دوباره تلاش کنید."
 
 #. Error shown when JSearch API connection test fails in job search settings
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Could not reach JSearch API. Check your API key and try again."
 msgstr "امکان دسترسی به API JSearch وجود ندارد. کلید API خود را بررسی کرده و دوباره تلاش کنید."
 
@@ -793,7 +793,7 @@ msgstr "امکان دسترسی به API JSearch وجود ندارد. کلید A
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "امکان دسترسی به ارائه‌دهنده هوش مصنوعی وجود ندارد. لطفاً دوباره تلاش کنید."
 
@@ -936,7 +936,7 @@ msgstr "در حال ایجاد رزومه شما..."
 msgid "Current Password"
 msgstr "گذرواژهٔ فعلی"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "سفارشی"
 
@@ -1088,7 +1088,7 @@ msgstr "غیرفعالسازی ورود دو مرحله‌ای"
 msgid "Disable Two-Factor Authentication"
 msgstr "غیرفعال کردن احراز هویت دو مرحله‌ای"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Disabled"
 msgstr "غیرفعال"
 
@@ -1201,7 +1201,7 @@ msgid "e.g. frontend developer jobs in Berlin"
 msgstr "مثلاً مشاغل توسعه‌دهنده فرانت‌اند در برلین"
 
 #. Example model-name placeholder in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "e.g., gpt-4, claude-3-opus, gemini-pro"
 msgstr "مثلاً gpt-4، claude-3-opus، gemini-pro"
 
@@ -1251,7 +1251,7 @@ msgstr "فعال‌سازی"
 msgid "Enable 2FA"
 msgstr "فعالسازی ورود دو مرحله‌ای"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enable AI Features"
 msgstr "فعال‌سازی قابلیت‌های هوش مصنوعی"
 
@@ -1259,7 +1259,7 @@ msgstr "فعال‌سازی قابلیت‌های هوش مصنوعی"
 msgid "Enable Two-Factor Authentication"
 msgstr "فعالسازی احراز هویت دو مرحله‌ای"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enabled"
 msgstr "فعال"
 
@@ -1311,7 +1311,7 @@ msgstr "برای تأیید راه‌اندازی احراز هویت دو مر�
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "برای غیرفعال کردن احراز هویت دو مرحله‌ای گذرواژهٔ خود را وارد کنید. بدون فعال بودن 2FA حساب شما امنیت کمتری خواهد داشت."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Enter your RapidAPI key"
 msgstr "کلید RapidAPI خود را وارد کنید"
 
@@ -1319,7 +1319,7 @@ msgstr "کلید RapidAPI خود را وارد کنید"
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "هر مشارکت، چه بزرگ چه کوچک، تفاوت بزرگی در این پروژه ایجاد می‌کند.<0/>از حمایت شما سپاسگزاریم!"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Everything entered here is stored locally on your browser. Your data is only sent to the server when making a request to the AI provider, and is never stored or logged on our servers."
 msgstr "هرچیزی که اینجا وارد می‌کنید به‌صورت محلی در مرورگر شما ذخیره می‌شود. داده‌های شما فقط هنگام ارسال درخواست به ارائه‌دهندهٔ هوش مصنوعی به سرور فرستاده می‌شود و هرگز روی سرورهای ما ذخیره یا لاگ نمی‌شود."
 
@@ -1476,12 +1476,12 @@ msgid "Failed to sync skills"
 msgstr "همگام‌سازی مهارت‌ها ناموفق بود"
 
 #. Fallback toast when testing AI provider connection fails
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Failed to test AI provider connection. Please try again."
 msgstr "اتصال ارائه‌دهنده هوش مصنوعی با موفقیت آزمایش نشد. لطفاً دوباره تلاش کنید."
 
 #. Fallback toast when testing RapidAPI job search connection fails
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Failed to test RapidAPI connection. Please try again."
 msgstr "آزمون اتصال به RapidAPI ناموفق بود. لطفاً دوباره تلاش کنید."
 
@@ -1639,7 +1639,7 @@ msgstr "یک بررسی عمیق از رزومهٔ خود با هوش مصنوع
 msgid "Get Started"
 msgstr "شروع کنید"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
 msgstr "با مشترک شدن در API جستجوی JSearch، کلید API خود را از RapidAPI دریافت کنید."
 
@@ -1660,14 +1660,14 @@ msgstr "بازگشت"
 msgid "Go to dashboard"
 msgstr "رفتن به داشبورد"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Integrations"
+msgstr "به بخش یکپارچه‌سازی‌ها بروید"
+
 #. Accessible label for button navigating from builder to resumes dashboard
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Go to resumes dashboard"
 msgstr "به داشبورد رزومه‌ها بروید"
-
-#: src/routes/dashboard/job-search/index.tsx
-msgid "Go to Settings"
-msgstr "به تنظیمات بروید"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1681,7 +1681,7 @@ msgid "Google"
 msgstr "گوگل"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Google Gemini"
 msgstr "گوگل جمینای"
 
@@ -1864,6 +1864,12 @@ msgstr "کد درون‌خطی"
 msgid "Insert Table"
 msgstr "درج جدول"
 
+#: src/components/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/integrations/route.tsx
+msgid "Integrations"
+msgstr "یکپارچه‌سازی‌ها"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
@@ -1874,7 +1880,7 @@ msgid "Intern"
 msgstr "کارآموز"
 
 #. Error shown when AI provider credentials or base URL are invalid in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Invalid AI provider configuration. Please check your settings."
 msgstr "پیکربندی ارائه‌دهنده هوش مصنوعی نامعتبر است. لطفاً تنظیمات خود را بررسی کنید."
 
@@ -1904,11 +1910,11 @@ msgstr "ژاپنی"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Job Search"
 msgstr "جستجوی شغل"
 
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/components/command-palette/pages/navigation.tsx
 msgid "Job Search API"
 msgstr "API جستجوی شغل"
 
@@ -1942,13 +1948,9 @@ msgstr "جان.دو"
 msgid "john.doe@example.com"
 msgstr "john.doe@example.com"
 
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
-msgstr "JSearch آگهی‌های شغلی را از چندین تابلوی شغلی با استفاده از Google for Jobs گردآوری می‌کند. شما می‌توانید بر اساس کشور (کد آلفای دو رقمی ISO)، تاریخ انتشار، نوع شغل، گزینه‌های دورکاری و سطح تجربه فیلتر کنید."
-
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch API Documentation"
-msgstr "مستندات API جستجوی J"
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
+msgid "JSearch aggregates job listings from multiple job boards. You can filter by country, date posted, job type, remote options, and experience level."
+msgstr "JSearch فهرست آگهی‌های شغلی را از چندین تابلوی شغلی گردآوری می‌کند. شما می‌توانید بر اساس کشور، تاریخ انتشار، نوع شغل، گزینه‌های دورکاری و سطح تجربه فیلتر کنید."
 
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
@@ -2199,7 +2201,7 @@ msgstr "مایکروسافت ورد"
 msgid "Minimum Salary"
 msgstr "حداقل دستمزد"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Model"
 msgstr "مدل"
 
@@ -2317,7 +2319,7 @@ msgid "Odia"
 msgstr "اودیایی"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Ollama"
 msgstr "اولاما"
 
@@ -2336,26 +2338,26 @@ msgstr "نگه‌داری مداوم"
 msgid "Open"
 msgstr "باز کردن"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Open AI Settings"
-msgstr "تنظیمات را باز کنید"
-
 #. Button label to open the user's default email app
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "باز کردن کلاینت ایمیل"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open Integrations Settings"
+msgstr "تنظیمات یکپارچه‌سازی را باز کنید"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "متن‌باز"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenAI"
 msgstr "اوپن‌ای‌آی"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenRouter"
 msgstr "روتر آزاد"
 
@@ -2546,7 +2548,7 @@ msgstr "موقعیت شغلی"
 msgid "Preferences"
 msgstr "ترجیحات"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Presets"
 msgstr "پیش‌تنظیم‌ها"
 
@@ -2599,7 +2601,7 @@ msgstr "از رزومه خود در برابر دسترسی غیرمجاز با 
 msgid "Protect your resume with a password, and let only people with the password view it."
 msgstr "از رزومه خود با یک گذرواژه محافظت کنید و فقط به افرادی که گذرواژه را دارند اجازهٔ مشاهده بدهید."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Provider"
 msgstr "ارائه‌دهنده"
 
@@ -2617,7 +2619,7 @@ msgstr "منتشرکننده"
 msgid "Quota: {0} remaining"
 msgstr "موجودی: {0} باقی‌مانده"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "RapidAPI Key"
 msgstr "کلید RapidAPI"
 
@@ -3006,7 +3008,7 @@ msgstr "نمایش رمز عبور"
 #: src/components/ui/sidebar.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "نوار کناری"
+msgstr "نوار کناری<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -3269,8 +3271,8 @@ msgstr "گالری قالب"
 msgid "Templates"
 msgstr "قالب‌ها"
 
-#: src/routes/dashboard/settings/ai.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Test Connection"
 msgstr "آزمایش اتصال"
 
@@ -3715,7 +3717,7 @@ msgstr "در حال آپلود تصویر..."
 msgid "URL"
 msgstr "آدرس وبسایت"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Use color {color}"
 msgstr "از رنگ استفاده کنید {color}"
 
@@ -3739,7 +3741,7 @@ msgid "Valid URLs must start with http:// or https://."
 msgstr "URLهای معتبر باید با http:// یا https:// شروع شوند."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Vercel AI Gateway"
 msgstr "دروازه ورچل ای‌آی"
 
@@ -3805,7 +3807,7 @@ msgstr "وب‌سایت"
 msgid "What do you want to rename this section to?"
 msgstr "می‌خواهید نام این بخش را به چه چیزی تغییر دهید؟"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "What is JSearch API?"
 msgstr "JSearch API چیست؟"
 
@@ -3880,7 +3882,7 @@ msgstr "تغییرات شما به‌صورت خودکار ذخیره می‌ش�
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "داده‌های شما ایمن بوده و هرگز با کسی به اشتراک گذاشته یا فروخته نمی‌شوند."
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Your data is stored locally"
 msgstr "داده‌های شما به‌صورت محلی ذخیره می‌شوند"
 
@@ -3904,7 +3906,7 @@ msgstr "گذرواژهٔ شما با موفقیت به‌روز شد."
 msgid "Your profile has been updated successfully."
 msgstr "پروفایل شما با موفقیت به‌روز شد."
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
 msgstr "کلید RapidAPI شما به‌صورت محلی در مرورگرتان ذخیره می‌شود. این کلید تنها هنگام ارسال درخواست برای جستجوی شغل به سرور ارسال می‌شود و هرگز روی سرورهای ما ذخیره یا ثبت نمی‌گردد."
 

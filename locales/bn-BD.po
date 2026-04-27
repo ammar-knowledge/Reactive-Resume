@@ -8,7 +8,7 @@ msgstr ""
 "Language: bn\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-27 08:46\n"
+"PO-Revision-Date: 2026-04-27 13:13\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -66,7 +66,7 @@ msgstr "{diffDays, plural, one {# দিন আগে} other {# দিন আগ
 msgid "{months, plural, one {# month ago} other {# months ago}}"
 msgstr "{months, plural, one {# মাস আগে} other {# মাস আগে}}"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "{used} of {limit} requests used ({remaining} remaining)"
 msgstr "{used} {limit} -এর ব্যবহৃত অনুরোধসমূহ ({remaining} অবশিষ্ট)"
 
@@ -311,7 +311,7 @@ msgid "And many more..."
 msgstr "এবং আরো অনেক..."
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Anthropic Claude"
 msgstr "অ্যান্থ্রপিক ক্লাড"
 
@@ -343,7 +343,7 @@ msgstr "লিঙ্ক যার কাছে থাকবে সে জীব�
 msgid "API Access"
 msgstr "API অ্যাক্সেস"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "API Key"
 msgstr "API কী"
 
@@ -354,10 +354,11 @@ msgid "API Keys"
 msgstr "API কীগুলো"
 
 #: src/routes/dashboard/settings/api-keys.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Reference"
 msgstr "API রেফারেন্স"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "API Usage"
 msgstr "API ব্যবহার"
 
@@ -435,8 +436,7 @@ msgid "Area of Study"
 msgstr "অধ্যয়নের এলাকা"
 
 #: src/components/command-palette/pages/navigation.tsx
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Artificial Intelligence"
 msgstr "কৃত্রিম বুদ্ধিমত্তা"
 
@@ -481,7 +481,7 @@ msgstr "পটভূমির রঙ"
 msgid "Backup codes copied to clipboard."
 msgstr "ব্যাকআপ কোডগুলো ক্লিপবোর্ডে কপি করা হয়েছে।"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Base URL (Optional)"
 msgstr "বেস URL (ঐচ্ছিক)"
 
@@ -782,7 +782,7 @@ msgid "Could not fetch jobs from JSearch API. Please try again."
 msgstr "JSearch API থেকে জবগুলো আনতে পারল না। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
 #. Error shown when JSearch API connection test fails in job search settings
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Could not reach JSearch API. Check your API key and try again."
 msgstr "JSearch API-তে সংযোগ স্থাপন করা যায়নি। আপনার API কী পরীক্ষা করুন এবং আবার চেষ্টা করুন।"
 
@@ -793,7 +793,7 @@ msgstr "JSearch API-তে সংযোগ স্থাপন করা যা�
 #: src/dialogs/resume/import.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Could not reach the AI provider. Please try again."
 msgstr "এআই প্রদানকারীর সাথে সংযোগ স্থাপন করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
@@ -936,7 +936,7 @@ msgstr "আপনার জীবনবৃত্তান্ত তৈরি ক
 msgid "Current Password"
 msgstr "বর্তমান পাসওয়ার্ড"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Custom"
 msgstr "কাস্টম"
 
@@ -1088,7 +1088,7 @@ msgstr "2FA নিষ্ক্রিয় করুন"
 msgid "Disable Two-Factor Authentication"
 msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ বন্ধ করুন"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Disabled"
 msgstr "নিষ্ক্রিয়"
 
@@ -1201,7 +1201,7 @@ msgid "e.g. frontend developer jobs in Berlin"
 msgstr "যেমন: বার্লিনে ফ্রন্টএন্ড ডেভেলপার চাকরির সুযোগ"
 
 #. Example model-name placeholder in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "e.g., gpt-4, claude-3-opus, gemini-pro"
 msgstr "যেমন, জিপিটি-৪, ক্লড-৩-অপাস, জেমিনি-প্রো"
 
@@ -1251,7 +1251,7 @@ msgstr "সক্রিয় করুন"
 msgid "Enable 2FA"
 msgstr "2FA চালু করুন"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enable AI Features"
 msgstr "এআই ফিচারগুলো চালু করুন"
 
@@ -1259,7 +1259,7 @@ msgstr "এআই ফিচারগুলো চালু করুন"
 msgid "Enable Two-Factor Authentication"
 msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ চালু করুন"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Enabled"
 msgstr "সক্রিয়"
 
@@ -1311,7 +1311,7 @@ msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ সে�
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "টু‑ফ্যাক্টর প্রমাণীকরণ বন্ধ করতে আপনার পাসওয়ার্ড লিখুন। 2FA বন্ধ করলে আপনার অ্যাকাউন্ট কম সুরক্ষিত থাকবে।"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Enter your RapidAPI key"
 msgstr "আপনার RapidAPI কী প্রবেশ করান"
 
@@ -1319,7 +1319,7 @@ msgstr "আপনার RapidAPI কী প্রবেশ করান"
 msgid "Every contribution, big or small, makes a huge difference to the project.<0/>Thank you for your support!"
 msgstr "প্রতিটি অবদান, বড় বা ছোট, প্রজেক্টটিতে বিশাল পরিবর্তন আনে।<0/>আপনার সহায়তার জন্য ধন্যবাদ!"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Everything entered here is stored locally on your browser. Your data is only sent to the server when making a request to the AI provider, and is never stored or logged on our servers."
 msgstr "এখানে যা কিছু লিখবেন সব আপনার ব্রাউজারে স্থানীয়ভাবে সংরক্ষিত হয়। আপনার ডেটা কেবল তখনই সার্ভারে পাঠানো হয় যখন আপনি AI প্রদানকারীর কাছে কোনো অনুরোধ করেন, এবং কখনোই আমাদের সার্ভারে সংরক্ষণ বা লগ করা হয় না।"
 
@@ -1476,12 +1476,12 @@ msgid "Failed to sync skills"
 msgstr "দক্ষতা সিঙ্ক করতে ব্যর্থ হয়েছে"
 
 #. Fallback toast when testing AI provider connection fails
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Failed to test AI provider connection. Please try again."
 msgstr "AI প্রদানকারীর সংযোগ পরীক্ষা করতে ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
 #. Fallback toast when testing RapidAPI job search connection fails
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Failed to test RapidAPI connection. Please try again."
 msgstr "RapidAPI সংযোগ পরীক্ষা করতে ব্যর্থ হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।"
 
@@ -1639,7 +1639,7 @@ msgstr "আপনার জীবনবৃত্তান্তের একট�
 msgid "Get Started"
 msgstr "চলুন শুরু করা যাক"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Get your API key from RapidAPI by subscribing to the JSearch API."
 msgstr "JSearch API-তে সাবস্ক্রাইব করে RapidAPI থেকে আপনার API কী পান।"
 
@@ -1660,14 +1660,14 @@ msgstr "ফিরে যান"
 msgid "Go to dashboard"
 msgstr "ড্যাশবোর্ডে যান"
 
+#: src/routes/dashboard/job-search/index.tsx
+msgid "Go to Integrations"
+msgstr "ইন্টিগ্রেশন-এ যান"
+
 #. Accessible label for button navigating from builder to resumes dashboard
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Go to resumes dashboard"
 msgstr "রিজিউমে ড্যাশবোর্ডে যান"
-
-#: src/routes/dashboard/job-search/index.tsx
-msgid "Go to Settings"
-msgstr "সেটিংসে যান"
 
 #: src/components/command-palette/pages/navigation.tsx
 msgid "Go to..."
@@ -1681,7 +1681,7 @@ msgid "Google"
 msgstr "গুগল"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Google Gemini"
 msgstr "গুগল জেমিনি"
 
@@ -1864,6 +1864,12 @@ msgstr "ইনলাইন কোড"
 msgid "Insert Table"
 msgstr "টেবিল যুক্ত করুন"
 
+#: src/components/command-palette/pages/navigation.tsx
+#: src/routes/dashboard/-components/sidebar.tsx
+#: src/routes/dashboard/settings/integrations/route.tsx
+msgid "Integrations"
+msgstr "সংযোজনসমূহ"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/utils/resume/section.tsx
 msgid "Interests"
@@ -1874,7 +1880,7 @@ msgid "Intern"
 msgstr "ইন্টার্ন"
 
 #. Error shown when AI provider credentials or base URL are invalid in AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Invalid AI provider configuration. Please check your settings."
 msgstr "এআই প্রদানকারীর কনফিগারেশন অবৈধ। অনুগ্রহ করে আপনার সেটিংস পরীক্ষা করুন।"
 
@@ -1904,11 +1910,11 @@ msgstr "জাপানি"
 
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/job-search/index.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Job Search"
 msgstr "চাকরি অনুসন্ধান"
 
-#: src/routes/dashboard/-components/sidebar.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/components/command-palette/pages/navigation.tsx
 msgid "Job Search API"
 msgstr "চাকরি অনুসন্ধান এপিআই"
 
@@ -1942,13 +1948,9 @@ msgstr "জন ডো"
 msgid "john.doe@example.com"
 msgstr "john.doe@example.com"
 
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch aggregates job listings from multiple job boards using Google for Jobs. You can filter by country (ISO alpha-2 code), date posted, job type, remote options, and experience level."
-msgstr "JSearch Google for Jobs ব্যবহার করে একাধিক জব বোর্ড থেকে চাকরির বিজ্ঞাপন একত্রিত করে। আপনি দেশ (ISO আলফা-২ কোড), প্রকাশের তারিখ, চাকরির ধরন, রিমোট অপশন এবং অভিজ্ঞতার স্তর অনুযায়ী ফিল্টার করতে পারেন।"
-
-#: src/routes/dashboard/settings/job-search.tsx
-msgid "JSearch API Documentation"
-msgstr "JSearch API ডকুমেন্টেশন"
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
+msgid "JSearch aggregates job listings from multiple job boards. You can filter by country, date posted, job type, remote options, and experience level."
+msgstr "JSearch একাধিক জব বোর্ড থেকে চাকরির বিজ্ঞপ্তি একত্রিত করে। আপনি দেশ, প্রকাশের তারিখ, চাকরির ধরন, রিমোট অপশন এবং অভিজ্ঞতার স্তর অনুযায়ী ফিল্টার করতে পারেন।"
 
 #. Import source option for standard JSON Resume format
 #: src/dialogs/resume/import.tsx
@@ -2199,7 +2201,7 @@ msgstr "মাইক্রোসফট ওয়ার্ড"
 msgid "Minimum Salary"
 msgstr "ন্যূনতম বেতন"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Model"
 msgstr "মডেল"
 
@@ -2317,7 +2319,7 @@ msgid "Odia"
 msgstr "ওড়িয়া"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Ollama"
 msgstr "ওলামা"
 
@@ -2336,26 +2338,26 @@ msgstr "চলমান রক্ষণাবেক্ষণ"
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
-msgid "Open AI Settings"
-msgstr "ওপেন এআই সেটিংস খুলুন"
-
 #. Button label to open the user's default email app
 #: src/routes/auth/forgot-password.tsx
 msgid "Open Email Client"
 msgstr "ইমেইল ক্লায়েন্ট খুলুন"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
+msgid "Open Integrations Settings"
+msgstr "ইন্টিগ্রেশন সেটিংস খুলুন"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Open Source"
 msgstr "মুক্ত উৎস"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenAI"
 msgstr "ওপেনএআই"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "OpenRouter"
 msgstr "ওপেনরাউটার"
 
@@ -2546,7 +2548,7 @@ msgstr "পদবি"
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Presets"
 msgstr "প্রিসেটসমূহ"
 
@@ -2599,7 +2601,7 @@ msgstr "একটি পাসওয়ার্ড দিয়ে আপনা
 msgid "Protect your resume with a password, and let only people with the password view it."
 msgstr "আপনার জীবনবৃত্তান্তকে পাসওয়ার্ড দিয়ে সুরক্ষিত করুন এবং শুধু পাসওয়ার্ড জানা ব্যক্তিদেরই দেখতে দিন।"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Provider"
 msgstr "প্রদানকারী"
 
@@ -2617,7 +2619,7 @@ msgstr "প্রকাশক"
 msgid "Quota: {0} remaining"
 msgstr "কোটা: {0} অবশিষ্ট"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "RapidAPI Key"
 msgstr "RapidAPI কী"
 
@@ -3006,7 +3008,7 @@ msgstr "পাসওয়ার্ড দেখান"
 #: src/components/ui/sidebar.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Sidebar"
-msgstr "সাইডবার"
+msgstr "সাইডবার<<<<<<< HEAD"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/index.tsx
 msgid "Sidebar Width"
@@ -3269,8 +3271,8 @@ msgstr "টেমপ্লেট গ্যালারি"
 msgid "Templates"
 msgstr "টেমপ্লেটসমূহ"
 
-#: src/routes/dashboard/settings/ai.tsx
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Test Connection"
 msgstr "কনেকশন পরীক্ষা করুন"
 
@@ -3715,7 +3717,7 @@ msgstr "ছবি আপলোড করা হচ্ছে..."
 msgid "URL"
 msgstr "URL"
 
-#: src/components/input/rich-input.tsx
+#: src/components/input/color-picker.tsx
 msgid "Use color {color}"
 msgstr "রঙ ব্যবহার করুন {color}"
 
@@ -3739,7 +3741,7 @@ msgid "Valid URLs must start with http:// or https://."
 msgstr "বৈধ URL অবশ্যই http:// বা https:// দিয়ে শুরু হতে হবে।"
 
 #. AI provider option label in dashboard AI settings
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Vercel AI Gateway"
 msgstr "ভার্সেল এআই গেটওয়ে"
 
@@ -3805,7 +3807,7 @@ msgstr "ওয়েবসাইট"
 msgid "What do you want to rename this section to?"
 msgstr "এই বিভাগটির নাম কী রাখতে চান?"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "What is JSearch API?"
 msgstr "JSearch API কী?"
 
@@ -3880,7 +3882,7 @@ msgstr "আপনার পরিবর্তনগুলো স্বয়ং�
 msgid "Your data is secure, and never shared or sold to anyone."
 msgstr "আপনার ডেটা নিরাপদ, এবং কখনোই কাউকে শেয়ার বা বিক্রি করা হয় না।"
 
-#: src/routes/dashboard/settings/ai.tsx
+#: src/routes/dashboard/settings/integrations/-components/ai-section.tsx
 msgid "Your data is stored locally"
 msgstr "আপনার ডেটা স্থানীয়ভাবে সংরক্ষিত থাকে"
 
@@ -3904,7 +3906,7 @@ msgstr "আপনার পাসওয়ার্ড সফলভাবে আ
 msgid "Your profile has been updated successfully."
 msgstr "আপনার প্রোফাইল সফলভাবে আপডেট হয়েছে।"
 
-#: src/routes/dashboard/settings/job-search.tsx
+#: src/routes/dashboard/settings/integrations/-components/job-search-section.tsx
 msgid "Your RapidAPI key is stored locally on your browser. It is only sent to the server when making a request to search for jobs, and is never stored or logged on our servers."
 msgstr "আপনার RapidAPI কী আপনার ব্রাউজারে স্থানীয়ভাবে সংরক্ষিত থাকে। এটি শুধুমাত্র চাকরির অনুসন্ধানের অনুরোধ করার সময় সার্ভারে পাঠানো হয়, এবং আমাদের সার্ভারে কখনোই সংরক্ষিত বা লগ করা হয় না।"
 
