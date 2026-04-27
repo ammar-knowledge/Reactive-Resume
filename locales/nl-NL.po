@@ -8,7 +8,7 @@ msgstr ""
 "Language: nl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-26 08:59\n"
+"PO-Revision-Date: 2026-04-27 08:46\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -81,7 +81,7 @@ msgstr "<0>Eindelijk,</0><1>Een gratis en open-source cv-bouwer</1>"
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Home page FAQ section heading with each word visually separated into individual spans"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>Vaak</0><1>Veelgestelde</1><2>Vragen</2>"
+msgstr "<0>Veelgestelde</0><1>Vragen</1><2></2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
@@ -3062,6 +3062,10 @@ msgstr "Enkelkoloms met een minimale koptekst bovenaan en veel witruimte; strak 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
 msgstr "Enkelkoloms met een zijbalk en strakke rasterindeling; veelzijdig voor elke professionele of technische rol."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "Enkele kolom met een inline kopregel van drie kolommen (positie - organisatie - punt); compact en ATS-vriendelijk, zeer geschikt voor Aziatische cv-conventies (CN/JP/KR)."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."

@@ -8,7 +8,7 @@ msgstr ""
 "Language: hi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-26 08:59\n"
+"PO-Revision-Date: 2026-04-27 08:46\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -81,7 +81,7 @@ msgstr "<0>आख़िरकार,</0><1>एक मुफ़्त और ओ�
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Home page FAQ section heading with each word visually separated into individual spans"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>अक्सर</0><1>पूछे गए</1><2>अक्सर पूछे जाने वाले प्रश्न</2>"
+msgstr "<0>अक्सर</0><1>पूछे गए</1><2>प्रश्न</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
@@ -3064,6 +3064,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "साइडबार और साफ़ ग्रिड लेआउट के साथ सिंगल‑कॉलम; किसी भी पेशेवर या तकनीकी भूमिका के लिए बहुउद्देश्यीय।"
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "एकल-स्तंभ, जिसमें इनलाइन तीन-स्तंभ प्रविष्टि शीर्षक (स्थिति · संगठन · अवधि) शामिल है; संक्षिप्त और ATS-अनुकूल, एशियाई रिज्यूमे परंपराओं (CN/JP/KR) के लिए उपयुक्त।"
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "सिंगल‑कॉलम; वरिष्ठ या एंटरप्राइज़‑स्तरीय पदों के लिए परिष्कृत और गंभीर।"
 
@@ -3090,7 +3094,7 @@ msgstr "स्लोवाक"
 
 #: src/utils/locale.ts
 msgid "Slovenian"
-msgstr ""
+msgstr "स्लोवेनियाई"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"

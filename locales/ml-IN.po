@@ -8,7 +8,7 @@ msgstr ""
 "Language: ml\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-26 08:59\n"
+"PO-Revision-Date: 2026-04-27 08:46\n"
 "Last-Translator: \n"
 "Language-Team: Malayalam\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -81,7 +81,7 @@ msgstr "<0>അവസാനമായി,</0><1>സൗജന്യവും ഓപ
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Home page FAQ section heading with each word visually separated into individual spans"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>പതിവായി</0><1>ചോദിച്ചത്</1><2>ചോദ്യങ്ങൾ</2>"
+msgstr "<0>പതിവായി</0><1>ചോദിക്കപ്പെടുന്ന</1><2>ചോദ്യങ്ങൾ</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
@@ -3064,6 +3064,10 @@ msgid "Single-column with a sidebar and clean grid layout; versatile for any pro
 msgstr "ഒറ്റ കോളമാണ്, സൈഡ്ബാറും ക്ലീൻ ഗ്രിഡ് ലേയൗട്ടും ഉണ്ട്; ഏത് പ്രൊഫഷണലായോ ടെക്കിക്കൽ റോളായോക്കും അനുയോജ്യമായ വിന്യാസം."
 
 #: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "ഒറ്റ കോളത്തിൽ, ഇൻലൈനായി മൂന്ന് കോളങ്ങളുള്ള എൻട്രി ഹെഡർ (സ്ഥാനം · സ്ഥാപനം · കാലയളവ്); സംക്ഷിപ്തവും ATS-സൗഹൃദപരവുമായ ഇത്, ഏഷ്യൻ റെസ്യൂമെ രീതികൾക്ക് (CN/JP/KR) അനുയോജ്യമാണ്."
+
+#: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
 msgstr "ഒറ്റ കോളമാണ്; polished ആയും ഗൗരവതരമായതുമാണ്, സീനിയർ അല്ലെങ്കിൽ എന്റർപ്രൈസ് തലത്തിലെ സ്ഥാനങ്ങൾക്കു പൊരുത്തപ്പെടും."
 
@@ -3090,7 +3094,7 @@ msgstr "സ്ലൊവാക്"
 
 #: src/utils/locale.ts
 msgid "Slovenian"
-msgstr ""
+msgstr "സ്ലോവേനിയൻ"
 
 #: src/dialogs/resume/index.tsx
 msgid "Slug"

@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-04-26 08:59\n"
+"PO-Revision-Date: 2026-04-27 08:46\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -81,7 +81,7 @@ msgstr "<0>Enfin,</0><1>Un outil de création de CV gratuit et open-source</1>"
 #: src/routes/_home/-sections/faq.tsx
 msgctxt "Home page FAQ section heading with each word visually separated into individual spans"
 msgid "<0>Frequently</0><1>Asked</1><2>Questions</2>"
-msgstr "<0>Foire aux questions</0><1>Questions</1><2>Questions fréquemment posées</2>"
+msgstr "<0>Foire</0><1>Aux</1><2>Questions</2>"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "<0>Thank you for using Reactive Resume! This app is a labor of love, created mostly in my spare time, with wonderful support from open-source contributors around the world.</0><1>If Reactive Resume has been helpful to you, and you'd like to help keep it free and open for everyone, please consider making a donation. Every little bit is appreciated!</1>"
@@ -2904,7 +2904,7 @@ msgstr "Type de section"
 #. placeholder {1}: job.employer_name
 #: src/routes/dashboard/job-search/-components/tailor-dialog.tsx
 msgid "Select a resume to tailor for \"{0}\" at {1}. A copy will be created."
-msgstr "Sélectionnez un CV à adapter pour \"{0}\" à {1}. Une copie sera créée."
+msgstr "Sélectionnez un CV à adapter à \"{0}\" à l'adresse {1}. Une copie sera créée."
 
 #: src/routes/dashboard/job-search/-components/search-filters.tsx
 msgid "Select country"
@@ -3062,6 +3062,10 @@ msgstr "Une seule colonne avec un entête supérieur minimal et beaucoup d'espac
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column with a sidebar and clean grid layout; versatile for any professional or technical role."
 msgstr "Une seule colonne avec un encart et une disposition en grille propre ; polyvalent pour tout rôle professionnel ou technique."
+
+#: src/dialogs/resume/template/data.ts
+msgid "Single-column with an inline three-column entry header (position · organization · period); compact and ATS-friendly, well-suited for Asian resume conventions (CN/JP/KR)."
+msgstr "Colonne unique avec un en-tête d'entrée en ligne sur trois colonnes (poste - organisation - point) ; compact et adapté aux ATS, bien adapté aux conventions asiatiques en matière de curriculum vitae (CN/JP/KR)."
 
 #: src/dialogs/resume/template/data.ts
 msgid "Single-column; polished and serious for senior or enterprise-level positions."
