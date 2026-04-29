@@ -15,6 +15,7 @@ import { username } from "better-auth/plugins/username";
 import { eq, or } from "drizzle-orm";
 import { createElement } from "react";
 
+import { rateLimitConfig } from "@/integrations/rate-limit/config";
 import { env } from "@/utils/env";
 import { hashPassword, verifyPassword } from "@/utils/password";
 import { generateId, toUsername } from "@/utils/string";
@@ -25,6 +26,7 @@ import { db } from "../drizzle/client";
 import { lower } from "../drizzle/helpers";
 import { sendEmail } from "../email/service";
 import { ResetPasswordEmail, VerifyEmail, VerifyEmailChange } from "../email/templates/auth";
+import { TRUSTED_IP_HEADERS } from "../orpc/rate-limit";
 
 export const authBaseUrl = process.env.BETTER_AUTH_URL ?? env.APP_URL;
 
@@ -240,21 +242,7 @@ const getAuthConfig = () => {
 
     telemetry: { enabled: false },
     trustedOrigins: TRUSTED_ORIGINS,
-    rateLimit: {
-      enabled: true,
-      window: 60,
-      max: 60,
-      customRules: {
-        "/sign-in/email": { window: 60, max: 5 },
-        "/sign-up/email": { window: 60, max: 3 },
-        "/request-password-reset": { window: 600, max: 3 },
-        "/send-verification-email": { window: 600, max: 3 },
-        "/two-factor/verify-otp": { window: 600, max: 5 },
-        "/two-factor/verify-totp": { window: 600, max: 5 },
-        "/two-factor/verify-backup-code": { window: 600, max: 5 },
-        "/is-username-available": { window: 60, max: 20 },
-      },
-    },
+    rateLimit: rateLimitConfig.betterAuth.global,
 
     hooks: {
       before: createAuthMiddleware(async (ctx) => {
@@ -279,7 +267,7 @@ const getAuthConfig = () => {
     advanced: {
       database: { generateId },
       useSecureCookies: env.APP_URL.startsWith("https://"),
-      ipAddress: { ipAddressHeaders: ["x-forwarded-for", "cf-connecting-ip"] },
+      ipAddress: { ipAddressHeaders: TRUSTED_IP_HEADERS },
     },
 
     emailAndPassword: {
@@ -385,8 +373,7 @@ const getAuthConfig = () => {
       passkey(),
       genericOAuth({ config: authConfigs }),
       twoFactor({ issuer: "Reactive Resume" }),
-      apiKey({ enableSessionForAPIKeys: true, rateLimit: { enabled: true } }),
-      dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } }),
+      apiKey({ enableSessionForAPIKeys: true, rateLimit: rateLimitConfig.betterAuth.apiKey }),
       oauthProvider({
         loginPage: "/auth/oauth",
         consentPage: "/auth/oauth",
@@ -395,14 +382,7 @@ const getAuthConfig = () => {
         // Required for MCP client onboarding (RFC 7591). Phishing vector is closed by the
         // redirect_uri allowlist in the hooks.before middleware above and in src/routes/api/auth.$.ts.
         allowUnauthenticatedClientRegistration: true,
-        rateLimit: {
-          register: { window: 60, max: 5 },
-          authorize: { window: 60, max: 30 },
-          token: { window: 60, max: 20 },
-          introspect: { window: 60, max: 60 },
-          revoke: { window: 60, max: 30 },
-          userinfo: { window: 60, max: 60 },
-        },
+        rateLimit: rateLimitConfig.betterAuth.oauthProvider,
         silenceWarnings: { oauthAuthServerConfig: true },
       }),
       username({
@@ -413,6 +393,9 @@ const getAuthConfig = () => {
         usernameValidator: (username) => /^[a-z0-9._-]+$/.test(username),
         validationOrder: { username: "post-normalization", displayUsername: "post-normalization" },
       }),
+      ...(env.BETTER_AUTH_API_KEY
+        ? [dash({ apiKey: env.BETTER_AUTH_API_KEY, activityTracking: { enabled: true } })]
+        : []),
     ],
   });
 };
