@@ -121,7 +121,7 @@ export function RichInput({ value, onChange, style, className, editorClassName, 
 				"data-editor": "true",
 				"data-fullscreen": isFullscreen ? "true" : "false",
 				class: cn(
-					"group/editor overflow-y-auto p-3 pb-4",
+					"wysiwyg group/editor overflow-y-auto p-3 pb-4",
 					"rounded-md rounded-t-none border outline-none focus-visible:border-ring",
 					"[td:has(.selectedCell)]:bg-primary",
 					"data-[fullscreen=false]:max-h-[400px] data-[fullscreen=false]:min-h-[100px]",

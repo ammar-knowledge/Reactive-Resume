@@ -13,7 +13,15 @@ export const composeStyles = (...styles: StyleInput[]): Style[] => {
 	});
 };
 
+const linkUnderlineStyle = { textDecoration: "underline" } satisfies Style;
+
+export const composeLinkStyles = (...styles: StyleInput[]): Style[] => composeStyles(...styles, linkUnderlineStyle);
+
 export const mergeStyles = (...styles: StyleInput[]): Style => Object.assign({}, ...composeStyles(...styles));
+
+export const mergeLinkStyles = (...styles: StyleInput[]): Style => mergeStyles(...styles, linkUnderlineStyle);
+
+export const headerNameLineHeight = 1.2;
 
 export type ResolvePlacementColorOptions = {
 	placement: TemplatePlacement;
