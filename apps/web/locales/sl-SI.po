@@ -8,7 +8,7 @@ msgstr ""
 "Language: sl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-07 14:32\n"
+"PO-Revision-Date: 2026-05-08 14:06\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -461,10 +461,6 @@ msgstr "Označen seznam"
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "By the community, for the community."
 msgstr "Od skupnosti, za skupnost."
-
-#: src/routes/_home/-sections/faq.tsx
-msgid "Can I customize the templates?"
-msgstr "Ali lahko prilagodim predloge?"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Can I export my resume to PDF?"
@@ -1391,7 +1387,7 @@ msgstr "Ste pozabili svoje geslo?"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
@@ -1399,7 +1395,7 @@ msgstr "Brezplačno"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Free-form"
-msgstr ""
+msgstr "Prosta oblika"
 
 #: src/libs/locale.ts
 msgid "French"
@@ -2366,11 +2362,6 @@ msgstr "Pravokotnik"
 msgid "Rectangle (Full Width)"
 msgstr "Pravokotnik (polna širina)"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Redo (Ctrl+Y)"
-msgstr "Ponovi (Ctrl+Y)"
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -2986,7 +2977,7 @@ msgstr "To je ime vašega življenjepisa, ki je prijazno do URL-jev."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "To lahko traja nekaj minut, odvisno od odziva AI ponudnika. Prosimo, ne zaprite okna ali osvežite strani."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Ta življenjepis je zaklenjen in ga ni mogoče posodobiti."
 
@@ -3037,6 +3028,10 @@ msgstr "Za izbris računa morate vnesti potrditveno besedilo in klikniti spodnji
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Toggle left sidebar"
 msgstr "Toggle leva stranska vrstica"
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Toggle page stacking"
+msgstr "Preklopi zlaganje strani"
 
 #. Screen-reader label for opening or closing the right sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3140,11 +3135,6 @@ msgstr "ukrajinščina"
 #: src/components/input/rich-input.tsx
 msgid "Underline"
 msgstr "Podčrtano"
-
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Undo (Ctrl+Z)"
-msgstr "Razveljavi (Ctrl+Z)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -3392,10 +3382,6 @@ msgid "Yes, Reactive Resume is available in multiple languages. You can choose y
 msgstr "Da, Reactive Resume je na voljo v več jezikih. Želeni jezik lahko izberete na strani z nastavitvami ali z izbirnikom jezika v zgornjem desnem kotu. Če svojega jezika ne najdete ali bi želeli izboljšati obstoječe prevode, lahko <0>prispevate prevode na Crowdin<1> (odpre se v novem zavihku)</1></0>."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
-msgstr "Da! Vsaka predloga je popolnoma prilagodljiva. Lahko spremenite barve, pisave, razmike in celo napišete svoj CSS za popoln nadzor nad videzom vašega življenjepisa."
-
-#: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "Da! Reactive Življenjepis je popolnoma brezplačen za uporabo, brez skritih stroškov, premium nivojev ali naročnin. Je odprtokoden in bo vedno ostal brezplačen."
 
@@ -3444,7 +3430,7 @@ msgstr "Vaši podatki so shranjeni lokalno"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Vaši podatki so varno shranjeni in se nikoli ne delijo s tretjimi osebami. Reactive Življenjepis lahko tudi gostite sami na svojih strežnikih za popoln nadzor nad svojimi podatki."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Vaših zadnjih sprememb ni bilo mogoče shraniti."
 
@@ -3501,3 +3487,4 @@ msgstr "Oddalji"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zuluščina"
+

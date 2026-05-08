@@ -8,7 +8,7 @@ msgstr ""
 "Language: id\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-07 14:32\n"
+"PO-Revision-Date: 2026-05-08 14:06\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -461,10 +461,6 @@ msgstr "Daftar Poin"
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "By the community, for the community."
 msgstr "Oleh komunitas, untuk komunitas."
-
-#: src/routes/_home/-sections/faq.tsx
-msgid "Can I customize the templates?"
-msgstr "Bisakah saya menyesuaikan template?"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Can I export my resume to PDF?"
@@ -1391,7 +1387,7 @@ msgstr "Lupa kata sandi Anda?"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
@@ -1399,7 +1395,7 @@ msgstr "Gratis"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Free-form"
-msgstr ""
+msgstr "Bentuk bebas"
 
 #: src/libs/locale.ts
 msgid "French"
@@ -2366,11 +2362,6 @@ msgstr "Persegi Panjang"
 msgid "Rectangle (Full Width)"
 msgstr "Persegi Panjang (Lebar Penuh)"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Redo (Ctrl+Y)"
-msgstr "Ulangi (Ctrl+Y)"
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -2986,7 +2977,7 @@ msgstr "Ini adalah nama yang ramah URL untuk resume Anda."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Ini mungkin memakan waktu beberapa menit, tergantung respons penyedia AI. Harap jangan menutup jendela atau memuat ulang halaman."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Resume ini dikunci dan tidak dapat diperbarui."
 
@@ -3037,6 +3028,10 @@ msgstr "Untuk menghapus akun Anda, Anda perlu memasukkan teks konfirmasi dan kli
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Toggle left sidebar"
 msgstr "Beralih ke bilah sisi kiri"
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Toggle page stacking"
+msgstr "Alihkan penumpukan halaman"
 
 #. Screen-reader label for opening or closing the right sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3140,11 +3135,6 @@ msgstr "Ukraina"
 #: src/components/input/rich-input.tsx
 msgid "Underline"
 msgstr "Garis Bawah"
-
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Undo (Ctrl+Z)"
-msgstr "Batalkan (Ctrl+Z)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -3392,10 +3382,6 @@ msgid "Yes, Reactive Resume is available in multiple languages. You can choose y
 msgstr "Ya, Reactive Resume tersedia dalam banyak bahasa. Anda dapat memilih bahasa pilihan Anda di halaman pengaturan, atau menggunakan pengalih bahasa di sudut kanan atas. Jika Anda tidak melihat bahasa Anda, atau ingin meningkatkan terjemahan yang ada, Anda dapat <0>berkontribusi pada terjemahan di Crowdin<1> (terbuka di tab baru)</1></0>."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
-msgstr "Ya! Setiap template sepenuhnya dapat disesuaikan. Anda dapat mengubah warna, font, jarak, dan bahkan menulis CSS kustom untuk kontrol penuh atas tampilan resume Anda."
-
-#: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "Ya! Reactive Resume sepenuhnya gratis digunakan, tanpa biaya tersembunyi, tingkat premium, atau biaya langganan. Ini bersumber terbuka dan akan selalu tetap gratis."
 
@@ -3444,7 +3430,7 @@ msgstr "Data Anda disimpan secara lokal"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Data Anda disimpan dengan aman dan tidak pernah dibagikan dengan pihak ketiga. Anda juga dapat self-host Reactive Resume di server Anda sendiri untuk kontrol penuh atas data Anda."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "Perubahan terbaru Anda tidak dapat disimpan."
 
@@ -3501,3 +3487,4 @@ msgstr "Perkecil"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

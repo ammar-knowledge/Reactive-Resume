@@ -8,7 +8,7 @@ msgstr ""
 "Language: uz\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-07 14:32\n"
+"PO-Revision-Date: 2026-05-08 14:06\n"
 "Last-Translator: \n"
 "Language-Team: Uzbek\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -461,10 +461,6 @@ msgstr "Nuqta roʻyxati"
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "By the community, for the community."
 msgstr "Jamiyat tomonidan, jamiyat uchun."
-
-#: src/routes/_home/-sections/faq.tsx
-msgid "Can I customize the templates?"
-msgstr "Shablonlarni moslashtira olamanmi?"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Can I export my resume to PDF?"
@@ -1391,7 +1387,7 @@ msgstr "Parolingizni unutdingizmi?"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
@@ -1399,7 +1395,7 @@ msgstr "Bepul"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Free-form"
-msgstr ""
+msgstr "Erkin shakl"
 
 #: src/libs/locale.ts
 msgid "French"
@@ -2366,11 +2362,6 @@ msgstr "Toʻgʻri burchakli"
 msgid "Rectangle (Full Width)"
 msgstr "Toʻgʻri burchakli (toʻliq kenglik)"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Redo (Ctrl+Y)"
-msgstr "Qayta bajarish (Ctrl+Y)"
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -2986,7 +2977,7 @@ msgstr "Bu rezyume uchun URL uchun qulay ism."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "Bu AI provayderining javobiga qarab bir necha daqiqa davom etishi mumkin. Iltimos, oynani yoping yoki sahifani yangilamang."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "Ushbu rezyume bloklangan va yangilab boʻlmaydi."
 
@@ -3037,6 +3028,10 @@ msgstr "Hisobingizni oʻchirish uchun tasdiqlash matnini kiriting va quyidagi tu
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Toggle left sidebar"
 msgstr "Chap yon panelni yoqish/o'chirish"
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Toggle page stacking"
+msgstr "Sahifalarni joylashtirishni yoqish/o'chirish"
 
 #. Screen-reader label for opening or closing the right sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3140,11 +3135,6 @@ msgstr "Ukrain tili"
 #: src/components/input/rich-input.tsx
 msgid "Underline"
 msgstr "Tagiga chizilgan"
-
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Undo (Ctrl+Z)"
-msgstr "Bekor qilish (Ctrl+Z)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -3392,10 +3382,6 @@ msgid "Yes, Reactive Resume is available in multiple languages. You can choose y
 msgstr "Ha, Reactive Resume bir nechta tillarda mavjud. Siz sozlamalar sahifasida yoki yuqori o'ng burchakdagi til almashtirgich yordamida o'zingizga qulay tilni tanlashingiz mumkin. Agar tilingiz ro'yxatda bo'lmasa yoki mavjud tarjimalarni yaxshilashni istasangiz, <0>Crowdin'da tarjimalarga hissa qo'shishingiz mumkin<1> (yangi tabda ochiladi)</1></0>."
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
-msgstr "Ha! Har bir shablonni to‘liq moslashtirish mumkin. Ranglar, shriftlar, oraliqlarni o‘zgartirishingiz yoki rezyumening ko‘rinishini to‘liq boshqarish uchun o‘zingiz CSS yozishingiz mumkin."
-
-#: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "Ha! Reactive Resume’dan foydalanish butunlay bepul — yashirin toʻlovlar, premium darajalar yoki obuna haqqi yoʻq. Ochiq kodli va har doim bepul boʻlib qoladi."
 
@@ -3444,7 +3430,7 @@ msgstr "Maʼlumotlaringiz lokal tarzda saqlanadi"
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "Maʼlumotlaringiz xavfsiz saqlanadi va uchinchi tomonlarga hech qachon ulashilmaydi. Shuningdek, rezyume qurilmasini o‘z serverlaringizda mustaqil joylashtirishingiz va maʼlumotlaringiz ustidan to‘liq nazorat qilishingiz mumkin."
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "So'nggi o'zgarishlaringizni saqlab bo'lmadi."
 
@@ -3501,3 +3487,4 @@ msgstr "Kichraytirish"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

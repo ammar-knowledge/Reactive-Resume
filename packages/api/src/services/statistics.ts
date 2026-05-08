@@ -3,7 +3,8 @@ import { dirname, join } from "node:path";
 import { count } from "drizzle-orm";
 import { db } from "@reactive-resume/db/client";
 import * as schema from "@reactive-resume/db/schema";
-import { getLocalDataDirectory } from "../helpers/local-data-directory";
+import { env } from "@reactive-resume/env/server";
+import { getLocalDataDirectory } from "@reactive-resume/utils/monorepo.node";
 
 const CACHE_DURATION_MS = 6 * 60 * 60 * 1000; // 6 hours
 const GITHUB_API_URL = "https://api.github.com/repos/amruthpillai/reactive-resume";
@@ -16,7 +17,7 @@ const LAST_KNOWN = {
 	stars: 34_073,
 } as const;
 
-const getCachePath = (key: string) => join(getLocalDataDirectory(), "statistics", `${key}.txt`);
+const getCachePath = (key: string) => join(getLocalDataDirectory(env.LOCAL_STORAGE_PATH), "statistics", `${key}.txt`);
 
 const readCache = async (key: string): Promise<number | null> => {
 	try {

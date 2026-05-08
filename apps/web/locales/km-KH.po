@@ -8,7 +8,7 @@ msgstr ""
 "Language: km\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-07 14:32\n"
+"PO-Revision-Date: 2026-05-08 14:06\n"
 "Last-Translator: \n"
 "Language-Team: Khmer\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -461,10 +461,6 @@ msgstr "បញ្ជី​មាន​គ្រាប់ចំណុច"
 #: src/routes/_home/-sections/prefooter.tsx
 msgid "By the community, for the community."
 msgstr "ដោយ​សហគមន៍ សម្រាប់​សហគមន៍។"
-
-#: src/routes/_home/-sections/faq.tsx
-msgid "Can I customize the templates?"
-msgstr "តើ​ខ្ញុំ​អាច​ប្ដូរ​តាមបំណង​គំរូ​ទាំង​នេះ​បាន​ទេ?"
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Can I export my resume to PDF?"
@@ -1391,7 +1387,7 @@ msgstr "ភ្លេច​ពាក្យសម្ងាត់​របស់​
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgctxt "Page Format (A4, Letter, Free-form)"
 msgid "Format"
-msgstr ""
+msgstr "ទ្រង់ទ្រាយ"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Free"
@@ -1399,7 +1395,7 @@ msgstr "ឥត​គិតថ្លៃ"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
 msgid "Free-form"
-msgstr ""
+msgstr "ទម្រង់សេរី"
 
 #: src/libs/locale.ts
 msgid "French"
@@ -2366,11 +2362,6 @@ msgstr "ចតុកោណ"
 msgid "Rectangle (Full Width)"
 msgstr "ចតុកោណ (ទទឹង​ពេញ)"
 
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Redo (Ctrl+Y)"
-msgstr "ធ្វើម្ដងទៀត (Ctrl+Y)"
-
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -2986,7 +2977,7 @@ msgstr "នេះ​ជា​ឈ្មោះ​ងាយ​ស្រួល​ស
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "វា​អាច​ចំណាយ​ពេល​ពីរ​នាទី អាស្រ័យ​លើ​ការ​ឆ្លើយតប​របស់​អ្នកផ្តល់​សេវា AI។ សូម​កុំ​បិទ​បង្អួច​នេះ ឬ​ផ្ទុក​ទំព័រ​ឡើង​វិញ។"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "This resume is locked and cannot be updated."
 msgstr "ប្រវត្តិរូប​នេះ​ត្រូវ​បាន​ចាក់សោ ហើយ​មិន​អាច​បច្ចុប្បន្នភាព​បាន​ទេ។"
 
@@ -3037,6 +3028,10 @@ msgstr "ដើម្បី​លុប​គណនី​របស់​អ្ន
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Toggle left sidebar"
 msgstr "បិទបើករបារចំហៀងខាងឆ្វេង"
+
+#: src/routes/builder/$resumeId/-components/dock.tsx
+msgid "Toggle page stacking"
+msgstr "បិទ/បើកការដាក់ទំព័រជាស្រទាប់ៗ"
 
 #. Screen-reader label for opening or closing the right sidebar in resume builder
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -3140,11 +3135,6 @@ msgstr "Ukrainian"
 #: src/components/input/rich-input.tsx
 msgid "Underline"
 msgstr "គូស​បន្ទាត់​ក្រោម"
-
-#: src/routes/builder/$resumeId/-components/dock.tsx
-msgctxt "'Ctrl' may be replaced with the locale-specific equivalent (e.g. 'Strg' for QWERTZ layouts)."
-msgid "Undo (Ctrl+Z)"
-msgstr "មិនធ្វើវិញ (Ctrl+Z)"
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Unlimited Resumes"
@@ -3392,10 +3382,6 @@ msgid "Yes, Reactive Resume is available in multiple languages. You can choose y
 msgstr "បាទ Reactive Resume អាច​ប្រើ​បាន​ជា​ភាសា​ច្រើន។ អ្នក​អាច​ជ្រើស​ភាសា​ដែល​អ្នក​ពេញចិត្ត​នៅលើ​ទំព័រ​ការកំណត់ ឬ​ដោយ​ប្រើ​កម្មវិធី​ប្ដូរ​ភាសា​នៅ​កូណឺ​ឆ្វេងលើ។ បើ​អ្នក​មិន​ឃើញ​ភាសា​របស់​អ្នក ឬ​ចង់​ធ្វើ​ឱ្យ​ការ​បកប្រែ​ដែល​មាន​ស្រាប់​ប្រសើរ​ឡើង អ្នក​អាច <0>ចូលរួម​បកប្រែនៅលើ Crowdin<1> (បើក​ក្នុង​ផ្ទាំង​ថ្មី)</1></0>។"
 
 #: src/routes/_home/-sections/faq.tsx
-msgid "Yes! Every template is fully customizable. You can change colors, fonts, spacing, and even write custom CSS for complete control over your resume's appearance."
-msgstr "បាទ! គំរូ​នីមួយៗ​អាច​ប្ដូរ​តាមបំណង​បាន​ទាំងស្រុង។ អ្នក​អាច​ប្តូរ​ពណ៌ ពុម្ពអក្សរ គម្លាត និង​សរសេរ CSS ផ្ទាល់ខ្លួន ដើម្បី​ត្រួតត្រា​លើ​រូបរាង​ប្រវត្តិរូប​របស់​អ្នក​បាន​ពេញលេញ។"
-
-#: src/routes/_home/-sections/faq.tsx
 msgid "Yes! Reactive Resume is completely free to use, with no hidden costs, premium tiers, or subscription fees. It's open-source and will always remain free."
 msgstr "បាទ! Reactive Resume គឺ​ឥតគិតថ្លៃ​ទាំងស្រុង គ្មាន​ចំនាយ​លាក់កំបាំង កម្រិត​ពិសេស ឬ​កម្រៃ​ជាវ​ប្រចាំខែ​ទេ។ វា​បើក​ប្រភព ហើយ​នឹង​នៅ​តែ​ឥតគិតថ្លៃ​ជា​រៀងរហូត។"
 
@@ -3444,7 +3430,7 @@ msgstr "ទិន្នន័យ​របស់​អ្នក​ត្រូវ
 msgid "Your data is stored securely and is never shared with third parties. You can also self-host Reactive Resume on your own servers for complete control over your data."
 msgstr "ទិន្នន័យ​របស់​អ្នក​ត្រូវ​បាន​រក្សាទុក​ដោយ​សុវត្ថិភាព ហើយ​មិនដែល​ត្រូវ​បាន​ចែករំលែក​ជាមួយ​ភាគី​ទីបី​ទេ។ អ្នក​ក៏​អាច​ដំឡើង Reactive Resume លើ​ម៉ាស៊ីន​បម្រើ​ផ្ទាល់ខ្លួន​របស់​អ្នក ដើម្បី​មាន​សិទ្ធિ​ត្រួតត្រា​លើ​ទិន្នន័យ​របស់​អ្នក​ដល់​ខ្ពស់​បំផុត​ផង​ដែរ។"
 
-#: src/components/resume/use-resume.ts
+#: src/components/resume/builder-resume-draft.ts
 msgid "Your latest changes could not be saved."
 msgstr "មិនអាចរក្សាទុកការផ្លាស់ប្តូរចុងក្រោយបំផុតរបស់អ្នកបានទេ។"
 
@@ -3501,3 +3487,4 @@ msgstr "បង្រួម"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
