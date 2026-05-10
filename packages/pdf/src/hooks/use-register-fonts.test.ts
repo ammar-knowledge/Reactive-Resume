@@ -44,7 +44,6 @@ describe("registerFonts", () => {
 
 	it("registers CJK PDF fallbacks for normal and italic text styles", async () => {
 		const registerSpy = vi.spyOn(Font, "register").mockImplementation(() => {});
-		vi.spyOn(Font, "registerHyphenationCallback").mockImplementation(() => {});
 		const cjkFallbackSource = getWebFontSource("Noto Serif SC", "400", false);
 		const { registerFonts } = await import("./use-register-fonts");
 
@@ -72,7 +71,6 @@ describe("registerFonts", () => {
 
 	it("uses the full CJK font source for synthetic italic variants when the CJK font is primary", async () => {
 		const registerSpy = vi.spyOn(Font, "register").mockImplementation(() => {});
-		vi.spyOn(Font, "registerHyphenationCallback").mockImplementation(() => {});
 		const cjkFallbackSource = getWebFontSource("Noto Serif SC", "400", false);
 		const { registerFonts } = await import("./use-register-fonts");
 
@@ -86,5 +84,19 @@ describe("registerFonts", () => {
 				src: cjkFallbackSource,
 			}),
 		);
+	});
+
+	it("returns typography with font weights sorted ascending", async () => {
+		vi.spyOn(Font, "register").mockImplementation(() => {});
+		const { registerFonts } = await import("./use-register-fonts");
+
+		const pdfTypography = registerFonts({
+			...typography,
+			body: { ...typography.body, fontFamily: "Source Sans 3", fontWeights: ["800", "600", "400"] },
+			heading: { ...typography.heading, fontFamily: "Source Sans 3", fontWeights: ["900", "500"] },
+		});
+
+		expect(pdfTypography.body.fontWeights).toEqual(["400", "600", "800"]);
+		expect(pdfTypography.heading.fontWeights).toEqual(["500", "900"]);
 	});
 });
