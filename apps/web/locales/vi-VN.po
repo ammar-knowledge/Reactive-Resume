@@ -8,7 +8,7 @@ msgstr ""
 "Language: vi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-10 15:36\n"
+"PO-Revision-Date: 2026-05-11 12:13\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1034,6 +1034,10 @@ msgstr "Ngắt kết nối"
 msgid "Discord"
 msgstr "Discord"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Dismiss"
+msgstr "Miễn nhiệm"
+
 #: src/routes/_home/-sections/footer.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Documentation"
@@ -1042,6 +1046,10 @@ msgstr "Tài liệu"
 #: src/routes/auth/login.tsx
 msgid "Don't have an account? <0/>"
 msgstr "Chưa có tài khoản? <0/>"
+
+#: src/components/ui/donation-toast.tsx
+msgid "Donate"
+msgstr "Quyên tặng"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/information.tsx
 msgid "Donate to Reactive Resume"
@@ -2320,6 +2328,10 @@ msgstr "Vui lòng nhập mật khẩu được chủ sở hữu sơ yếu lý l�
 msgid "Please enter the URL you want to link to:"
 msgstr "Vui lòng nhập URL bạn muốn liên kết đến:"
 
+#: src/components/ui/donation-toast.tsx
+msgid "Please support the project"
+msgstr "Hãy ủng hộ dự án!"
+
 #: src/routes/$username/-components/public-resume.tsx
 #: src/routes/builder/$resumeId/-components/dock.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
@@ -2457,6 +2469,10 @@ msgstr "Reactive Resume là một dự án mã nguồn mở & miễn phí, đư�
 #: src/routes/_home/-sections/hero.tsx
 msgid "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume."
 msgstr "Reactive Resume là trình tạo sơ yếu lý lịch mã nguồn mở & miễn phí, giúp đơn giản hóa quá trình tạo, cập nhật và chia sẻ sơ yếu lý lịch của bạn."
+
+#: src/components/ui/donation-toast.tsx
+msgid "Reactive Resume is free and open source. If it has helped you, please consider donating."
+msgstr "Reactive Resume là phần mềm mã nguồn mở miễn phí. Nếu thấy hữu ích, xin vui lòng xem xét quyên góp."
 
 #: src/routes/_home/-sections/faq.tsx
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
