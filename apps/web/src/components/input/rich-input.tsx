@@ -86,11 +86,7 @@ const extensions = [
 	}),
 	TextStyle,
 	Color,
-	Highlight.configure({
-		HTMLAttributes: {
-			class: "rounded-md px-0.5 py-px",
-		},
-	}),
+	Highlight.configure(),
 	TextAlign.configure({ types: ["heading", "paragraph", "listItem"] }),
 	TableKit.configure(),
 ];
