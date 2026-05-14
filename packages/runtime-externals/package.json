@@ -4,8 +4,10 @@
 	"type": "module",
 	"private": true,
 	"dependencies": {
-		"@aws-sdk/client-s3": "^3.1045.0",
+		"@aws-sdk/client-s3": "^3.1046.0",
 		"bcrypt": "^6.0.0",
+		"ioredis": "^5.10.1",
+		"linkedom": "^0.18.12",
 		"sharp": "^0.34.5"
 	}
 }
