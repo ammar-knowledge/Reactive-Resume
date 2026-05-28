@@ -2,14 +2,18 @@ import type { Style } from "@react-pdf/types";
 import type { IconName } from "phosphor-icons-react-pdf/dynamic";
 import { useRender } from "../../context";
 import { View } from "../../renderer";
-import { useTemplateIconSlot, useTemplateStyle } from "./context";
+import { useSectionStyleRule, useTemplateIconSlot, useTemplateStyle } from "./context";
 import { getTemplateMetrics } from "./metrics";
 import { Icon } from "./primitives";
 import { composeStyles } from "./styles";
 
 const LEVEL_ITEM_KEYS = ["level-1", "level-2", "level-3", "level-4", "level-5"] as const;
 
-export const LevelDisplay = ({ level }: { level: number }) => {
+type LevelDisplayProps = {
+	level: number;
+};
+
+export const LevelDisplay = ({ level }: LevelDisplayProps) => {
 	const data = useRender();
 	const levelDesign = data.metadata.design.level;
 	const iconSize = data.metadata.typography.body.fontSize - 2;
@@ -19,6 +23,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 	const levelItemStyle = useTemplateStyle("levelItem");
 	const levelItemActiveStyle = useTemplateStyle("levelItemActive");
 	const levelItemInactiveStyle = useTemplateStyle("levelItemInactive");
+	const levelRuleStyle = useSectionStyleRule("level");
 	const color = typeof iconProps.color === "string" ? iconProps.color : "#000000";
 
 	if (level === 0) return null;
@@ -40,6 +45,7 @@ export const LevelDisplay = ({ level }: { level: number }) => {
 			style={composeStyles(
 				{ flexDirection: "row", alignItems: "center", marginTop: 2, columnGap: gap },
 				levelContainerStyle,
+				levelRuleStyle,
 			)}
 		>
 			{LEVEL_ITEM_KEYS.map((itemKey, index) => {

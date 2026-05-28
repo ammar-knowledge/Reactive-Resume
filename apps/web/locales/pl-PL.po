@@ -8,7 +8,7 @@ msgstr ""
 "Language: pl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-21 07:54\n"
+"PO-Revision-Date: 2026-05-27 21:53\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
@@ -373,6 +373,10 @@ msgstr "Aplikacja"
 msgid "Application Statistics"
 msgstr "Statystyki aplikacji"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr "Zastosowane zasady"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabski"
@@ -671,6 +675,10 @@ msgstr "Koło"
 msgid "Clear"
 msgstr "Wyczyść"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr "Wyczyść wybór"
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Kliknij tutaj, aby wybrać plik do importu"
@@ -952,6 +960,10 @@ msgstr "Niestandardowy OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Sekcje niestandardowe"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr "Style niestandardowe"
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Nie zarejestrowano jeszcze żadnych kluczy dostępu."
 msgid "No results found."
 msgstr "Brak wyników."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr "Nie ma jeszcze reguł dotyczących stylu."
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Brak sprawdzonego dostawcy"
@@ -2714,6 +2730,10 @@ msgstr "Zresetuj"
 msgid "Reset Password"
 msgstr "Zresetuj hasło"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr "Resetuj styl"
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Zresetuj swoje hasło"
@@ -2789,6 +2809,14 @@ msgstr "Rumuński"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Obrót"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr "reguła"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr "zasady"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3707,6 +3735,10 @@ msgstr "Aktualizowanie hasła..."
 #: src/dialogs/resume/index.tsx
 msgid "Updating your resume..."
 msgstr "Aktualizowanie CV..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr "Prześlij załączniki"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"

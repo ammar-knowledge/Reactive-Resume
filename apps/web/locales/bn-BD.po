@@ -8,7 +8,7 @@ msgstr ""
 "Language: bn\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-21 07:54\n"
+"PO-Revision-Date: 2026-05-27 21:53\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -373,6 +373,10 @@ msgstr "অ্যাপ"
 msgid "Application Statistics"
 msgstr "অ্যাপ্লিকেশন পরিসংখ্যান"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr "প্রয়োগকৃত নিয়মাবলী"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "আরবি"
@@ -671,6 +675,10 @@ msgstr "বৃত্ত"
 msgid "Clear"
 msgstr "স্বচ্ছ"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr "নির্বাচন পরিষ্কার করুন"
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ইমপোর্ট করার জন্য এখান ক্লিক করে একটি ফাইল নির্বাচন করুন"
@@ -952,6 +960,10 @@ msgstr "কাস্টম OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "কাস্টম বিভাগসমূহ"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr "কাস্টম স্টাইল"
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "এখনও কোনো পাসকি নিবন্ধিত হ�
 msgid "No results found."
 msgstr "কোন ফলাফল খুঁজে পাওয়া যায়নি।"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr "এখনো কোনো স্টাইল নিয়ম ঠিক করা হয়নি।"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "কোন পরীক্ষিত সরবরাহকারী নেই"
@@ -2714,6 +2730,10 @@ msgstr "রিসেট"
 msgid "Reset Password"
 msgstr "পাসওয়ার্ড রিসেট করুন"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr "স্টাইল রিসেট করুন"
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "আপনার পাসওয়ার্ড রিসেট করুন"
@@ -2789,6 +2809,14 @@ msgstr "রোমানিয়ান"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "রোটেশন"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr "নিয়ম"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr "নিয়ম"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3707,6 +3735,10 @@ msgstr "আপনার পাসওয়ার্ড আপডেট করা
 #: src/dialogs/resume/index.tsx
 msgid "Updating your resume..."
 msgstr "আপনার জীবনবৃত্তান্ত আপডেট করা হচ্ছে..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr "সংযুক্তি আপলোড করুন"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"

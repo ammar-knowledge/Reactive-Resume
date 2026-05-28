@@ -8,7 +8,7 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-21 07:54\n"
+"PO-Revision-Date: 2026-05-27 21:53\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -373,6 +373,10 @@ msgstr "App"
 msgid "Application Statistics"
 msgstr "Anwendungsstatistiken"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr "Angewandte Regeln"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "Arabisch"
@@ -671,6 +675,10 @@ msgstr "Kreis"
 msgid "Clear"
 msgstr "Klar"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr "Auswahl löschen"
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "Hier klicken, um eine Datei zum Importieren auszuwählen"
@@ -952,6 +960,10 @@ msgstr "Benutzerdefiniertes OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "Benutzerdefinierte Abschnitte"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr "Benutzerdefinierte Stile"
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "Noch keine Passkeys registriert."
 msgid "No results found."
 msgstr "Keine Ergebnisse gefunden."
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr "Noch keine Stilregeln."
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "Kein geprüfter Anbieter"
@@ -2714,6 +2730,10 @@ msgstr "Zurücksetzen"
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr "Stil zurücksetzen"
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "Setzen Sie Ihr Passwort zurück"
@@ -2789,6 +2809,14 @@ msgstr "Rumänisch"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "Drehung"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr "Regel"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr "Regeln"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3707,6 +3735,10 @@ msgstr "Ihr Passwort wird aktualisiert..."
 #: src/dialogs/resume/index.tsx
 msgid "Updating your resume..."
 msgstr "Ihr Lebenslauf wird aktualisiert..."
+
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr "Anhänge hochladen"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"

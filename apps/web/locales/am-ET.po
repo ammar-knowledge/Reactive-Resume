@@ -8,7 +8,7 @@ msgstr ""
 "Language: am\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-21 07:54\n"
+"PO-Revision-Date: 2026-05-27 21:53\n"
 "Last-Translator: \n"
 "Language-Team: Amharic\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -373,6 +373,10 @@ msgstr "መተግበሪያ"
 msgid "Application Statistics"
 msgstr "የመተግበሪያ ስታቲስቲክስ"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Applied Rules"
+msgstr "የተተገበሩ ህጎች"
+
 #: src/libs/locale.ts
 msgid "Arabic"
 msgstr "ዓረብኛ"
@@ -671,6 +675,10 @@ msgstr "ክብ"
 msgid "Clear"
 msgstr "አጽዳ"
 
+#: src/components/ui/combobox.tsx
+msgid "Clear selection"
+msgstr "ምርጫን አጽዳ"
+
 #: src/dialogs/resume/import.tsx
 msgid "Click here to select a file to import"
 msgstr "ፋይል ለማምጣት ለመምረጥ እዚህ ጠቅ ያድርጉ"
@@ -952,6 +960,10 @@ msgstr "ብጁ OAuth"
 #: src/libs/resume/section.tsx
 msgid "Custom Sections"
 msgstr "ብጁ ክፍሎች"
+
+#: src/libs/resume/section.tsx
+msgid "Custom Styles"
+msgstr "ብጁ ቅጦች"
 
 #: src/libs/locale.ts
 msgid "Czech"
@@ -2247,6 +2259,10 @@ msgstr "እስካሁን ምንም ፓስኪዎች አልተመዘገቡም።"
 msgid "No results found."
 msgstr "ምንም ውጤት አልተገኘም።"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "No style rules yet."
+msgstr "እስካሁን የቅጥ ደንቦች የሉም።"
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "No tested provider"
 msgstr "የተፈተነ አቅራቢ የለም"
@@ -2714,6 +2730,10 @@ msgstr "ዳግም ለመጀመር"
 msgid "Reset Password"
 msgstr "የይለፍ ቃል ዳግም አስጀምር"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "Reset Style"
+msgstr "ቅጥን ዳግም አስጀምር"
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
 msgstr "የይለፍ ቃልዎን ዳግም ያስጀምሩ"
@@ -2789,6 +2809,14 @@ msgstr "ሮማኒያንኛ"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Rotation"
 msgstr "ማሽከርከር"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rule"
+msgstr "ደንብ"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/custom-styles.tsx
+msgid "rules"
+msgstr "ደንቦች"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "Run your first analysis to get a scorecard, strengths, and prioritized suggestions."
@@ -3707,6 +3735,10 @@ msgstr "የይለፍ ቃልዎን በመዘመን ላይ…"
 #: src/dialogs/resume/index.tsx
 msgid "Updating your resume..."
 msgstr "የየታሪክዎን በመዘመን ላይ…"
+
+#: src/routes/agent/$threadId.tsx
+msgid "Upload attachments"
+msgstr "አባሪዎችን ስቀል"
 
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Upload picture"
