@@ -8,7 +8,7 @@ msgstr ""
 "Language: uk\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Виберіть модель та чернетку резюме."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Виберіть попередньо встановлений або власний відтінок."
@@ -670,6 +671,7 @@ msgstr "Виберіть існуючу розмову на бічній пан�
 msgid "Circle"
 msgstr "Кругле"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Приховати"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Сховати всі іконки на резюме"
+msgid "Hide Icons"
+msgstr "Приховати значки"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Приховати посилання Підкреслення"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Сховати всі іконки на резюме"
 msgid "Hide password"
 msgstr "Приховати пароль"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Приховати значки розділів"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Високий"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Виділити"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Колір виділення"
 
 #: src/libs/locale.ts
 msgid "Hindi"

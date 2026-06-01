@@ -8,7 +8,7 @@ msgstr ""
 "Language: fi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Valitse malli ja ansioluettelon luonnos."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Valitse esiasetettu tai mukautettu sävy."
@@ -670,6 +671,7 @@ msgstr "Valitse olemassa oleva keskustelu sivupalkista tai aloita uusi luonnosty
 msgid "Circle"
 msgstr "Ympyrä"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Piilota"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Piilota kaikki ansioluettelon ikonit"
+msgid "Hide Icons"
+msgstr "Piilota kuvakkeet"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Piilota linkin alleviivaus"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Piilota kaikki ansioluettelon ikonit"
 msgid "Hide password"
 msgstr "Piilota salasana"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Piilota osiokuvakkeet"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Korkea"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Korostus"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Korostusväri"
 
 #: src/libs/locale.ts
 msgid "Hindi"

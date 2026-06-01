@@ -8,7 +8,7 @@ msgstr ""
 "Language: sl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Izberite model in osnutek življenjepisa."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Izberite prednastavljen odtenek ali odtenek po meri."
@@ -670,6 +671,7 @@ msgstr "V stranski vrstici izberite obstoječi pogovor ali začnite novo nit, os
 msgid "Circle"
 msgstr "Krog"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Skrij"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Skrij vse ikone na življenjepisu"
+msgid "Hide Icons"
+msgstr "Skrij ikone"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Skrij podčrtano povezavo"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Skrij vse ikone na življenjepisu"
 msgid "Hide password"
 msgstr "Skrijte geslo"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Skrij ikone razdelkov"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Visoka"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Označi"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Barva označevanja"
 
 #: src/libs/locale.ts
 msgid "Hindi"

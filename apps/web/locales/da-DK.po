@@ -8,7 +8,7 @@ msgstr ""
 "Language: da\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:31\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Vælg en model og et udkast til CV."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Vælg en forudindstillet eller brugerdefineret nuance."
@@ -670,6 +671,7 @@ msgstr "Vælg en eksisterende samtale fra sidebjælken, eller start en ny tråd 
 msgid "Circle"
 msgstr "Cirkel"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Skjul"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Skjul alle ikoner på CV'et"
+msgid "Hide Icons"
+msgstr "Skjul ikoner"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Skjul linkunderstregning"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Skjul alle ikoner på CV'et"
 msgid "Hide password"
 msgstr "Skjul adgangskode"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Skjul sektionsikoner"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Høj"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Fremhæv"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Fremhævelsesfarve"
 
 #: src/libs/locale.ts
 msgid "Hindi"

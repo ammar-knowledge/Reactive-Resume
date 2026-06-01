@@ -8,7 +8,7 @@ msgstr ""
 "Language: ms\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Malay\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Pilih model dan draf resume."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Pilih pratetap atau rona tersuai."
@@ -670,6 +671,7 @@ msgstr "Pilih perbualan sedia ada daripada bar sisi atau mulakan thread berfokus
 msgid "Circle"
 msgstr "Bulatan"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Sembunyi"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Sembunyikan semua ikon pada resume"
+msgid "Hide Icons"
+msgstr "Sembunyikan Ikon"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Sembunyikan Garis Bawah Pautan"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Sembunyikan semua ikon pada resume"
 msgid "Hide password"
 msgstr "Sembunyikan kata laluan"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Sembunyikan Ikon Bahagian"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Tinggi"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Sorot"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Warna Serlahan"
 
 #: src/libs/locale.ts
 msgid "Hindi"

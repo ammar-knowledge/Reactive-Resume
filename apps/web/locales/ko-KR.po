@@ -8,7 +8,7 @@ msgstr ""
 "Language: ko\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "모델을 선택하고 이력서 초안을 작성하세요."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "사전 설정 또는 사용자 지정 색조를 선택합니다."
@@ -670,6 +671,7 @@ msgstr "사이드바에서 기존 대화를 선택하거나, 초안 작성에 �
 msgid "Circle"
 msgstr "원"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "숨기기"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "이력서의 모든 아이콘 숨기기"
+msgid "Hide Icons"
+msgstr "아이콘 숨기기"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "링크 밑줄 숨기기"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "이력서의 모든 아이콘 숨기기"
 msgid "Hide password"
 msgstr "비밀번호 숨기기"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "섹션 아이콘 숨기기"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "높음"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "형광펜"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "하이라이트 색상"
 
 #: src/libs/locale.ts
 msgid "Hindi"

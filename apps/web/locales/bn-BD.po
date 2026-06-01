@@ -8,7 +8,7 @@ msgstr ""
 "Language: bn\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Bengali\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "একটি মডেল বেছে নিন এবং জীবনবৃত্তান্তের খসড়া তৈরি করুন।"
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "একটি প্রিসেট বা কাস্টম শেড নির্বাচন করুন।"
@@ -670,6 +671,7 @@ msgstr "সাইডবার থেকে একটি চলমান আল�
 msgid "Circle"
 msgstr "বৃত্ত"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "লুকান"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "জীবনবৃত্তান্তে সব আইকন লুকিয়ে রাখুন"
+msgid "Hide Icons"
+msgstr "আইকন লুকান"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "লিঙ্ক আন্ডারলাইন লুকান"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "জীবনবৃত্তান্তে সব আইকন লুক
 msgid "Hide password"
 msgstr "পাসওয়ার্ড লুকান"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "সেকশন আইকন লুকান"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "উচ্চ"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "হাইলাইট"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "হাইলাইট রঙ"
 
 #: src/libs/locale.ts
 msgid "Hindi"

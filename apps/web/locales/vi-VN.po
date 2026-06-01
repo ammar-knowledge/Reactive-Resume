@@ -8,7 +8,7 @@ msgstr ""
 "Language: vi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Chọn một mẫu và soạn thảo bản nháp sơ yếu lý lịch."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Chọn một màu có sẵn hoặc màu tùy chỉnh."
@@ -670,6 +671,7 @@ msgstr "Chọn một cuộc hội thoại hiện có từ thanh bên hoặc bắ
 msgid "Circle"
 msgstr "Vòng tròn"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Ẩn đi"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Ẩn tất cả biểu tượng trên hồ sơ"
+msgid "Hide Icons"
+msgstr "Ẩn biểu tượng"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Ẩn gạch chân liên kết"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Ẩn tất cả biểu tượng trên hồ sơ"
 msgid "Hide password"
 msgstr "Ẩn mật khẩu"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Ẩn biểu tượng phần"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Cao"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Làm nổi bật"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Màu nổi bật"
 
 #: src/libs/locale.ts
 msgid "Hindi"

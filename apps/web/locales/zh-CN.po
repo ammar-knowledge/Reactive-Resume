@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "选择一款简历模板并撰写简历草稿。"
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "选择预设或自定义色调。"
@@ -670,6 +671,7 @@ msgstr "从侧边栏选择现有对话，或发起新的以草稿为中心的讨
 msgid "Circle"
 msgstr "圆形"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "隐藏"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "在简历中隐藏所有图标"
+msgid "Hide Icons"
+msgstr "隐藏图标"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "隐藏链接下划线"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "在简历中隐藏所有图标"
 msgid "Hide password"
 msgstr "隐藏密码"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "隐藏版块图标"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "高"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "高亮"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "高亮颜色"
 
 #: src/libs/locale.ts
 msgid "Hindi"

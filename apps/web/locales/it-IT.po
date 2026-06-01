@@ -8,7 +8,7 @@ msgstr ""
 "Language: it\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Scegli un modello e una bozza di curriculum."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Scelga una tonalità preimpostata o personalizzata."
@@ -670,6 +671,7 @@ msgstr "Scegli una conversazione esistente dalla barra laterale oppure avvia una
 msgid "Circle"
 msgstr "Cerchio"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Nascondi"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Nascondi tutte le icone sul curriculum"
+msgid "Hide Icons"
+msgstr "Nascondi icone"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Nascondi il collegamento sottolineato"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Nascondi tutte le icone sul curriculum"
 msgid "Hide password"
 msgstr "Nascondere la password"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Nascondi le icone della sezione"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Alto"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Evidenzia"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Colore di evidenziazione"
 
 #: src/libs/locale.ts
 msgid "Hindi"

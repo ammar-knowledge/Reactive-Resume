@@ -8,7 +8,7 @@ msgstr ""
 "Language: th\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "เลือกแบบและร่างประวัติย่อ"
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "เลือกเฉดสีที่กำหนดไว้ล่วงหน้าหรือกำหนดเอง"
@@ -670,6 +671,7 @@ msgstr "เลือกบทสนทนาที่มีอยู่แล้
 msgid "Circle"
 msgstr "วงกลม"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "ซ่อน"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "ซ่อนไอคอนทั้งหมดในเรซูเม่"
+msgid "Hide Icons"
+msgstr "ซ่อนไอคอน"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "ซ่อนเส้นขีดใต้ลิงก์"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "ซ่อนไอคอนทั้งหมดในเรซูเม
 msgid "Hide password"
 msgstr "ซ่อนรหัสผ่าน"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "ซ่อนไอคอนส่วนต่างๆ"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "สูง"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "ไฮไลต์"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "สีไฮไลท์"
 
 #: src/libs/locale.ts
 msgid "Hindi"

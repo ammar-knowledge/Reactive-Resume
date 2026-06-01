@@ -8,7 +8,7 @@ msgstr ""
 "Language: nl\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Kies een model en stel een concept-cv op."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Kies een vooraf ingestelde of aangepaste tint."
@@ -670,6 +671,7 @@ msgstr "Kies een bestaand gesprek uit de zijbalk of start een nieuw discussieond
 msgid "Circle"
 msgstr "Cirkel"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Verbergen"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Alle pictogrammen op het cv verbergen"
+msgid "Hide Icons"
+msgstr "Pictogrammen verbergen"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Link onderstrepen verbergen"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Alle pictogrammen op het cv verbergen"
 msgid "Hide password"
 msgstr "Wachtwoord verbergen"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Sectiepictogrammen verbergen"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Hoog"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Markeren"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Markeer de kleur"
 
 #: src/libs/locale.ts
 msgid "Hindi"

@@ -8,7 +8,7 @@ msgstr ""
 "Language: he\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:31\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "בחר מודל וטיוטת קורות חיים."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "בחר גוון קבוע מראש או גוון מותאם אישית."
@@ -670,6 +671,7 @@ msgstr "בחר שיחה קיימת מסרגל הצד, או התחל שרשור �
 msgid "Circle"
 msgstr "עיגול"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "הסתרה"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "הסתרת כל הסמלים בקורות החיים"
+msgid "Hide Icons"
+msgstr "הסתר סמלים"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "הסתר קו תחתון של קישור"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "הסתרת כל הסמלים בקורות החיים"
 msgid "Hide password"
 msgstr "הסתר סיסמה"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "הסתר סמלי מדור"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "גבוה"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "סימון"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "צבע סימון"
 
 #: src/libs/locale.ts
 msgid "Hindi"

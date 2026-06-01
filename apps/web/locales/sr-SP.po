@@ -8,7 +8,7 @@ msgstr ""
 "Language: sr\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Serbian (Cyrillic)\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Изаберите модел и нацртајте животопис."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Изаберите претходно подешен тон или прилагођени тон."
@@ -670,6 +671,7 @@ msgstr "Изаберите постојећи разговор са бочне �
 msgid "Circle"
 msgstr "Круг"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Сакриј"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Сакриј све иконице на резимеу"
+msgid "Hide Icons"
+msgstr "Сакриј иконе"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Сакриј подвучену везу"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Сакриј све иконице на резимеу"
 msgid "Hide password"
 msgstr "Сакриј лозинку"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Сакриј иконе одељака"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Високо"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Истакни"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Боја истицања"
 
 #: src/libs/locale.ts
 msgid "Hindi"

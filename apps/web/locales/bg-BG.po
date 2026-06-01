@@ -8,7 +8,7 @@ msgstr ""
 "Language: bg\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:31\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Изберете модел и чернова на автобиография."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Изберете предварително зададен или персонализиран нюанс."
@@ -670,6 +671,7 @@ msgstr "Изберете съществуващ разговор от стран
 msgid "Circle"
 msgstr "Кръг"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Скриване"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Скриване на всички икони в автобиографията"
+msgid "Hide Icons"
+msgstr "Скриване на икони"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Скриване на подчертаната връзка"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Скриване на всички икони в автобиограф�
 msgid "Hide password"
 msgstr "Скриване на паролата"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Скриване на иконите на секциите"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Висока"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Маркер за подчертаване"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Цвят на акцента"
 
 #: src/libs/locale.ts
 msgid "Hindi"

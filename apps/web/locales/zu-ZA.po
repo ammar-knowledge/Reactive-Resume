@@ -649,6 +649,7 @@ msgid "Choose a model and resume draft."
 msgstr ""
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr ""
@@ -665,6 +666,7 @@ msgstr ""
 msgid "Circle"
 msgstr ""
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1740,7 +1742,11 @@ msgid "Hide"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
+msgid "Hide Icons"
+msgstr ""
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
 msgstr ""
 
 #. Accessible label for button that hides password in registration form
@@ -1761,6 +1767,10 @@ msgstr ""
 msgid "Hide password"
 msgstr ""
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr ""
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1768,6 +1778,10 @@ msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
+msgstr ""
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
 msgstr ""
 
 #: src/libs/locale.ts

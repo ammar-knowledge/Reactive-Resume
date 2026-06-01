@@ -8,7 +8,7 @@ msgstr ""
 "Language: pt\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-05-27 21:53\n"
+"PO-Revision-Date: 2026-06-01 13:32\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -654,6 +654,7 @@ msgid "Choose a model and resume draft."
 msgstr "Escolha um modelo e um rascunho de currículo."
 
 #. Preset or custom shade refer to the color picker
+#. Preset or custom shade refer to the color picker
 #: src/components/input/rich-input.tsx
 msgid "Choose a preset or custom shade."
 msgstr "Escolha uma tonalidade predefinida ou personalizada."
@@ -670,6 +671,7 @@ msgstr "Escolha uma conversa existente na barra lateral ou inicie uma nova discu
 msgid "Circle"
 msgstr "Círculo"
 
+#. Clear the highlight color
 #. Clear the text color
 #: src/components/input/rich-input.tsx
 msgid "Clear"
@@ -1745,8 +1747,12 @@ msgid "Hide"
 msgstr "Ocultar"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
-msgid "Hide all icons on the resume"
-msgstr "Ocultar todos os ícones no currículo"
+msgid "Hide Icons"
+msgstr "Ocultar ícones"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Link Underline"
+msgstr "Ocultar link sublinhado"
 
 #. Accessible label for button that hides password in registration form
 #. Accessible label for button that hides password in reset-password form
@@ -1766,6 +1772,10 @@ msgstr "Ocultar todos os ícones no currículo"
 msgid "Hide password"
 msgstr "Ocultar senha"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/page.tsx
+msgid "Hide Section Icons"
+msgstr "Ocultar ícones de seção"
+
 #. Impact severity label in resume analysis suggestion card
 #: src/routes/builder/$resumeId/-sidebar/right/sections/resume-analysis.tsx
 msgid "High"
@@ -1774,6 +1784,10 @@ msgstr "Alta"
 #: src/components/input/rich-input.tsx
 msgid "Highlight"
 msgstr "Realce"
+
+#: src/components/input/rich-input.tsx
+msgid "Highlight Color"
+msgstr "Cor de destaque"
 
 #: src/libs/locale.ts
 msgid "Hindi"
