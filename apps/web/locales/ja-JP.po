@@ -8,7 +8,7 @@ msgstr ""
 "Language: ja\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-17 08:41\n"
+"PO-Revision-Date: 2026-06-18 16:58\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -441,6 +441,10 @@ msgstr "このレジュメについて何でも質問してください"
 #: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
 msgid "Aspect Ratio"
 msgstr "アスペクト比"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Atlas Cloud supports Reactive Resume as a project sponsor. If your company would like to sponsor the project, email <0>{sponsorshipEmail}</0>."
+msgstr "Atlas Cloudは、Reactive Resumeをプロジェクトスポンサーとして支援しています。貴社がこのプロジェクトをスポンサーしたい場合は、<0>{sponsorshipEmail}までメールでご連絡ください。</0> 。"
 
 #: src/routes/agent/$threadId.tsx
 msgid "Attach files"
@@ -2653,6 +2657,10 @@ msgstr "Reactive Resumeは無料のオープンソースソフトウェアです
 msgid "Reactive Resume is open-source, privacy-focused, and completely free. Unlike other resume builders, it doesn't show ads, track your data, or limit your features behind a paywall."
 msgstr "Reactive Resume はオープンソースでプライバシー重視、そして完全無料です。他の履歴書ビルダーと違い、広告を表示したり、あなたのデータを追跡したり、有料プランの裏に機能を隠したりすることはありません。"
 
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Reactive Resume stays free, open-source, and independent because companies choose to support the work behind it. Their sponsorship helps fund hosting, maintenance, and continued development for the community."
+msgstr "Reactive Resumeが無料、オープンソース、そして独立したサービスであり続けるのは、企業がその開発を支援することを選択しているからです。企業からのスポンサーシップは、ホスティング、メンテナンス、そしてコミュニティのための継続的な開発資金に役立っています。"
+
 #. App version label in footer; includes semantic version variable
 #: src/components/ui/copyright.tsx
 msgid "Reactive Resume v{__APP_VERSION__}"
@@ -3318,6 +3326,10 @@ msgstr "テキストカラー"
 #: src/libs/locale.ts
 msgid "Thai"
 msgstr "タイ語"
+
+#: src/routes/_home/-sections/sponsors.tsx
+msgid "Thank you to our sponsors"
+msgstr "スポンサーの皆様、ありがとうございます。"
 
 #: src/routes/agent/$threadId.tsx
 msgid "The agent needs your input."
