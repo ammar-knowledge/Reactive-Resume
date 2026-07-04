@@ -2,8 +2,8 @@ import type { Style } from "@react-pdf/types";
 import type { ReactElement, ReactNode } from "react";
 import { cloneElement, isValidElement } from "react";
 import { Html } from "react-pdf-html";
+import { Text as PdfText, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
-import { Text as PdfText, View } from "../../renderer";
 import { useSectionStyleRule, useTemplateStyle } from "./context";
 import { convertPseudoBulletParagraphs, normalizeRichTextHtml } from "./rich-text-html";
 import { renderRichTextParagraph, toRichTextStyleArray } from "./rich-text-renderers";
@@ -128,6 +128,13 @@ export const RichText = ({ children }: RichTextProps) => {
 						</PdfText>
 					);
 
+					let hasNestedList = false;
+					if (Array.isArray(children)) {
+						hasNestedList = children.some(
+							(child) => child?.props?.element?.rawTagName === "ul" || child?.props?.element?.rawTagName === "ol",
+						);
+					}
+
 					// Same BiDi-injection trick as the <p> renderer — see applyRtlDirectionRecursively.
 					const contentNode = rtl ? (
 						<PdfText
@@ -155,7 +162,7 @@ export const RichText = ({ children }: RichTextProps) => {
 						>
 							<View style={{ flexDirection: "row", alignItems: "flex-start" }}>
 								{markerNode}
-								{children}
+								<View style={hasNestedList ? { flex: 1 } : {}}>{children}</View>
 							</View>
 						</View>
 					);
