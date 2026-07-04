@@ -28,7 +28,7 @@ export type Resume = {
 type ResumeUpdateMutation = "sync" | "create" | "update" | "patch" | "lock" | "password" | "delete";
 type ResumeUpdateEvent = { mutation: ResumeUpdateMutation };
 
-export type SaveStatus = "idle" | "saving" | "saved" | "error";
+type SaveStatus = "idle" | "saving" | "saved" | "error";
 
 type ResumeStoreState = {
 	resume: Resume | null;
@@ -516,16 +516,8 @@ export const usePreviewPausedStore = create<PreviewPausedStore>()((set) => ({
 	setPaused: (paused) => set({ paused }),
 }));
 
-export function useInitializeResumeStore() {
-	return useResumeStore((state) => state.initialize);
-}
-
 function useResetResumeStore() {
 	return useResumeStore((state) => state.reset);
-}
-
-export function useMergeResumeMetadata() {
-	return useResumeStore((state) => state.mergeResumeMetadata);
 }
 
 export function usePatchResume() {
@@ -564,26 +556,6 @@ export function useResumeData(): ResumeData | undefined {
 
 export function useIsResumeLocked(): boolean {
 	return useBuilderResumeSelector((resume) => resume.isLocked) ?? false;
-}
-
-export function useSaveStatus(): SaveStatus {
-	return useResumeStore((state) => state.saveStatus);
-}
-
-export function useCanUndo(): boolean {
-	return useResumeStore((state) => state.canUndo);
-}
-
-export function useCanRedo(): boolean {
-	return useResumeStore((state) => state.canRedo);
-}
-
-export function useUndoResume() {
-	return useResumeStore((state) => state.undo);
-}
-
-export function useRedoResume() {
-	return useResumeStore((state) => state.redo);
 }
 
 export function useUpdateResumeData() {

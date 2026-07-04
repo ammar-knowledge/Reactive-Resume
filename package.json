@@ -13,7 +13,7 @@
 		"type": "git",
 		"url": "https://github.com/amruthpillai/reactive-resume.git"
 	},
-	"packageManager": "pnpm@11.9.0",
+	"packageManager": "pnpm@11.10.0",
 	"workspaces": [
 		"apps/*",
 		"packages/*",
@@ -56,9 +56,8 @@
 		"happy-dom": "^20.10.6",
 		"knip": "^6.24.0",
 		"lefthook": "^2.1.9",
-		"npm-check-updates": "^22.2.9",
 		"pg": "^8.22.0",
-		"turbo": "^2.10.2",
+		"turbo": "^2.10.3",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.9"
 	}

@@ -28,13 +28,10 @@
 				"@orpc/experimental-ratelimit",
 				"@sindresorhus/slugify",
 				"@t3-oss/env-core",
-				"@uiw/color-convert",
 				"ai",
 				"bcrypt",
 				"cjk-regex",
 				"deepmerge-ts",
-				"dompurify",
-				"dotenv",
 				"drizzle-zod",
 				"es-toolkit",
 				"fast-json-patch",
@@ -56,5 +53,5 @@
 			"ignoreDependencies": ["ioredis"]
 		}
 	},
-	"ignoreDependencies": ["@reactive-resume/config", "npm-check-updates"]
+	"ignoreDependencies": ["@reactive-resume/config"]
 }

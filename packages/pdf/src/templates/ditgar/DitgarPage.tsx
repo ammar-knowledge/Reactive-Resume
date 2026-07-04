@@ -5,15 +5,22 @@ import { useMemo } from "react";
 import { rgbaStringToHex } from "@reactive-resume/utils/color";
 import { Image, Page, StyleSheet, View } from "#react-pdf-renderer";
 import { useRender } from "../../context";
+import { createBaseTemplateStyles } from "../shared/base-template-styles";
 import { getPrimaryTint } from "../shared/color-helpers";
-import { CustomFieldContactItem, WebsiteContactItem } from "../shared/contact-item";
+import {
+	CustomFieldContactItem,
+	EmailContactItem,
+	LocationContactItem,
+	PhoneContactItem,
+	WebsiteContactItem,
+} from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
 import { getFeaturedSummaryLayout } from "../shared/featured-summary";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
 import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
-import { Heading, Icon, Link, Text } from "../shared/primitives";
+import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
 import { Section } from "../shared/sections";
 import { composeStyles, headerNameLineHeight, resolvePlacementColor } from "../shared/styles";
@@ -124,24 +131,25 @@ const Header = ({ styles, colors }: DitgarHeaderProps) => {
 			</View>
 
 			<View style={styles.contactList}>
-				{basics.email && (
-					<Link src={`mailto:${basics.email}`} style={styles.contactItem}>
-						<Icon name="at" color={colors.background} />
-						<Text style={styles.headerText}>{basics.email}</Text>
-					</Link>
-				)}
-				{basics.phone && (
-					<Link src={`tel:${basics.phone}`} style={styles.contactItem}>
-						<Icon name="phone" color={colors.background} />
-						<Text style={styles.headerText}>{basics.phone}</Text>
-					</Link>
-				)}
-				{basics.location && (
-					<View style={styles.contactItem}>
-						<Icon name="map-pin" color={colors.background} />
-						<Text style={styles.headerText}>{basics.location}</Text>
-					</View>
-				)}
+				<EmailContactItem
+					email={basics.email}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+					iconName="at"
+				/>
+				<PhoneContactItem
+					phone={basics.phone}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+				/>
+				<LocationContactItem
+					location={basics.location}
+					style={styles.contactItem}
+					textStyle={styles.headerText}
+					iconColor={colors.background}
+				/>
 				<WebsiteContactItem
 					website={basics.website}
 					style={styles.contactItem}
@@ -180,16 +188,10 @@ const useDitgarTemplate = (): DitgarTemplate => {
 		};
 		const metrics = getTemplateMetrics(metadata.page);
 
-		const bodyText = {
-			fontFamily: metadata.typography.body.fontFamily,
-			fontSize: metadata.typography.body.fontSize,
-			fontWeight: metadata.typography.body.fontWeights[0] ?? "400",
-			lineHeight: metadata.typography.body.lineHeight,
-			color: foreground,
-			...r.text,
-		} satisfies Style;
+		const base = createBaseTemplateStyles({ metadata, foreground, r, metrics, picture });
 
 		const baseStyles = StyleSheet.create({
+			...base,
 			page: {
 				flexDirection: r.row,
 				color: foreground,
@@ -198,62 +200,6 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				fontSize: metadata.typography.body.fontSize,
 				lineHeight: metadata.typography.body.lineHeight,
 				direction: r.pageDirection,
-			},
-			text: bodyText,
-			heading: {
-				fontFamily: metadata.typography.heading.fontFamily,
-				fontSize: metadata.typography.heading.fontSize,
-				fontWeight: metadata.typography.heading.fontWeights.at(-1) ?? "600",
-				lineHeight: metadata.typography.heading.lineHeight,
-				color: foreground,
-				...r.text,
-			},
-			div: {
-				rowGap: metrics.gapY(0.125),
-				columnGap: metrics.gapX(1 / 3),
-			},
-			inline: {
-				flexDirection: r.row,
-				alignItems: "center",
-				columnGap: metrics.gapX(1 / 3),
-			},
-			link: {
-				textDecoration: "none",
-				color: foreground,
-			},
-			small: {
-				fontSize: metadata.typography.body.fontSize * 0.875,
-			},
-			bold: {
-				fontWeight: metadata.typography.body.fontWeights.at(-1) ?? "600",
-			},
-			richParagraph: {
-				margin: 0,
-				...bodyText,
-			},
-			richListItemRow: {
-				flexDirection: "row",
-				columnGap: metrics.gapX(1 / 3),
-				alignItems: "flex-start",
-			},
-			richListItemMarker: {
-				...bodyText,
-				width: metadata.typography.body.fontSize,
-				textAlign: r.listMarkerTextAlign,
-			},
-			richListItemContent: {
-				...bodyText,
-				flex: 1,
-			},
-			splitRow: {
-				flexDirection: r.row,
-				flexWrap: "wrap",
-				alignItems: "flex-start",
-				justifyContent: "space-between",
-				columnGap: metrics.gapX(2 / 3),
-			},
-			alignEnd: {
-				...r.alignEnd,
 			},
 			section: {
 				flexDirection: "column",
@@ -306,18 +252,6 @@ const useDitgarTemplate = (): DitgarTemplate => {
 				paddingHorizontal: metrics.page.paddingHorizontal,
 				paddingVertical: metrics.page.paddingVertical,
 				rowGap: metrics.gapY(0.5),
-			},
-			picture: {
-				width: picture.size,
-				height: picture.size,
-				objectFit: "cover",
-				aspectRatio: picture.aspectRatio,
-				borderRadius: picture.borderRadius,
-				borderColor: rgbaStringToHex(picture.borderColor),
-				borderWidth: picture.borderWidth,
-				shadowColor: rgbaStringToHex(picture.shadowColor),
-				shadowWidth: picture.shadowWidth,
-				transform: `rotate(${picture.rotation}deg)`,
 			},
 			headerTitle: {},
 			headerIdentity: {
