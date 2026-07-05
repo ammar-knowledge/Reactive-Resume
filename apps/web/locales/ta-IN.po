@@ -8,7 +8,7 @@ msgstr ""
 "Language: ta\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-04 20:51\n"
+"PO-Revision-Date: 2026-07-05 12:41\n"
 "Last-Translator: \n"
 "Language-Team: Tamil\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -507,6 +507,10 @@ msgstr "தேர்வு செய்ய அழகான டெம்ப்ள
 msgid "Bengali"
 msgstr "பெங்காலி"
 
+#: src/features/resume/export/download-dialog.tsx
+msgid "Best for applications, sharing, and printing."
+msgstr ""
+
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Blank draft"
 msgstr "வெற்று வரைவு"
@@ -654,6 +658,10 @@ msgstr "ஒரு சுயவிவரத்தைத் தேர்ந்த�
 #: src/routes/agent/index.tsx
 msgid "Choose an existing conversation from the sidebar, or start a new draft-focused thread."
 msgstr "பக்கப் பட்டியில் இருந்து ஏற்கனவே உள்ள உரையாடலைத் தேர்ந்தெடுக்கவும், அல்லது வரைவுக்கான புதிய உரையாடலைத் தொடங்கவும்."
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
+msgid "Choose PDF, DOCX, or JSON. Export your resume and cover letter separately when available."
+msgstr ""
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -818,6 +826,10 @@ msgstr "இணைப்பைச் சரிபார்க்க முடி�
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Couldn't save"
 msgstr "சேமிக்க முடியவில்லை"
+
+#: src/features/resume/export/download-dialog.tsx
+msgid "Cover letter"
+msgstr ""
 
 #. Fallback title for a custom cover letter item in resume builder when recipient is empty
 #. Fallback title for a custom cover letter item in resume builder when recipient is unavailable
@@ -1149,7 +1161,11 @@ msgid "Donate to Reactive Resume"
 msgstr "Reactive Resume-க்கு நன்கொடை அளிக்கவும்"
 
 #. Action button to download two-factor backup codes as a text file
+#. Primary action in the builder header to open resume download options
 #: src/dialogs/auth/enable-two-factor.tsx
+#: src/features/resume/export/download-dialog.tsx
+#: src/routes/builder/$resumeId/-components/header.tsx
+#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Download"
 msgstr "பதிவிறக்கு"
 
@@ -1157,30 +1173,13 @@ msgstr "பதிவிறக்கு"
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "உங்கள் சுயவிவரம் மற்றும் ஒவ்வொரு பணிவிவரக் குறிப்பு உட்பட, உங்களின் அனைத்துத் தரவுகளின் நகலையும் ஒரு JSON கோப்பாகப் பதிவிறக்கம் செய்துகொள்ளுங்கள்."
 
-#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
-msgid "Download a copy of your resume as a Word document. Use this file to further customize your resume in Microsoft Word or Google Docs."
-msgstr "உங்கள் ரெஸ்யூமியின் ஒரு பிரதியை வேர்டு ஆவணமாகப் பதிவிறக்கவும். மைக்ரோசாஃப்ட் வேர்டு அல்லது கூகுள் டாக்ஸில் உங்கள் ரெஸ்யூமை மேலும் தனிப்பயனாக்க இந்தக் கோப்பைப் பயன்படுத்தவும்."
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
-msgid "Download a copy of your resume in JSON format. Use this file for backup or to import your resume into other applications, including AI assistants."
-msgstr "உங்கள் ரெஸ்யூமியின் ஒரு நகலை JSON வடிவில் பதிவிறக்கவும். இந்த கோப்பை காப்புப்பிரதி வைக்க அல்லது உங்கள் ரெஸ்யூமியை AI உதவியாளர்கள் உட்பட பிற பயன்பாடுகளுக்கு இறக்குமதி செய்ய பயன்படுத்தலாம்."
-
-#: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
-msgid "Download a copy of your resume in PDF format. Use this file for printing or to easily share your resume with recruiters."
-msgstr "உங்கள் ரெஸ்யூமியின் ஒரு நகலை PDF வடிவில் பதிவிறக்கவும். இந்த கோப்பை அச்சிடுவதற்கும் அல்லது பணியமர்த்துநர்களுடன் எளிதாக பகிர்வதற்கும் பயன்படுத்தலாம்."
-
+#. Primary action in the builder header to open resume download options
 #: src/routes/builder/$resumeId/-components/header.tsx
-msgid "Download DOCX"
-msgstr "DOCX-ஐப் பதிவிறக்கவும்"
+msgid "Download options"
+msgstr ""
 
-#: src/routes/builder/$resumeId/-components/header.tsx
-msgid "Download JSON"
-msgstr "JSON-ஐ பதிவிறக்கவும்"
-
-#. Primary action in the builder header to download the resume as a PDF
 #: src/features/resume/public/public-resume.tsx
 #: src/routes/agent/$threadId.tsx
-#: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Download PDF"
 msgstr "PDF-ஐ பதிவிறக்கவும்"
 
@@ -1257,6 +1256,10 @@ msgstr "விவரங்களைத் திருத்து"
 #: src/components/input/chip-input.tsx
 msgid "Edit keyword"
 msgstr "முக்கியச்சொல்லைத் திருத்து"
+
+#: src/features/resume/export/download-dialog.tsx
+msgid "Editable in Word, Google Docs, and Pages."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/left/index.tsx
 msgid "Editing is disabled until you unlock it."
@@ -1396,6 +1399,10 @@ msgstr "ஏற்றுமதி"
 #: src/features/settings/pages/danger-zone.tsx
 msgid "Export my data"
 msgstr "எனது தரவை ஏற்றுமதி செய்"
+
+#: src/features/resume/export/download-dialog.tsx
+msgid "Export your resume or cover letter in the format you need."
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Export your resume to PDF instantly, without any waiting or delays."
@@ -1652,6 +1659,10 @@ msgstr "இலவச வடிவம்"
 #: src/libs/locale.ts
 msgid "French"
 msgstr "ஃபிரென்ச்"
+
+#: src/features/resume/export/download-dialog.tsx
+msgid "Full resume data for backup or import."
+msgstr ""
 
 #. Layout editor toggle label that makes a page single-column
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
@@ -2285,10 +2296,6 @@ msgstr "வேலைக்கான ரெஸ்யூம் காணவில�
 msgid "Model"
 msgstr "மாதிரி"
 
-#: src/routes/builder/$resumeId/-components/header.tsx
-msgid "More download options"
-msgstr "கூடுதல் பதிவிறக்க விருப்பங்கள்"
-
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Move section to another column or page"
 msgstr "பகுதியை மற்றொரு பத்திக்கோ அல்லது பக்கத்திற்கோ நகர்த்தவும்"
@@ -2636,6 +2643,10 @@ msgstr "ஒரு சின்னத்தைத் தேர்ந்தெட�
 msgid "Picture"
 msgstr "படம்"
 
+#: src/features/resume/export/download-dialog.tsx
+msgid "Plain text, ideal for AI tools and quick edits."
+msgstr ""
+
 #: src/features/auth/pages/reset-password.tsx
 msgid "Please enter a new password for your account"
 msgstr "தயவுசெய்து உங்கள் கணக்கிற்காக ஒரு புதிய கடவுச்சொல்லை உள்ளிடவும்"
@@ -2717,10 +2728,6 @@ msgstr "முன்னோட்டம்"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
 msgstr "முதன்மை நிறம்"
-
-#: src/routes/builder/$resumeId/-components/header.tsx
-msgid "Print"
-msgstr "அச்சிடுக"
 
 #: src/dialogs/resume/sections/skill.tsx
 msgid "Proficiency"
@@ -2938,6 +2945,7 @@ msgstr "இந்தப் பேட்ச்சிற்கு முந்த�
 msgid "Restore this version?"
 msgstr "இந்தப் பதிப்பை மீட்டமைக்கவா?"
 
+#: src/features/resume/export/download-dialog.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Resume"
 msgstr "சுயவிவரம்"
