@@ -1,23 +1,22 @@
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-07-05 12:41\n"
-"Last-Translator: \n"
-"Language-Team: Swedish\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: sv\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-05 22:29\n"
+"Last-Translator: \n"
+"Language-Team: Swedish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-File: /apps/web/locales/en-US.po\n"
-"X-Crowdin-File-ID: 545\n"
-"X-Crowdin-Language: sv-SE\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
-"X-Generator: @lingui/cli\n"
+"X-Crowdin-Language: sv-SE\n"
+"X-Crowdin-File: /apps/web/locales/en-US.po\n"
+"X-Crowdin-File-ID: 545\n"
 
 #. placeholder {0}: application.role
 #. placeholder {0}: current.role
@@ -260,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Lägg till och testa en leverantör innan du startar en agenttråd."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Lägg till applikation"
@@ -314,6 +314,7 @@ msgid "Afrikaans"
 msgstr "Afrikanska"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Ombud"
 
@@ -465,6 +466,8 @@ msgstr "Applikationsstatistik"
 msgid "Application updated."
 msgstr "Applikationen uppdaterad."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -822,7 +825,7 @@ msgstr "Välj en befintlig konversation från sidofältet eller starta en ny utk
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
-msgstr "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
+msgstr "Välj PDF, DOCX, Markdown eller JSON. Exportera ditt CV och personliga brev separat när det är tillgängligt."
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2336,6 +2339,10 @@ msgstr "Kursiv"
 msgid "Japanese"
 msgstr "Japanska"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Arbetsbeskrivning"
@@ -2347,6 +2354,10 @@ msgstr "Arbetsförmedling"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Jobbsökningsflöde"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr ""
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2572,6 +2583,10 @@ msgstr "Förhandsvisning av ditt CV i realtid i mallen {0}"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Laddar AI-leverantörer. Försök igen om en stund."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2582,6 +2597,7 @@ msgstr "Laddar leverantörer…"
 msgid "Loading resumes…"
 msgstr "Läser in CV…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Laddar trådar…"
@@ -2733,6 +2749,11 @@ msgstr "Nepalesiska"
 msgid "Network"
 msgstr "Nätverk"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Nya funktioner läggs ständigt till och förbättras, så kom gärna tillbaka ofta."
@@ -2760,9 +2781,15 @@ msgstr "Nytt avsnitt"
 msgid "New tag…"
 msgstr "Ny tag..."
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
 msgstr "Ny tråd"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
@@ -4342,6 +4369,8 @@ msgstr "Tråden arkiverad."
 msgid "Thread deleted."
 msgstr "Tråden raderad."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"
@@ -4955,3 +4984,4 @@ msgstr "Zooma ut"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

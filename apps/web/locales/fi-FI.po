@@ -8,7 +8,7 @@ msgstr ""
 "Language: fi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-05 12:41\n"
+"PO-Revision-Date: 2026-07-05 22:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "Lisää ja testaa toimittaja ennen agenttiketjun aloittamista."
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "Lisää hakemus"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "afrikaans"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "Agentti"
 
@@ -464,6 +466,8 @@ msgstr "Sovelluksen tilastot"
 msgid "Application updated."
 msgstr "Hakemus päivitetty."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -821,7 +825,7 @@ msgstr "Valitse olemassa oleva keskustelu sivupalkista tai aloita uusi luonnosty
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
-msgstr "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
+msgstr "Valitse PDF, DOCX, Markdown tai JSON. Vie ansioluettelosi ja saatekirjeesi erikseen, kun ne ovat mahdollisia."
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2335,6 +2339,10 @@ msgstr "Kursiivi"
 msgid "Japanese"
 msgstr "japani"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "Työnkuvaus"
@@ -2346,6 +2354,10 @@ msgstr "Työpaikkailmoitus"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "Työnhaun eteneminen"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr ""
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "Ansioluettelosi reaaliaikainen esikatselu {0} -mallissa"
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "Ladataan tekoälypalveluntarjoajia. Yritä uudelleen hetken kuluttua."
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "Ladataan palveluntarjoajia…"
 msgid "Loading resumes…"
 msgstr "Ladataan ansioluetteloita…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "Ladataan ketjuja…"
@@ -2732,6 +2749,11 @@ msgstr "nepali"
 msgid "Network"
 msgstr "Verkosto"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "Uusia ominaisuuksia lisätään ja parannetaan jatkuvasti, joten käy katsomassa säännöllisesti uudelleen."
@@ -2759,9 +2781,15 @@ msgstr "Uusi osio"
 msgid "New tag…"
 msgstr "Uusi tunniste…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
 msgstr "Uusi viestiketju"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
@@ -4341,6 +4369,8 @@ msgstr "Ketju arkistoitu."
 msgid "Thread deleted."
 msgstr "Ketju poistettu."
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"
@@ -4954,3 +4984,4 @@ msgstr "Loitonna"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+

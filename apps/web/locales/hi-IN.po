@@ -8,7 +8,7 @@ msgstr ""
 "Language: hi\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-05 12:41\n"
+"PO-Revision-Date: 2026-07-05 22:29\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -259,6 +259,7 @@ msgid "Add and test a provider before starting an agent thread."
 msgstr "एजेंट थ्रेड शुरू करने से पहले एक प्रोवाइडर जोड़ें और उसका परीक्षण करें।"
 
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/command-palette/pages/navigation.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Add application"
 msgstr "आवेदन जोड़ें"
@@ -313,6 +314,7 @@ msgid "Afrikaans"
 msgstr "अफ्रीकान्स"
 
 #: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 msgid "Agent"
 msgstr "प्रतिनिधि"
 
@@ -464,6 +466,8 @@ msgstr "ऐप आँकड़े"
 msgid "Application updated."
 msgstr "आवेदन अपडेट किया गया।"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/dashboard/-components/sidebar.tsx
 #: src/routes/dashboard/applications/index.tsx
 msgid "Applications"
@@ -821,7 +825,7 @@ msgstr "साइडबार से किसी मौजूदा बात�
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/export.tsx
 msgid "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
-msgstr "Choose PDF, DOCX, Markdown, or JSON. Export your resume and cover letter separately when available."
+msgstr "आप PDF, DOCX, Markdown या JSON फॉर्मेट चुन सकते हैं। उपलब्ध होने पर अपना रिज्यूमे और कवर लेटर अलग-अलग एक्सपोर्ट करें।"
 
 #: src/components/level/combobox.tsx
 msgid "Circle"
@@ -2335,6 +2339,10 @@ msgstr "इटैलिक"
 msgid "Japanese"
 msgstr "जापानी"
 
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Job"
+msgstr ""
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Job description"
 msgstr "नौकरी विवरण"
@@ -2346,6 +2354,10 @@ msgstr "नौकरी पोस्टिंग"
 #: src/features/applications/components/insights-view.tsx
 msgid "Job search pipeline"
 msgstr "नौकरी खोज पाइपलाइन"
+
+#: src/features/command-palette/pages/navigation.tsx
+msgid "Jobs"
+msgstr ""
 
 #. Example full name placeholder on profile settings form
 #. Example full name placeholder on registration form
@@ -2571,6 +2583,10 @@ msgstr "{0} टेम्पलेट में अपने रिज्यू�
 msgid "Loading AI providers. Please try again in a moment."
 msgstr "एआई प्रदाताओं को लोड किया जा रहा है। कृपया कुछ देर बाद पुनः प्रयास करें।"
 
+#: src/features/command-palette/pages/resumes.tsx
+msgid "Loading applications…"
+msgstr ""
+
 #: src/features/settings/integrations/components/ai-section.tsx
 #: src/routes/agent/-components/new-thread-setup.tsx
 msgid "Loading providers…"
@@ -2581,6 +2597,7 @@ msgstr "प्रदाता लोड हो रहे हैं…"
 msgid "Loading resumes…"
 msgstr "लोडिंग फिर से शुरू होती है…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "Loading threads…"
 msgstr "थ्रेड लोड हो रहे हैं…"
@@ -2732,6 +2749,11 @@ msgstr "नेपाली"
 msgid "Network"
 msgstr "नेटवर्क"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Application"
+msgstr ""
+
 #: src/routes/_home/-sections/features.tsx
 msgid "New features are constantly being added and improved, so be sure to check back often."
 msgstr "नई विशेषताएँ लगातार जोड़ी और बेहतर की जा रही हैं, इसलिए अक्सर वापस आकर जाँचते रहें।"
@@ -2759,9 +2781,15 @@ msgstr "नया अनुभाग"
 msgid "New tag…"
 msgstr "नया टैग…"
 
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 msgid "New thread"
 msgstr "नया थ्रेड"
+
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
+msgid "New Thread"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "No Advertising, No Tracking"
@@ -4341,6 +4369,8 @@ msgstr "थ्रेड को आर्काइव कर दिया गय�
 msgid "Thread deleted."
 msgstr "थ्रेड डिलीट कर दिया गया।"
 
+#: src/features/command-palette/pages/navigation.tsx
+#: src/features/command-palette/pages/resumes.tsx
 #: src/routes/agent/-components/thread-sidebar.tsx
 #: src/routes/agent/$threadId.tsx
 msgid "Threads"
@@ -4954,3 +4984,4 @@ msgstr "ज़ूम आउट"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "ज़ुलु"
+
