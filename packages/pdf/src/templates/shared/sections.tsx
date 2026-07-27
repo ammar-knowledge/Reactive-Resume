@@ -664,7 +664,7 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 						<SectionItemHeader>
 							<View style={composeStyles(inlineStyle)}>
 								<Icon name={item.icon as IconName} />
-								<Bold>{item.name}</Bold>
+								<Bold style={{ flex: 1 }}>{item.name}</Bold>
 							</View>
 						</SectionItemHeader>
 
@@ -749,7 +749,9 @@ const AwardsSection = ({ sectionId = "awards", sectionData }: ItemSectionProps<A
 					<SectionItem key={item.id}>
 						<SectionItemHeader>
 							<View style={composeStyles(splitRowStyle, awardTitleDateRowStyle)}>
-								<ItemTitle website={item.website}>{item.title}</ItemTitle>
+								<ItemTitle website={item.website} bold={false}>
+									{item.title}
+								</ItemTitle>
 								<Text style={composeStyles(alignEndStyle)}>{item.date}</Text>
 							</View>
 							<Text>{item.awarder}</Text>
