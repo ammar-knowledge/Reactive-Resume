@@ -90,6 +90,7 @@ type ItemWebsite = {
 type ItemTitleProps = {
 	children: ReactNode;
 	website: ItemWebsite;
+	bold?: boolean;
 };
 
 type ItemWebsiteLinkProps = {
@@ -383,9 +384,9 @@ const SectionItemHeader = ({ children }: SectionItemHeaderProps) => {
 	return <View style={composeStyles(sectionItemHeaderStyle)}>{children}</View>;
 };
 
-const ItemTitle = ({ children, website }: ItemTitleProps) => {
+const ItemTitle = ({ children, website, bold = true }: ItemTitleProps) => {
 	const inlineWebsiteUrl = getInlineItemWebsiteUrl(website);
-	const title = <Bold>{children}</Bold>;
+	const title = bold ? <Bold>{children}</Bold> : <Text>{children}</Text>;
 
 	if (!inlineWebsiteUrl) return title;
 

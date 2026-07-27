@@ -44,4 +44,16 @@ describe("createResumePdfBlob", () => {
 			}),
 		);
 	});
+
+	it("returns a rejected Promise when the renderer fails synchronously", async () => {
+		rendererMock.pdf.mockImplementationOnce(() => {
+			throw new Error("renderer failed");
+		});
+		const { createResumePdfBlob } = await import("./browser");
+
+		const promise = createResumePdfBlob({ data: sampleResumeData });
+
+		expect(promise).toBeInstanceOf(Promise);
+		await expect(promise).rejects.toThrow("renderer failed");
+	});
 });

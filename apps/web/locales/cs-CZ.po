@@ -8,7 +8,7 @@ msgstr ""
 "Language: cs\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-09 13:34\n"
+"PO-Revision-Date: 2026-07-27 18:56\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
@@ -526,8 +526,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr "Opravdu chcete tuto položku odstranit?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr "Opravdu chcete smazat tento životopis?"
 
@@ -536,8 +535,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr "Opravdu chcete smazat svůj účet?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr "Opravdu chcete zamknout tento životopis?"
 
@@ -734,6 +732,7 @@ msgstr "Mohu svůj životopis exportovat do PDF?"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1379,8 +1378,7 @@ msgid "Deleting your API key..."
 msgstr "Mazání API klíče…"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "Mazání životopisu…"
 
@@ -1568,6 +1566,10 @@ msgstr "Upravit podrobnosti"
 msgid "Edit keyword"
 msgstr "Upravit klíčové slovo"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr "Upravit model"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr "Upravit poznámku"
@@ -1648,7 +1650,7 @@ msgstr "Zvyšte zabezpečení svého účtu pomocí dalších vrstev ochrany."
 msgid "Enter a name for your passkey."
 msgstr "Zadejte název přístupového klíče."
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Zadejte jeden z uložených záložních kódů pro přístup ke svému účtu"
 
@@ -1886,7 +1888,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr "Heslo se nepodařilo ověřit. Zkuste to prosím znovu."
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr "Nepodařilo se ověřit váš záložní kód. Zkuste to prosím znovu."
 
@@ -2066,7 +2068,7 @@ msgid "GitHub"
 msgstr "GitHub"
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr "Zpět"
 
@@ -3311,6 +3313,10 @@ msgstr "Poskytovatel"
 msgid "Provider connection verified."
 msgstr "Připojení poskytovatele ověřeno."
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr "Model poskytovatele"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3662,6 +3668,10 @@ msgstr "Uložit změny"
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
 msgstr "Uložit změny"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
+msgstr "Uložit model"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
@@ -4339,8 +4349,7 @@ msgid "Thinking"
 msgstr "Myslící"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr "Tuto akci nelze vrátit zpět."
 
@@ -4827,16 +4836,15 @@ msgstr "Ověřeno"
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr "Ověřit"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr "Ověřit pomocí záložního kódu"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr "Ověřování záložního kódu…"
 
@@ -4916,8 +4924,7 @@ msgid "What's new in the latest version?"
 msgstr "Co je nového v poslední verzi?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Pokud je životopis uzamčen, nelze ho aktualizovat ani smazat."
 
@@ -5023,8 +5030,7 @@ msgid "Your resume has been created successfully."
 msgstr "Váš životopis byl úspěšně vytvořen."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr "Váš životopis byl úspěšně smazán."
 

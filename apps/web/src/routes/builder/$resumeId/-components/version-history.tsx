@@ -19,28 +19,8 @@ import {
 import { useResumeStore } from "@/features/resume/builder/draft";
 import { useConfirm } from "@/hooks/use-confirm";
 import { getResumeErrorMessage } from "@/libs/error-message";
+import { formatRelativeTime } from "@/libs/locale";
 import { orpc } from "@/libs/orpc/client";
-
-const RELATIVE_TIME_DIVISIONS: { amount: number; unit: Intl.RelativeTimeFormatUnit }[] = [
-	{ amount: 31_536_000_000, unit: "year" },
-	{ amount: 2_592_000_000, unit: "month" },
-	{ amount: 604_800_000, unit: "week" },
-	{ amount: 86_400_000, unit: "day" },
-	{ amount: 3_600_000, unit: "hour" },
-	{ amount: 60_000, unit: "minute" },
-];
-
-function formatRelativeTime(value: Date | string, formatter: Intl.RelativeTimeFormat) {
-	const date = value instanceof Date ? value : new Date(value);
-	const diffMs = date.getTime() - Date.now();
-	const absMs = Math.abs(diffMs);
-
-	// No division matches only when the gap is under a minute (the smallest division), so fall back to seconds.
-	const division = RELATIVE_TIME_DIVISIONS.find((candidate) => absMs >= candidate.amount);
-	if (!division) return formatter.format(0, "second");
-
-	return formatter.format(Math.round(diffMs / division.amount), division.unit);
-}
 
 type BuilderVersionHistoryProps = {
 	resumeId: string;

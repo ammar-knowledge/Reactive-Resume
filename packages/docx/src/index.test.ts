@@ -20,4 +20,11 @@ describe("buildDocx", () => {
 		const blob = await buildDocx(data);
 		expect(blob.size).toBeGreaterThan(0);
 	});
+
+	it("returns a rejected Promise when document building fails synchronously", async () => {
+		const promise = buildDocx(undefined as never);
+
+		expect(promise).toBeInstanceOf(Promise);
+		await expect(promise).rejects.toThrow();
+	});
 });

@@ -13,6 +13,7 @@ type CreateResumePdfBlobOptions = {
 	resolveSectionTitle?: SectionTitleResolver | undefined;
 };
 
+// biome-ignore lint/suspicious/useAwait: keep synchronous renderer errors on the public Promise rejection path.
 export const createResumePdfBlob = async ({
 	data,
 	template,

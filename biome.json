@@ -53,7 +53,8 @@
 			},
 			"suspicious": {
 				"noArrayIndexKey": "off",
-				"noExplicitAny": "error"
+				"noExplicitAny": "error",
+				"useAwait": "error"
 			},
 			"nursery": {
 				"useSortedClasses": {

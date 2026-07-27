@@ -8,7 +8,7 @@ msgstr ""
 "Language: ja\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-09 13:34\n"
+"PO-Revision-Date: 2026-07-27 18:56\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -526,8 +526,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr "本当にこの項目を削除しますか？"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr "このレジュメを削除しますか？"
 
@@ -536,8 +535,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr "このアカウントを削除しますか？"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr "このレジュメをロックしますか？"
 
@@ -734,6 +732,7 @@ msgstr "履歴書を PDF にエクスポートできますか？"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1379,8 +1378,7 @@ msgid "Deleting your API key..."
 msgstr "API キーを削除しています..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "レジュメを削除しています…"
 
@@ -1568,6 +1566,10 @@ msgstr "詳細を編集"
 msgid "Edit keyword"
 msgstr "編集キーワード"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr "モデルを編集"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr "メモを編集"
@@ -1648,7 +1650,7 @@ msgstr "アカウントのセキュリティを強化するために、追加の
 msgid "Enter a name for your passkey."
 msgstr "パスキーの名前を入力します。"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "保存してあるバックアップコードのうち 1 つを入力して、アカウントにアクセスしてください。"
 
@@ -1886,7 +1888,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr "パスワードの確認に失敗しました。もう一度お試しください。"
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr "バックアップコードの検証に失敗しました。もう一度お試しください。"
 
@@ -2066,7 +2068,7 @@ msgid "GitHub"
 msgstr "ギットハブ"
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr "戻る"
 
@@ -3311,6 +3313,10 @@ msgstr "プロバイダー"
 msgid "Provider connection verified."
 msgstr "プロバイダーとの接続を確認しました。"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr "プロバイダーモデル"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3662,6 +3668,10 @@ msgstr "変更を保存"
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
 msgstr "変更を保存"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
+msgstr "モデルを保存"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
@@ -4339,8 +4349,7 @@ msgid "Thinking"
 msgstr "考え"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
 
@@ -4827,16 +4836,15 @@ msgstr "確認済み"
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr "確認"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr "バックアップコードで確認"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr "バックアップコードを確認しています..."
 
@@ -4916,8 +4924,7 @@ msgid "What's new in the latest version?"
 msgstr "最新バージョンでの変更点"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "ロックされている場合、更新や削除はできません。"
 
@@ -5023,8 +5030,7 @@ msgid "Your resume has been created successfully."
 msgstr "作成しました。"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr "削除しました。"
 

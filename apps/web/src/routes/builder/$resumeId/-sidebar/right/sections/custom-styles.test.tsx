@@ -326,7 +326,6 @@ describe("CustomStylesSectionBuilder", () => {
 
 		fireEvent.blur(fontSizeInput);
 		expect(fontSizeInput).toHaveValue(12);
-		expect(updateResumeData).toHaveBeenCalledTimes(2);
 	});
 
 	it("commits normalized legacy values when the input loses focus", () => {

@@ -8,7 +8,7 @@ msgstr ""
 "Language: bg\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-09 13:34\n"
+"PO-Revision-Date: 2026-07-27 18:56\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -526,8 +526,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr "Сигурни ли сте, че искате да изтриете този елемент?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr "Сигурни ли сте, че искате да изтриете тази автобиография?"
 
@@ -536,8 +535,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr "Сигурни ли сте, че искате да изтриете профила си?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr "Сигурни ли сте, че искате да заключите тази автобиография?"
 
@@ -734,6 +732,7 @@ msgstr "Мога ли да експортирам автобиографията
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1379,8 +1378,7 @@ msgid "Deleting your API key..."
 msgstr "Изтриване на вашия API ключ..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "Вашата автобиография се изтрива..."
 
@@ -1568,6 +1566,10 @@ msgstr "Редактиране на подробности"
 msgid "Edit keyword"
 msgstr "Редактиране на ключова дума"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr "Редактиране на модел"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr "Редактиране на бележка"
@@ -1648,7 +1650,7 @@ msgstr "Подобрете сигурността на профила си с д
 msgid "Enter a name for your passkey."
 msgstr "Въведете име за своя ключ."
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "Въведете един от запазените резервни кодове, за да получите достъп до профила си"
 
@@ -1886,7 +1888,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr "Не успя да провери паролата. Моля, опитайте отново."
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr "Не успяхте да проверите кода си за архивиране. Моля, опитайте отново."
 
@@ -2066,7 +2068,7 @@ msgid "GitHub"
 msgstr "GitHub"
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr "Назад"
 
@@ -3311,6 +3313,10 @@ msgstr "Доставчик"
 msgid "Provider connection verified."
 msgstr "Връзката с доставчика е потвърдена."
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr "Модел на доставчика"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3662,6 +3668,10 @@ msgstr "Запазване на промените"
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
 msgstr "Запазване на промените"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
+msgstr "Запазване на модела"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
@@ -4339,8 +4349,7 @@ msgid "Thinking"
 msgstr "Мислене"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr "Това действие е необратимо."
 
@@ -4827,16 +4836,15 @@ msgstr "Потвърден"
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr "Потвърждаване"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr "Потвърждаване с резервен код"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr "Потвърждаване на резервния код..."
 
@@ -4916,8 +4924,7 @@ msgid "What's new in the latest version?"
 msgstr "Какво ново в последната версия?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "Когато е заключена, автобиографията не може да бъде актуализирана или изтрита."
 
@@ -5023,8 +5030,7 @@ msgid "Your resume has been created successfully."
 msgstr "Вашата автобиография беше създадена успешно."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr "Вашата автобиография беше изтрита успешно."
 

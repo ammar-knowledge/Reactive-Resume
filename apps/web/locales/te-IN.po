@@ -8,7 +8,7 @@ msgstr ""
 "Language: te\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-09 13:34\n"
+"PO-Revision-Date: 2026-07-27 18:56\n"
 "Last-Translator: \n"
 "Language-Team: Telugu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -526,8 +526,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr "మీరు ఈ ఐటెమ్‌ను తొలగించాలనుకుంటున్నారా?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr "మీరు నిజంగా మీ రిజ్యూమ్‌ను తొలగించాలనుకుంటున్నారా?"
 
@@ -536,8 +535,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr "మీరు ఖచ్చితంగా మీ ఖాతాను తొలగించాలనుకుంటున్నారా?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr "మీరు నిజంగా ఈ రిజ్యూమ్‌ను లాక్ చేయాలనుకుంటున్నారా?"
 
@@ -734,6 +732,7 @@ msgstr "నేను నా రిజ్యూమ్‌ని PDFగా ఎగ�
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1379,8 +1378,7 @@ msgid "Deleting your API key..."
 msgstr "మీ API కీ తొలగించబడుతోంది..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "మీ రిజ్యూమ్‌ను తొలగిస్తున్నారు..."
 
@@ -1568,6 +1566,10 @@ msgstr "వివరాలను సవరించండి"
 msgid "Edit keyword"
 msgstr "కీవర్డ్‌ను సవరించండి"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr "మోడల్‌ను సవరించండి"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr "గమనికను సవరించండి"
@@ -1648,7 +1650,7 @@ msgstr "మీ ఖాతా భద్రతను అదనపు పరిర�
 msgid "Enter a name for your passkey."
 msgstr "మీ పాస్‌కీ కోసం ఒక పేరును నమోదు చేయండి."
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "మీరు సేవ్ చేసిన బ్యాకప్ కోడ్స్‌లో ఒకదాన్ని నమోదు చేసి మీ ఖాతాలోకి ప్రవేశించండి"
 
@@ -1886,7 +1888,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr "పాస్‌వర్డ్ ధృవీకరణ విఫలమైంది. దయచేసి మళ్ళీ ప్రయత్నించండి."
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr "మీ బ్యాకప్ కోడ్‌ను ధృవీకరించడంలో విఫలమయ్యాము. దయచేసి మళ్ళీ ప్రయత్నించండి."
 
@@ -2066,7 +2068,7 @@ msgid "GitHub"
 msgstr "గిట్‌హబ్"
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr "వెనక్కు వెళ్ళండి"
 
@@ -3311,6 +3313,10 @@ msgstr "ప్రొవైడర్"
 msgid "Provider connection verified."
 msgstr "ప్రొవైడర్ కనెక్షన్ ధృవీకరించబడింది."
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr "ప్రొవైడర్ మోడల్"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3662,6 +3668,10 @@ msgstr "మార్పులను సేవ్ చేయండి"
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
 msgstr "మార్పులను సేవ్ చేయండి"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
+msgstr "మోడల్‌ను సేవ్ చేయండి"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
@@ -4339,8 +4349,7 @@ msgid "Thinking"
 msgstr "ఆలోచిస్తున్నాను"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr "ఈ చర్యను రద్దు చేయడం సాధ్యం కాదు."
 
@@ -4827,16 +4836,15 @@ msgstr "ధ్రువీకరించారు"
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr "ధ్రువీకరించండి"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr "బ్యాకప్ కోడ్‌తో ధ్రువీకరించండి"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr "బ్యాకప్ కోడ్‌ను ధ్రువీకరిస్తోంది..."
 
@@ -4916,8 +4924,7 @@ msgid "What's new in the latest version?"
 msgstr "తాజా వెర్షన్‌లో ఏమి కొత్తగా ఉంది?"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "లాక్ చేసినప్పుడు, రిజ్యూమ్‌ను నవీకరించలేరు లేదా తొలగించలేరు."
 
@@ -5023,8 +5030,7 @@ msgid "Your resume has been created successfully."
 msgstr "మీ రిజ్యూమ్ విజయవంతంగా రూపొందించబడింది."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr "మీ రిజ్యూమ్ విజయవంతంగా తొలగించబడింది."
 

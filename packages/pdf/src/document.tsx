@@ -9,10 +9,14 @@ import { Document } from "#react-pdf-renderer";
 import { RenderProvider } from "./context";
 import { registerFonts, resumeContentContainsCJK, resumeContentScripts } from "./hooks/use-register-fonts";
 import { getTemplatePage } from "./templates";
+import { shouldShowResumeHeader } from "./templates/shared/cover-letter";
+import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "./templates/shared/page-size";
 
 export type TemplatePageProps = {
 	page: LayoutPage;
-	pageIndex: number;
+	pageSize: ReturnType<typeof getTemplatePageSize>;
+	pageMinHeightStyle: ReturnType<typeof getTemplatePageMinHeightStyle>;
+	showHeader: boolean;
 };
 
 export type TemplatePage = ComponentType<TemplatePageProps>;
@@ -43,6 +47,9 @@ export const ResumeDocument = ({ data, template, renderOptions, resolveSectionTi
 	// fallback (#2986); the cast carries that wider runtime value through
 	// `ResumeData` without changing the public schema.
 	const resumeData = useMemo(() => ({ ...data, metadata: { ...data.metadata, typography } }), [data, typography]);
+	const pageSize = getTemplatePageSize(resumeData.metadata.page.format);
+	const pageMinHeightStyle = getTemplatePageMinHeightStyle(resumeData.metadata.page.format);
+	const headerResumeData = renderOptions ? { ...resumeData, renderOptions } : resumeData;
 
 	return (
 		<RenderProvider data={resumeData} resolveSectionTitle={resolveSectionTitle} renderOptions={renderOptions}>
@@ -57,7 +64,13 @@ export const ResumeDocument = ({ data, template, renderOptions, resolveSectionTi
 				language={resumeData.metadata.page.locale}
 			>
 				{resumeData.metadata.layout.pages.map((page, index) => (
-					<TemplatePageComponent key={getLayoutPageKey(page, index)} page={page} pageIndex={index} />
+					<TemplatePageComponent
+						key={getLayoutPageKey(page, index)}
+						page={page}
+						pageSize={pageSize}
+						pageMinHeightStyle={pageMinHeightStyle}
+						showHeader={shouldShowResumeHeader(headerResumeData, index)}
+					/>
 				))}
 			</Document>
 		</RenderProvider>

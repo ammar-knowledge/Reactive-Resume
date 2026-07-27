@@ -8,7 +8,7 @@ msgstr ""
 "Language: ar\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-09 13:34\n"
+"PO-Revision-Date: 2026-07-27 18:56\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
@@ -526,8 +526,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr "هل أنت متأكد من رغبتك في حذف هذا العنصر؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذه السيرة الذاتية؟"
 
@@ -536,8 +535,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr "هل أنت متأكد من أنك تريد حذف حسابك؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr "هل أنت متأكد من أنك تريد قفل هذه السيرة الذاتية؟"
 
@@ -734,6 +732,7 @@ msgstr "هل يمكنني تصدير سيرتي الذاتية إلى PDF؟"
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1379,8 +1378,7 @@ msgid "Deleting your API key..."
 msgstr "جاري حذف مفتاح واجهة برمجة التطبيقات (API)..."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr "جاري حذف سيرتك الذاتية..."
 
@@ -1568,6 +1566,10 @@ msgstr "تعديل التفاصيل"
 msgid "Edit keyword"
 msgstr "تحرير الكلمة الرئيسية"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr "تعديل النموذج"
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr "تعديل الملاحظة"
@@ -1648,7 +1650,7 @@ msgstr "عزّز أمان حسابك بطبقات إضافية من الحماي
 msgid "Enter a name for your passkey."
 msgstr "أدخل اسماً لمفتاح المرور الخاص بك."
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr "أدخِل أحد رموز النسخ الاحتياطي المحفوظة للوصول إلى حسابك"
 
@@ -1886,7 +1888,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr "فشل التحقق من كلمة المرور. يرجى المحاولة مرة أخرى."
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr "فشل التحقق من رمز النسخ الاحتياطي الخاص بك. يرجى المحاولة مرة أخرى."
 
@@ -2066,7 +2068,7 @@ msgid "GitHub"
 msgstr "جيثب"
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr "عودة"
 
@@ -3311,6 +3313,10 @@ msgstr "المزوّد"
 msgid "Provider connection verified."
 msgstr "تم التحقق من اتصال مزود الخدمة."
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr "نموذج المزوّد"
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3662,6 +3668,10 @@ msgstr "حفظ التغييرات"
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
 msgstr "حفظ التّغييرات"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
+msgstr "حفظ النموذج"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saved"
@@ -4339,8 +4349,7 @@ msgid "Thinking"
 msgstr "التفكير"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr "لا يمكن التراجع عن هذا الإجراء."
 
@@ -4827,16 +4836,15 @@ msgstr "مُتحقَّق"
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr "تحقّق"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr "التحقق باستخدام رمز نسخ احتياطي"
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr "جاري التحقق من رمز النسخ الاحتياطي..."
 
@@ -4916,8 +4924,7 @@ msgid "What's new in the latest version?"
 msgstr "ما الجديد في الإصدار الأخير؟"
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr "عند القفل، لا يمكن تحديث السيرة الذاتية أو حذفها."
 
@@ -5023,8 +5030,7 @@ msgid "Your resume has been created successfully."
 msgstr "تم إنشاء سيرتك الذاتية بنجاح."
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr "تم حذف سيرتك الذاتية بنجاح."
 

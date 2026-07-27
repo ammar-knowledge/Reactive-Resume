@@ -15,11 +15,9 @@ import {
 	WebsiteContactItem,
 } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
-import { shouldShowResumeHeader } from "../shared/cover-letter";
 import { getFeaturedSummaryLayout } from "../shared/featured-summary";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
@@ -58,14 +56,11 @@ const ditgarFeatures = {
 	mainItemHeaderBorder: true,
 } satisfies TemplateFeatures;
 
-export const DitgarPage = ({ page, pageIndex }: TemplatePageProps) => {
+export const DitgarPage = ({ page, pageSize, pageMinHeightStyle, showHeader }: TemplatePageProps) => {
 	const data = useRender();
 	const { metadata } = data;
 	const { colors, styles } = useDitgarTemplate();
 	const metrics = getTemplateMetrics(metadata.page);
-	const pageSize = getTemplatePageSize(metadata.page.format);
-	const pageMinHeightStyle = getTemplatePageMinHeightStyle(metadata.page.format);
-	const showHeader = shouldShowResumeHeader(data, pageIndex);
 	const showSidebar = !page.fullWidth || showHeader;
 	const sidebarSections = filterSections(page.sidebar, data);
 	const mainSections = filterSections(page.main, data);
@@ -189,18 +184,13 @@ const useDitgarTemplate = (): DitgarTemplate => {
 		};
 		const metrics = getTemplateMetrics(metadata.page);
 
-		const base = createBaseTemplateStyles({ metadata, foreground, r, metrics, picture });
+		const base = createBaseTemplateStyles({ metadata, foreground, background, r, metrics, picture });
 
 		const baseStyles = StyleSheet.create({
 			...base,
 			page: {
+				...base.page,
 				flexDirection: r.row,
-				color: foreground,
-				backgroundColor: background,
-				fontFamily: metadata.typography.body.fontFamily,
-				fontSize: metadata.typography.body.fontSize,
-				lineHeight: metadata.typography.body.lineHeight,
-				direction: r.pageDirection,
 			},
 			section: {
 				flexDirection: "column",

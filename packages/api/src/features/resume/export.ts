@@ -75,10 +75,10 @@ export const downloadResumePdfProcedure = protectedProcedure
 		}),
 	)
 	.use(pdfExportRateLimit)
-	.handler(async ({ context, input }) => {
-		return createResumePdfDownload({
+	.handler(({ context, input }) =>
+		createResumePdfDownload({
 			id: input.id,
 			userId: context.user.id,
 			...(input.target ? { target: input.target } : {}),
-		});
-	});
+		}),
+	);

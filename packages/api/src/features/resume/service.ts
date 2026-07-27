@@ -165,10 +165,7 @@ const tags = {
 			.from(schema.resume)
 			.where(eq(schema.resume.userId, input.userId));
 
-		const uniqueTags = new Set(result.flatMap((tag) => tag.tags));
-		const sortedTags = Array.from(uniqueTags).sort((a, b) => a.localeCompare(b));
-
-		return sortedTags;
+		return [...new Set(result.flatMap((tag) => tag.tags))].sort((a, b) => a.localeCompare(b));
 	},
 };
 
@@ -422,8 +419,8 @@ export const resumeService = {
 		},
 	},
 
-	list: async (input: { userId: string; tags: string[]; sort: "lastUpdatedAt" | "createdAt" | "name" }) => {
-		return await db
+	list: (input: { userId: string; tags: string[]; sort: "lastUpdatedAt" | "createdAt" | "name" }) =>
+		db
 			.select({
 				id: schema.resume.id,
 				name: schema.resume.name,
@@ -449,8 +446,7 @@ export const resumeService = {
 					.with("createdAt", () => asc(schema.resume.createdAt))
 					.with("name", () => asc(schema.resume.name))
 					.exhaustive(),
-			);
-	},
+			),
 
 	getById: async (input: { id: string; userId: string }) => {
 		const [resume] = await db

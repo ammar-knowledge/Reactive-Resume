@@ -19,13 +19,13 @@ export const crudRouter = {
 		})
 		.input(resumeDto.list.input.optional().default({ tags: [], sort: "lastUpdatedAt" }))
 		.output(resumeDto.list.output)
-		.handler(async ({ input, context }) => {
-			return resumeService.list({
+		.handler(({ input, context }) =>
+			resumeService.list({
 				userId: context.user.id,
 				tags: input.tags,
 				sort: input.sort,
-			});
-		}),
+			}),
+		),
 
 	getById: protectedProcedure
 		.route({
@@ -40,9 +40,7 @@ export const crudRouter = {
 		})
 		.input(resumeDto.getById.input)
 		.output(resumeDto.getById.output)
-		.handler(async ({ context, input }) => {
-			return resumeService.getById({ id: input.id, userId: context.user.id });
-		}),
+		.handler(({ context, input }) => resumeService.getById({ id: input.id, userId: context.user.id })),
 
 	create: protectedProcedure
 		.route({
@@ -64,16 +62,16 @@ export const crudRouter = {
 				status: 400,
 			},
 		})
-		.handler(async ({ context, input }) => {
-			return resumeService.create({
+		.handler(({ context, input }) =>
+			resumeService.create({
 				name: input.name,
 				slug: input.slug,
 				tags: input.tags,
 				locale: context.locale,
 				userId: context.user.id,
 				...(input.withSampleData ? { data: createSampleResumeData(input.name) } : {}),
-			});
-		}),
+			}),
+		),
 
 	import: protectedProcedure
 		.route({
@@ -139,8 +137,8 @@ export const crudRouter = {
 				status: 400,
 			},
 		})
-		.handler(async ({ context, input }) => {
-			return resumeService.update({
+		.handler(({ context, input }) =>
+			resumeService.update({
 				id: input.id,
 				userId: context.user.id,
 				...(input.name !== undefined ? { name: input.name } : {}),
@@ -148,8 +146,8 @@ export const crudRouter = {
 				...(input.tags !== undefined ? { tags: input.tags } : {}),
 				...(input.data !== undefined ? { data: input.data } : {}),
 				...(input.isPublic !== undefined ? { isPublic: input.isPublic } : {}),
-			});
-		}),
+			}),
+		),
 
 	patch: protectedProcedure
 		.route({
@@ -175,14 +173,14 @@ export const crudRouter = {
 				status: 409,
 			},
 		})
-		.handler(async ({ context, input }) => {
-			return resumeService.patch({
+		.handler(({ context, input }) =>
+			resumeService.patch({
 				id: input.id,
 				userId: context.user.id,
 				operations: input.operations,
 				...(input.expectedUpdatedAt ? { expectedUpdatedAt: input.expectedUpdatedAt } : {}),
-			});
-		}),
+			}),
+		),
 
 	setLocked: protectedProcedure
 		.route({
@@ -198,13 +196,13 @@ export const crudRouter = {
 		.input(resumeDto.setLocked.input)
 		.use(resumeMutationRateLimit)
 		.output(resumeDto.setLocked.output)
-		.handler(async ({ context, input }) => {
-			return resumeService.setLocked({
+		.handler(({ context, input }) =>
+			resumeService.setLocked({
 				id: input.id,
 				userId: context.user.id,
 				isLocked: input.isLocked,
-			});
-		}),
+			}),
+		),
 
 	duplicate: protectedProcedure
 		.route({
@@ -247,7 +245,5 @@ export const crudRouter = {
 		.input(resumeDto.delete.input)
 		.use(resumeMutationRateLimit)
 		.output(resumeDto.delete.output)
-		.handler(async ({ context, input }) => {
-			return resumeService.delete({ id: input.id, userId: context.user.id });
-		}),
+		.handler(({ context, input }) => resumeService.delete({ id: input.id, userId: context.user.id })),
 };

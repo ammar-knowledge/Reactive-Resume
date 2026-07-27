@@ -14,10 +14,8 @@ import {
 	WebsiteContactItem,
 } from "../shared/contact-item";
 import { TemplateProvider } from "../shared/context";
-import { shouldShowResumeHeader } from "../shared/cover-letter";
 import { filterSections } from "../shared/filtering";
 import { getTemplateMetrics } from "../shared/metrics";
-import { getTemplatePageMinHeightStyle, getTemplatePageSize } from "../shared/page-size";
 import { hasTemplatePicture } from "../shared/picture";
 import { Heading, Text } from "../shared/primitives";
 import { createRtlStyleHelpers } from "../shared/rtl";
@@ -46,14 +44,11 @@ type KakunaHeaderProps = {
 	styles: KakunaStyles;
 };
 
-export const KakunaPage = ({ page, pageIndex }: TemplatePageProps) => {
+export const KakunaPage = ({ page, pageSize, pageMinHeightStyle, showHeader }: TemplatePageProps) => {
 	const data = useRender();
 	const { metadata } = data;
 	const { colors, styles } = useKakunaTemplate();
 	const metrics = getTemplateMetrics(metadata.page);
-	const pageSize = getTemplatePageSize(metadata.page.format);
-	const pageMinHeightStyle = getTemplatePageMinHeightStyle(metadata.page.format);
-	const showHeader = shouldShowResumeHeader(data, pageIndex);
 	const mainSections = filterSections(page.main, data);
 	const sidebarSections = filterSections(page.sidebar, data);
 
@@ -119,20 +114,15 @@ const useKakunaTemplate = (): KakunaTemplate => {
 		const colors: TemplateColorRoles = { foreground, background, primary };
 		const metrics = getTemplateMetrics(metadata.page);
 
-		const base = createBaseTemplateStyles({ metadata, foreground, r, metrics, picture });
+		const base = createBaseTemplateStyles({ metadata, foreground, background, r, metrics, picture });
 
 		const baseStyles = StyleSheet.create({
 			...base,
 			page: {
-				color: foreground,
-				backgroundColor: background,
+				...base.page,
 				paddingHorizontal: metrics.page.paddingHorizontal,
 				paddingVertical: metrics.page.paddingVertical,
 				rowGap: metrics.sectionGap,
-				fontFamily: metadata.typography.body.fontFamily,
-				fontSize: metadata.typography.body.fontSize,
-				lineHeight: metadata.typography.body.lineHeight,
-				direction: r.pageDirection,
 			},
 			section: {
 				flexDirection: "column",

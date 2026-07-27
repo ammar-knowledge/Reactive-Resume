@@ -348,7 +348,7 @@ async function fetchLinkedInJobPostingText(jobId: string): Promise<string> {
 // Best-effort fetch + strip of a job posting page. http(s) only, size/time capped.
 export async function fetchJobPostingText(url: string): Promise<string> {
 	const jobId = linkedInJobId(url);
-	if (jobId) return await fetchLinkedInJobPostingText(jobId);
+	if (jobId) return fetchLinkedInJobPostingText(jobId);
 	if (isLinkedInUrl(url)) {
 		throw new ORPCError("BAD_REQUEST", { message: "The LinkedIn job URL must include a job posting ID." });
 	}

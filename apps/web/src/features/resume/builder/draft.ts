@@ -106,10 +106,6 @@ function cloneResume(resume: Resume): Resume {
 	return { ...resume, data: cloneResumeData(resume.data) };
 }
 
-function createResumeUpdateEventIterator(resumeId: string) {
-	return streamClient.resume.updates.subscribe({ id: resumeId });
-}
-
 export function isEditableElementFocused(): boolean {
 	if (typeof document === "undefined") return false;
 	const element = document.activeElement as HTMLElement | null;
@@ -521,10 +517,6 @@ export const usePreviewPausedStore = create<PreviewPausedStore>()((set) => ({
 	setPaused: (paused) => set({ paused }),
 }));
 
-function useResetResumeStore() {
-	return useResumeStore((state) => state.reset);
-}
-
 export function usePatchResume() {
 	return useResumeStore((state) => state.patchResume);
 }
@@ -587,7 +579,7 @@ export function useResumeUpdateSubscription({ resumeId, onUpdate, onError }: Res
 
 		let didCancel = false;
 		let retryTimer: number | undefined;
-		const cancel = consumeEventIterator(createResumeUpdateEventIterator(resumeId), {
+		const cancel = consumeEventIterator(streamClient.resume.updates.subscribe({ id: resumeId }), {
 			onEvent: async (event) => {
 				try {
 					await onUpdate((event ?? { mutation: "sync" }) as ResumeUpdateEvent);
@@ -664,7 +656,7 @@ export function useBuilderResumeUpdateSubscription() {
 export function useResumeCleanup() {
 	const params = useParams({ strict: false }) as { resumeId?: string };
 	const resumeId = params.resumeId;
-	const reset = useResetResumeStore();
+	const reset = useResumeStore((state) => state.reset);
 
 	useEffect(() => {
 		if (!resumeId) return;

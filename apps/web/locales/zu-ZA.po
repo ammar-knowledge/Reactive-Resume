@@ -521,8 +521,7 @@ msgid "Are you sure you want to delete this item?"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to delete this resume?"
 msgstr ""
 
@@ -531,8 +530,7 @@ msgid "Are you sure you want to delete your account?"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Are you sure you want to lock this resume?"
 msgstr ""
 
@@ -729,6 +727,7 @@ msgstr ""
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
+#: src/features/settings/integrations/components/ai-section.tsx
 #: src/features/settings/pages/api-keys.tsx
 #: src/features/settings/pages/danger-zone.tsx
 #: src/features/settings/pages/profile.tsx
@@ -1374,8 +1373,7 @@ msgid "Deleting your API key..."
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Deleting your resume..."
 msgstr ""
 
@@ -1563,6 +1561,10 @@ msgstr ""
 msgid "Edit keyword"
 msgstr ""
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Edit model"
+msgstr ""
+
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Edit note"
 msgstr ""
@@ -1643,7 +1645,7 @@ msgstr ""
 msgid "Enter a name for your passkey."
 msgstr ""
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Enter one of your saved backup codes to access your account"
 msgstr ""
 
@@ -1881,7 +1883,7 @@ msgid "Failed to verify the password. Please try again."
 msgstr ""
 
 #. Fallback toast when verifying a backup two-factor authentication code fails
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your backup code. Please try again."
 msgstr ""
 
@@ -2061,7 +2063,7 @@ msgid "GitHub"
 msgstr ""
 
 #. Secondary navigation button on backup-code verification screen
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Go Back"
 msgstr ""
 
@@ -3306,6 +3308,10 @@ msgstr ""
 msgid "Provider connection verified."
 msgstr ""
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Provider model"
+msgstr ""
+
 #: src/dialogs/resume/sections/custom.tsx
 #: src/libs/resume/section-title.ts
 #: src/libs/resume/section.tsx
@@ -3656,6 +3662,10 @@ msgstr ""
 #: src/dialogs/resume/sections/volunteer.tsx
 #: src/features/settings/pages/profile.tsx
 msgid "Save Changes"
+msgstr ""
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Save model"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -4334,8 +4344,7 @@ msgid "Thinking"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "This action cannot be undone."
 msgstr ""
 
@@ -4822,16 +4831,15 @@ msgstr ""
 
 #. Primary action button to submit 2FA code
 #. Primary action button to submit backup code
-#: src/features/auth/pages/verify-2fa-backup.tsx
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify"
 msgstr ""
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verify with a Backup Code"
 msgstr ""
 
-#: src/features/auth/pages/verify-2fa-backup.tsx
+#: src/features/auth/pages/verify-2fa.tsx
 msgid "Verifying backup code..."
 msgstr ""
 
@@ -4911,8 +4919,7 @@ msgid "What's new in the latest version?"
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "When locked, the resume cannot be updated or deleted."
 msgstr ""
 
@@ -5018,8 +5025,7 @@ msgid "Your resume has been created successfully."
 msgstr ""
 
 #: src/routes/builder/$resumeId/-components/header.tsx
-#: src/routes/dashboard/resumes/-components/menus/context-menu.tsx
-#: src/routes/dashboard/resumes/-components/menus/dropdown-menu.tsx
+#: src/routes/dashboard/resumes/-components/menus/use-resume-menu-actions.ts
 msgid "Your resume has been deleted successfully."
 msgstr ""
 
