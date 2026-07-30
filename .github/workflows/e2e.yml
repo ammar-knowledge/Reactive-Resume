@@ -56,6 +56,9 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Run Server and Tooling Tests
+        run: pnpm exec turbo run test:ci --filter=server --filter=@reactive-resume/tooling
+
       - name: Install Playwright Browser
         run: pnpm exec playwright install --with-deps chromium
 
@@ -73,8 +76,38 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Run E2E Tests
-        run: pnpm test:e2e:ci
+      - name: Run Baseline E2E Tests
+        env:
+          FLAG_SEMANTIC_CSS_AUTHORING: "false"
+          FLAG_SEMANTIC_CSS_DEFAULT: "false"
+        run: pnpm exec playwright test --grep-invert "@semantic-css"
+
+      - name: Run Semantic CSS Opt-In Acceptance
+        env:
+          FLAG_SEMANTIC_CSS_AUTHORING: "true"
+          FLAG_SEMANTIC_CSS_DEFAULT: "false"
+        run: |
+          pnpm exec playwright test \
+            tests/e2e/specs/semantic-css/legacy-conversion.spec.ts \
+            tests/e2e/specs/semantic-css/invalid-last-valid.spec.ts \
+            tests/e2e/specs/semantic-css/portable-stylesheet.spec.ts \
+            tests/e2e/specs/semantic-css/revision-conflict.spec.ts \
+            tests/e2e/specs/semantic-css/template-visual.spec.ts
+
+      - name: Run Semantic CSS Default-On Acceptance
+        env:
+          FLAG_SEMANTIC_CSS_AUTHORING: "true"
+          FLAG_SEMANTIC_CSS_DEFAULT: "true"
+        run: pnpm exec playwright test tests/e2e/specs/semantic-css/default-mode.spec.ts
+
+      - name: Run Semantic CSS Dormant Acceptance
+        env:
+          FLAG_SEMANTIC_CSS_AUTHORING: "false"
+          FLAG_SEMANTIC_CSS_DEFAULT: "false"
+        run: |
+          pnpm exec playwright test \
+            tests/e2e/specs/semantic-css/dormant-mode.spec.ts \
+            tests/e2e/specs/semantic-css/flag-off-semantic.spec.ts
 
       - name: Upload Playwright Report
         if: always()
