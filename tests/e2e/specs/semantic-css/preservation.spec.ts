@@ -1,5 +1,5 @@
 import { readSemanticCssFixture, updateSemanticCssFixture } from "../../fixtures/db";
-import { createSampleResumeFromDashboard } from "../../fixtures/resume";
+import { createSampleResumeFromDashboard, openSidebarSection } from "../../fixtures/resume";
 import { resumeIdFromPage } from "../../fixtures/semantic-css";
 import { expect, test } from "../../fixtures/test";
 
