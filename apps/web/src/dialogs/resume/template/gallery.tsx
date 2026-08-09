@@ -105,6 +105,7 @@ function TemplateCard({ id, data, metadata, isActive, onSelect }: TemplateCardPr
 				onClick={() => onSelect(id)}
 				className={cn(
 					"relative block aspect-page size-full cursor-pointer overflow-hidden rounded-md bg-popover outline-none",
+					"focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
 					isActive && "ring-2 ring-ring ring-offset-4 ring-offset-background",
 				)}
 			>
