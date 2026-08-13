@@ -12,7 +12,7 @@ Internal packages are source-consumed through `package.json` export maps that po
 
 - **Node.js 24** (matches Dockerfile `ARG NODE_VERSION=24`). Use `nvm install 24 && nvm use 24` if needed.
 - **Docker** is required to run PostgreSQL. Start it with `sudo dockerd &` if the daemon isn't running.
-- **pnpm 11.17.0** is managed via corepack (`corepack enable`).
+- **pnpm 11.21.0**. Install pnpm directly using the [official installation guide](https://pnpm.io/installation).
 
 ### Codebase map
 
@@ -107,13 +107,15 @@ The production server runs migrations during startup before serving traffic. Man
 
 ### Environment
 
-Copy `.env.example` to `.env`. The three required variables are:
+Copy `.env.example` to `.env.local`. The three required variables are:
 
 - `APP_URL` (default `http://localhost:3000`)
 - `DATABASE_URL` (default `postgresql://postgres:postgres@localhost:5432/postgres`)
 - `AUTH_SECRET` (any non-empty string)
 
 S3/SeaweedFS is optional. If `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, and `S3_BUCKET` are all set, the app uses S3-compatible storage. The checked-in `.env.example` sets SeaweedFS defaults, so either start the `seaweedfs` compose service too or comment out those S3 vars to use local filesystem storage under `<workspace>/data`. `LOCAL_STORAGE_PATH` must be absolute when set.
+
+`REDIS_URL` and `ENCRYPTION_SECRET` are optional for core resume flows, but both are required for saved AI providers and the authenticated `/agent` workspace. Start the `redis` compose service and set both vars in `.env.local` when working on those features. For host-run development, use `REDIS_URL=redis://localhost:6379`; the container-run app uses `REDIS_URL=redis://redis:6379`.
 
 When running dev servers or migration commands, prefix the command with `dotenvx run -f .env.local --`. For example: `dotenvx run -f .env.local -- pnpm dev`. Tests, typechecks, linters, boundary checks, and `pnpm build` do not need this prefix by default. If one of those commands fails because a specific environment variable is required, rerun it with the `dotenvx run -f .env.local --` prefix.
 
@@ -124,6 +126,7 @@ When running dev servers or migration commands, prefix the command with `dotenvx
 | Install deps | `pnpm install` |
 | Start Postgres only | `sudo docker compose -f compose.dev.yml up -d postgres` |
 | Start Postgres + SeaweedFS | `sudo docker compose -f compose.dev.yml up -d postgres seaweedfs seaweedfs_create_bucket` |
+| Start full dev infrastructure | `sudo docker compose -f compose.dev.yml up -d postgres redis seaweedfs seaweedfs_create_bucket` |
 | Generate migrations | `dotenvx run -f .env.local -- pnpm db:generate` |
 | Run migrations | `dotenvx run -f .env.local -- pnpm db:migrate` |
 | Dev server | `dotenvx run -f .env.local -- pnpm dev` (starts on port 3000) |
