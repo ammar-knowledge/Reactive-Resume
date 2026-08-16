@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Malay\n"
-"Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: ms\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Malay\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -75,7 +75,7 @@ msgstr "{column, plural, other {# Ruangan}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# error} other {# errors}}"
-msgstr "{count, plural, one {# error} other {# errors}}"
+msgstr "{count, plural, one {# ralat} other {# ralat}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# note} other {# notes}}"
@@ -83,7 +83,7 @@ msgstr "{count, plural, one {# note} other {# note}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# warning} other {# warnings}}"
-msgstr "{count, plural, one {# warning} other {# warnings}}"
+msgstr "{count, plural, one {# amaran} other {# amaran}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
@@ -95,7 +95,7 @@ msgstr "{passedRules} daripada {totalRules} semakan diluluskan"
 
 #: src/libs/resume/ats.ts
 msgid "{sectionTitle} · Item {itemNumber}"
-msgstr "{sectionTitle} · Item {itemNumber}"
+msgstr "{sectionTitle} · Perkara {itemNumber}"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "Permohonan dihantar setiap minggu (8 minggu lepas)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "Dimohon"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "Digunakan pada"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "Digunakan dengan amaran"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "Bersambung"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "Sambungan gagal"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "Masukkan kata laluan anda untuk mengesahkan penyediaan pengesahan dua fa
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Masukkan kata laluan anda untuk melumpuhkan pengesahan dua faktor. Akaun anda akan menjadi kurang selamat tanpa 2FA diaktifkan."
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "Ralat"
@@ -1998,6 +1996,10 @@ msgstr "Gagal mengesahkan kod sandaran anda. Sila cuba lagi."
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "Gagal mengesahkan kod anda. Sila cuba lagi."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "Pratonton"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "Pratonton dan eksport gunakan versi terakhir yang sah."
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "Bersedia untuk diaktifkan"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "Bersedia untuk diaktifkan dengan amaran"
 
@@ -3658,10 +3668,6 @@ msgstr "Tetapkan Semula"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "Tetapkan Semula Kata Laluan"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "Tetapkan semula kepada helaian gaya yang digunakan"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "Sesetengah sistem aplikasi memerlukan satu sebelum anda boleh menyerahka
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "Sesetengah penghurai salah mengendalikan imej, dan foto tidak digalakkan di sesetengah wilayah."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Ada yang tidak kena"
@@ -4309,6 +4319,10 @@ msgstr "Statistik"
 msgid "Stay"
 msgstr "Kekal"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr ""
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "Hentikan penjanaan"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "Editor helaian gaya"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "Helaian gaya mempunyai ralat"
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "Testimoni"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "Pengujian…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "Pengguna"
 msgid "Uzbek"
 msgstr "Uzbek"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "URL yang sah mesti bermula dengan http:// atau https://."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"

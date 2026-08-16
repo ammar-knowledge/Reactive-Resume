@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Norwegian\n"
-"Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: no\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Norwegian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "Søknader sendt per uke (siste 8 uker)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "Søkt"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "Påført på"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "Brukes med advarsler"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "Tilkoblet"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "Tilkoblingen mislyktes"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "Skriv inn passordet ditt for å bekrefte at du vil sette opp tofaktoraut
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Skriv inn passordet ditt for å deaktivere tofaktorautentisering. Kontoen din vil være mindre sikker uten aktivert 2FA."
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "Feil"
@@ -1998,6 +1996,10 @@ msgstr "Kunne ikke bekrefte reservekoden din. Prøv igjen."
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "Kunne ikke bekrefte koden din. Prøv igjen."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "Forhåndsvisning"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "Forhåndsvisning og eksport med den siste gyldige versjonen."
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "Klar til å aktiveres"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "Klar til aktivering med advarsler"
 
@@ -3658,10 +3668,6 @@ msgstr "Tilbakestill"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "Tilbakestill passord"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "Tilbakestill til brukt stilark"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "Noen søknadssystemer krever dette før du kan sende inn."
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "Noen parsere håndterer bilder dårlig, og bilder frarådes i enkelte regioner."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Noe gikk galt"
@@ -4309,6 +4319,10 @@ msgstr "Statistikk"
 msgid "Stay"
 msgstr "Bli"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr ""
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "Stopp generering"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "Stilarkredigeringsprogram"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "Stilarket inneholder feil"
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "Uttalelser"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "Testing…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "Brukere"
 msgid "Uzbek"
 msgstr "Usbekisk"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "Gyldige URL-er må starte med http:// eller https://."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"

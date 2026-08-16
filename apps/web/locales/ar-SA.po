@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Arabic\n"
-"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: ar\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "الطلبات المرسلة أسبوعيًا (آخر 8 أسابيع)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "تم التقديم"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "تم التقديم في"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "تم استخدامه مع التحذيرات"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "متصل"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "فشل الاتصال"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr "فشل الاتصال."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "أدخِل كلمة المرور الخاصة بك لتأكيد إعدا
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "أدخِل كلمة المرور الخاصة بك لتعطيل المصادقة الثنائية. سيكون حسابك أقل أمانًا بدون تمكين المصادقة الثنائية (2FA)."
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "خطأ"
@@ -1998,6 +1996,10 @@ msgstr "فشل التحقق من رمز النسخ الاحتياطي الخاص
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "فشل التحقق من الرمز الخاص بك. يرجى المحاولة مرة أخرى."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "معاينة"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "استخدم آخر نسخة صالحة للمعاينة والتصدير."
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "جاهز للتفعيل"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "جاهز للتفعيل مع التحذيرات"
 
@@ -3658,10 +3668,6 @@ msgstr "إعادة تعيين"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "إعادة تعيين كلمة المرور"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "إعادة ضبط نمط التنسيق المُطبق"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "تتطلب بعض أنظمة التقديم واحدًا قبل أن ت�
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "يسيء بعض المحللين التعامل مع الصور، ولا يُنصح باستخدام الصور في بعض المناطق."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "حدث خطأ ما"
@@ -4309,6 +4319,10 @@ msgstr "الإحصاءات"
 msgid "Stay"
 msgstr "البقاء"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr "ما زلت أنتظر {provider}… {elapsedSeconds}s"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "أوقفوا التوليد"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "محرر أنماط CSS"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "يحتوي ملف الأنماط على أخطاء"
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "قصص المستخدمين"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "اختبار…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr "اختبار… {elapsedSeconds}s"
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "المستخدمون"
 msgid "Uzbek"
 msgstr "الأوزبكية"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "يجب أن تبدأ عناوين URL الصالحة بـ http:// أو https://."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"

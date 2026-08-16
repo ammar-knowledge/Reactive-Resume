@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Spanish\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: es\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -75,15 +75,15 @@ msgstr "{column, plural, one {# columna} other {# columnas}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# error} other {# errors}}"
-msgstr "{count, plural, one {# error} other {# errors}}"
+msgstr "{count, plural, one {# error} other {# errores}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# note} other {# notes}}"
-msgstr "{count, plural, one {# note} other {# notes}}"
+msgstr "{count, plural, one {# nota} other {# notas}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# warning} other {# warnings}}"
-msgstr "{count, plural, one {# warning} other {# warnings}}"
+msgstr "{count, plural, one {# advertencia} other {# advertencias}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
@@ -91,11 +91,11 @@ msgstr "{label} durante los últimos 30 días"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{passedRules} of {totalRules} checks passed"
-msgstr "{passedRules} of {totalRules} checks passed"
+msgstr "{passedRules} de {totalRules} comprobaciones superadas"
 
 #: src/libs/resume/ats.ts
 msgid "{sectionTitle} · Item {itemNumber}"
-msgstr "{sectionTitle} · Item {itemNumber}"
+msgstr "{sectionTitle} · Artículo {itemNumber}"
 
 #: src/routes/_home/-sections/hero.tsx
 msgid "<0>Finally,</0><1>A free and open-source resume builder</1>"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "Candidaturas enviadas por semana (últimas 8 semanas)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "Enviada"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "Postulado el"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "Aplicado con advertencias"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "Conectado"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "Falló la conexión"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr "Falló la conexión."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "Introduce tu contraseña para confirmar la configuración de la autentic
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Introduce tu contraseña para deshabilitar la autenticación de doble factor. Tu cuenta será menos segura sin 2FA habilitada."
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "Error"
@@ -1998,6 +1996,10 @@ msgstr "No se ha podido verificar su código de copia de seguridad. Por favor, i
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "No se ha podido verificar su código. Por favor, inténtelo de nuevo."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "Avance"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "La vista previa y la exportación utilizan la última versión válida."
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "Listo para activar"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "Listo para activarse con advertencias"
 
@@ -3658,10 +3668,6 @@ msgstr "Restablecer"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "Restablecer contraseña"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "Restablecer a la hoja de estilos aplicada"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "Algunos sistemas de solicitud requieren uno antes de poder enviarlo."
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "Algunos analizadores manejan mal las imágenes y en algunas regiones no se recomiendan las fotografías."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Algo salió mal"
@@ -4309,6 +4319,10 @@ msgstr "Estadísticas"
 msgid "Stay"
 msgstr "Continuar"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr "Todavía esperando {provider}… {elapsedSeconds}s"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "Detener la generación"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "Editor de hojas de estilo"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "La hoja de estilos tiene errores."
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "Testimonios"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "Probando…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr "Prueba… {elapsedSeconds}s"
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "Usuarios"
 msgid "Uzbek"
 msgstr "Uzbeko"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "Las URL válidas deben comenzar con http:// o https://."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"

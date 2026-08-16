@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Afrikaans\n"
-"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: af\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Afrikaans\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "Aansoeke per week gestuur (laaste 8 weke)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "Aansoek gedoen"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "Toegepas op"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "Toegepas met waarskuwings"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "Verbonde"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "Verbinding het misluk"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr "Verbinding het misluk."
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "Voer jou wagwoord in om die opstel van twee-faktor-magtiging te bevestig
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "Voer jou wagwoord in om twee-faktor-magtiging te deaktiveer. Jou rekening sal minder veilig wees sonder 2FA."
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "Fout"
@@ -1998,6 +1996,10 @@ msgstr "Misluk om jou rugsteunkodeverifikasie te voltooi. Probeer asseblief weer
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "Misluk om jou kode te verifieer. Probeer asseblief weer."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "Voorskou"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "Voorskou en uitvoer gebruik die laaste geldige weergawe."
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "Gereed om te aktiveer"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "Gereed om te aktiveer met waarskuwings"
 
@@ -3658,10 +3668,6 @@ msgstr "Herstel"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "Herstel wagwoord"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "Stel terug na toegepaste stylblad"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "Sommige aansoekstelsels vereis een voordat jy kan indien."
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "Sommige ontleders hanteer beelde verkeerd, en foto's word in sommige streke ontmoedig."
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "Iets het verkeerd geloop"
@@ -4309,6 +4319,10 @@ msgstr "Statistiek"
 msgid "Stay"
 msgstr "Bly"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr "Wag steeds vir {provider}… {elapsedSeconds}s"
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "Stop generasie"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "Stylbladredigeerder"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "Stylblad bevat foute"
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "Getuigskrifte"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "Toetsing…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr "Toetsing… {elapsedSeconds}s"
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "Gebruikers"
 msgid "Uzbek"
 msgstr "Oezbeeks"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "Geldige URL's moet met http:// of https:// begin."
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"

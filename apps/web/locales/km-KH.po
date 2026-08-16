@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: reactive-resume\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-04 23:14+0100\n"
-"PO-Revision-Date: 2026-08-09 13:09\n"
-"Last-Translator: \n"
-"Language-Team: Khmer\n"
-"Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
+"Language: km\n"
+"Project-Id-Version: reactive-resume\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-16 10:45\n"
+"Last-Translator: \n"
+"Language-Team: Khmer\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: reactive-resume\n"
 "X-Crowdin-Project-ID: 503410\n"
@@ -75,15 +75,15 @@ msgstr "{column, plural, other {# ជួរឈរ}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# error} other {# errors}}"
-msgstr "{រាប់, ពហុវចនៈ, មួយ {# កំហុស} ផ្សេងទៀត {# កំហុស}}"
+msgstr "{count, plural, one {# កំហុស} other {# កំហុស}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# note} other {# notes}}"
-msgstr "{រាប់, ពហុវចនៈ, មួយ {# note} ផ្សេងទៀត {# notes}}"
+msgstr "{count, plural, one {# កំណត់ចំណាំ} other {# កំណត់ចំណាំ}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "{count, plural, one {# warning} other {# warnings}}"
-msgstr "{រាប់, ពហុវចនៈ, មួយ {# ការព្រមាន} ផ្សេងទៀត {# ការព្រមាន}}"
+msgstr "{count, plural, one {# ការព្រមាន} other {# ការព្រមាន}}"
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/statistics.tsx
 msgid "{label} over the last 30 days"
@@ -526,17 +526,12 @@ msgid "Applications sent per week (last 8 weeks)"
 msgstr "ពាក្យសុំបានផ្ញើក្នុងមួយសប្តាហ៍ (៨ សប្តាហ៍ចុងក្រោយ)"
 
 #: src/features/applications/components/table-view.tsx
-#: src/features/resume/stylesheet/status.tsx
 msgid "Applied"
 msgstr "បានដាក់ពាក្យ"
 
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Applied on"
 msgstr "បានដាក់ពាក្យនៅ"
-
-#: src/features/resume/stylesheet/status.tsx
-msgid "Applied with warnings"
-msgstr "អនុវត្តជាមួយការព្រមាន"
 
 #: src/libs/locale.ts
 msgid "Arabic"
@@ -984,6 +979,10 @@ msgstr "បានភ្ជាប់"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection failed"
 msgstr "ការតភ្ជាប់បរាជ័យ"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Connection failed."
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Connection verified — provider is ready to use."
@@ -1761,7 +1760,6 @@ msgstr "បញ្ចូល​ពាក្យសម្ងាត់​របស់
 msgid "Enter your password to disable two-factor authentication. Your account will be less secure without 2FA enabled."
 msgstr "បញ្ចូល​ពាក្យសម្ងាត់​របស់​អ្នក ដើម្បី​បិទ​ការ​ផ្ទៀងផ្ទាត់​ពីរ​ជាន់។ គណនី​របស់​អ្នក​នឹង​កាន់តែ​មាន​ហានិភ័យ​នៅពេល​មិន​បាន​បើក 2FA ទៀត។"
 
-#: src/features/resume/stylesheet/status.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Error"
 msgstr "កំហុស"
@@ -1998,6 +1996,10 @@ msgstr "បរាជ័យក្នុងការផ្ទៀងផ្ទាត
 #: src/features/auth/pages/verify-2fa.tsx
 msgid "Failed to verify your code. Please try again."
 msgstr "បរាជ័យក្នុងការផ្ទៀងផ្ទាត់កូដរបស់អ្នក។ សូមព្យាយាមម្ដងទៀត។"
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Fatal error"
+msgstr ""
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Features"
@@ -3416,8 +3418,12 @@ msgid "Preview"
 msgstr "មើលជាមុន"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Preview and export use the last valid version."
-msgstr "ការមើលជាមុន និងការនាំចេញប្រើប្រាស់កំណែដែលមានសុពលភាពចុងក្រោយ។"
+msgid "Preview and export fall back to base styles."
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Preview and export keep valid styles and ignore invalid styles."
+msgstr ""
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
 msgid "Primary Color"
@@ -3539,6 +3545,10 @@ msgid "Ready to activate"
 msgstr "រួចរាល់ដើម្បីធ្វើឱ្យសកម្ម"
 
 #: src/features/resume/stylesheet/status.tsx
+msgid "Ready to activate with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
 msgid "Ready to activate with warnings"
 msgstr "រួចរាល់ដើម្បីធ្វើឲ្យសកម្មជាមួយនឹងការព្រមាន"
 
@@ -3658,10 +3668,6 @@ msgstr "កំណត់​ឡើងវិញ"
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset Password"
 msgstr "កំណត់​ពាក្យសម្ងាត់​ឡើងវិញ"
-
-#: src/features/resume/stylesheet/toolbar.tsx
-msgid "Reset to applied stylesheet"
-msgstr "កំណត់ឡើងវិញទៅសន្លឹករចនាប័ទ្មដែលបានអនុវត្ត"
 
 #: src/features/auth/pages/reset-password.tsx
 msgid "Reset your password"
@@ -4191,6 +4197,10 @@ msgstr "ប្រព័ន្ធ​កម្មវិធី​មួយ​ចំ
 msgid "Some parsers mishandle images, and photos are discouraged in some regions."
 msgstr "ឧបករណ៍ញែកមួយចំនួនធ្វើឱ្យរូបភាពមិនត្រឹមត្រូវ ហើយរូបថតត្រូវបានលើកទឹកចិត្តនៅក្នុងតំបន់មួយចំនួន។"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Some styles were ignored"
+msgstr ""
+
 #: src/components/layout/error-screen.tsx
 msgid "Something went wrong"
 msgstr "មានអ្វីមួយខុសប្រក្រតី"
@@ -4309,6 +4319,10 @@ msgstr "ស្ថិតិ"
 msgid "Stay"
 msgstr "ស្ថិត"
 
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Still waiting for {provider}… {elapsedSeconds}s"
+msgstr ""
+
 #: src/routes/agent/-components/agent-chat.tsx
 msgid "Stop generation"
 msgstr "បញ្ឈប់ការបង្កើត"
@@ -4330,8 +4344,8 @@ msgid "Stylesheet editor"
 msgstr "កម្មវិធីនិពន្ធសន្លឹករចនាប័ទ្ម"
 
 #: src/features/resume/stylesheet/status.tsx
-msgid "Stylesheet has errors"
-msgstr "សន្លឹករចនាប័ទ្មមានកំហុស"
+msgid "Stylesheet has fatal errors"
+msgstr ""
 
 #: src/routes/_home/-sections/footer.tsx
 msgid "Subreddit"
@@ -4440,6 +4454,10 @@ msgstr "សក្ខីកម្ម"
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Testing…"
 msgstr "កំពុងសាកល្បង…"
+
+#: src/features/settings/integrations/components/ai-section.tsx
+msgid "Testing… {elapsedSeconds}s"
+msgstr ""
 
 #: src/components/input/rich-input.tsx
 msgid "Text alignment"
@@ -5091,9 +5109,21 @@ msgstr "អ្នកប្រើ"
 msgid "Uzbek"
 msgstr "Uzbek"
 
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid"
+msgstr ""
+
 #: src/components/input/rich-input.tsx
 msgid "Valid URLs must start with http:// or https://."
 msgstr "URL ត្រឹមត្រូវ ត្រូវតែ​ចាប់ផ្តើម​ដោយ http:// ឬ https://។"
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with errors"
+msgstr ""
+
+#: src/features/resume/stylesheet/status.tsx
+msgid "Valid with warnings"
+msgstr ""
 
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Vercel AI Gateway"
