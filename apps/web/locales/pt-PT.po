@@ -8,7 +8,7 @@ msgstr ""
 "Language: pt\n"
 "Project-Id-Version: reactive-resume\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-05 14:33\n"
+"PO-Revision-Date: 2026-09-05 15:47\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -31,6 +31,11 @@ msgstr "\"{0} · {1}\" e a sua cronologia completa serão eliminados permanentem
 #: src/routes/_home/-sections/hero.tsx
 msgid "(opens in new tab)"
 msgstr "(abre num novo separador)"
+
+#. placeholder {0}: selected.length
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "{0, plural, one {# application to export} other {# applications to export}}"
+msgstr ""
 
 #. placeholder {0}: section.items.length
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
@@ -519,6 +524,10 @@ msgstr "Os fornecedores de IA exigem que REDIS_URL e ENCRYPTION_SECRET estejam c
 msgid "Albanian"
 msgstr "Albanês"
 
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "All applications (including archived)"
+msgstr ""
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Allow Public Access"
 msgstr "Permitir acesso público"
@@ -618,6 +627,14 @@ msgstr "Candidatura adicionada ao seu pipeline."
 msgid "Application Copilot"
 msgstr "Copiloto de Candidaturas"
 
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Application date from"
+msgstr ""
+
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Application date to"
+msgstr ""
+
 #: src/features/applications/components/application-actions-menu.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Application deleted."
@@ -645,6 +662,10 @@ msgstr "Candidaturas ao longo do tempo"
 #: src/features/applications/components/insights-view.tsx
 msgid "Applications sent per week (last 8 weeks)"
 msgstr "Candidaturas enviadas por semana (últimas 8 semanas)"
+
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Applications to export"
+msgstr ""
 
 #: src/features/applications/components/table-view.tsx
 msgid "Applied"
@@ -921,6 +942,7 @@ msgstr "Posso exportar o meu currículo para PDF?"
 #: src/dialogs/resume/sections/section-item-dialog.tsx
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
+#: src/features/applications/components/export-applications-sheet.tsx
 #: src/features/applications/components/import-applications-sheet.tsx
 #: src/features/resume/builder/password-dialog.tsx
 #: src/features/settings/integrations/components/ai-section.tsx
@@ -1110,7 +1132,7 @@ msgstr "Comunidade"
 
 #: src/routes/dashboard/resumes/index.tsx
 msgid "Compact"
-msgstr ""
+msgstr "Compacto"
 
 #: src/dialogs/resume/sections/experience.tsx
 #: src/features/applications/components/application-form-sheet.tsx
@@ -1148,7 +1170,7 @@ msgstr "Confirmar"
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmar palavra-passe"
 
 #. Authentication settings action to link a social login provider
 #: src/features/settings/authentication/components/social-provider.tsx
@@ -1529,6 +1551,10 @@ msgstr "Recortar imagem"
 msgid "CSV data"
 msgstr "Dados CSV"
 
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Current filters"
+msgstr ""
+
 #: src/dialogs/auth/change-password.tsx
 msgid "Current Password"
 msgstr "Senha atual"
@@ -1536,6 +1562,10 @@ msgstr "Senha atual"
 #: src/features/applications/components/application-detail-sheet.tsx
 msgid "Current stage"
 msgstr "Etapa atual"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
+msgid "Currently available for German resumes. Uses the language set in Page."
+msgstr "Atualmente disponível para currículos em alemão. Utiliza o idioma definido na página."
 
 #: src/components/input/color-picker.tsx
 msgid "Custom"
@@ -1802,6 +1832,14 @@ msgstr "Descarregar"
 #: src/features/settings/pages/account.tsx
 msgid "Download a copy of all your data, including your profile and every resume, as a JSON file."
 msgstr "Faça o download de uma cópia de todos os seus dados, incluindo o seu perfil e todos os seus currículos, em formato JSON."
+
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Download application details, contacts, notes, and timeline history as CSV."
+msgstr ""
+
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Download CSV"
+msgstr ""
 
 #. Primary action in the builder header to open resume download options
 #: src/routes/builder/$resumeId/-components/header.tsx
@@ -2084,6 +2122,14 @@ msgstr "Expira em {0}"
 #: src/libs/resume/section.tsx
 msgid "Export"
 msgstr "Exportar"
+
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Export applications"
+msgstr ""
+
+#: src/routes/dashboard/applications/index.tsx
+msgid "Export CSV"
+msgstr ""
 
 #: src/features/command-palette/pages/navigation.tsx
 msgid "Export Data"
@@ -2658,6 +2704,10 @@ msgstr "https://gateway.example.com/v1"
 #: src/libs/locale.ts
 msgid "Hungarian"
 msgstr "Húngaro"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
+msgid "Hyphenation"
+msgstr "Hifenização"
 
 #: src/components/level/combobox.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx
@@ -3543,6 +3593,7 @@ msgstr "Não sabe o que escrever?"
 msgid "Note"
 msgstr "Observação"
 
+#: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
 #: src/libs/resume/section.tsx
 msgid "Notes"
@@ -3769,7 +3820,7 @@ msgstr "Senha"
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Password must be between 6 and 64 characters."
-msgstr ""
+msgstr "A palavra-passe deve ter entre 6 e 64 caracteres."
 
 #: src/routes/_home/-sections/features.tsx
 msgid "Password Protection"
@@ -3785,7 +3836,7 @@ msgstr "A proteção por senha foi ativada."
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Passwords do not match."
-msgstr ""
+msgstr "As palavras-passe não coincidem."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/ats-check.tsx
 msgid "Paste a posting to see which of its terms already appear in your resume."
@@ -5058,6 +5109,10 @@ msgstr "Comece a criar seu currículo dando um nome a ele."
 msgid "Start building your resume from scratch"
 msgstr "Comece a criar o seu currículo do zero"
 
+#: src/features/applications/components/export-applications-sheet.tsx
+msgid "Start date must be on or before end date."
+msgstr ""
+
 #: src/features/ats-checker/messages.ts
 msgid "Start each one with a concrete verb: built, led, reduced, migrated."
 msgstr "Comece cada um com um verbo concreto: construiu, liderou, reduziu, migrou."
@@ -6072,7 +6127,7 @@ msgstr "Use no mínimo 9pt."
 
 #: src/features/resume/builder/password-dialog.tsx
 msgid "Use between 6 and 64 characters."
-msgstr ""
+msgstr "Utilize entre 6 e 64 caracteres."
 
 #: src/components/input/color-picker.tsx
 #: src/routes/builder/$resumeId/-sidebar/right/sections/design.tsx

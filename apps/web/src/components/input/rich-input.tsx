@@ -57,6 +57,7 @@ import { cn } from "@reactive-resume/utils/style";
 import { usePrompt } from "@/hooks/use-prompt";
 import { isRTL } from "@/libs/locale";
 import { ColorPicker } from "./color-picker";
+import { ParagraphIndent } from "./paragraph-indent";
 import { defaultHighlightColor, resolveHighlightToolbarState } from "./rich-input.utils";
 
 const defaultTextColor = "rgba(0, 0, 0, 1)";
@@ -86,9 +87,11 @@ const extensions = [
 		},
 	}),
 	TextAlign.configure({ types: ["heading", "paragraph", "listItem"] }),
+	ParagraphIndent,
 ];
 
 type Props = UseEditorOptions & {
+	"aria-label"?: string;
 	value: string;
 	onChange: (value: string) => void;
 	style?: React.CSSProperties;
@@ -96,7 +99,15 @@ type Props = UseEditorOptions & {
 	editorClassName?: string;
 };
 
-export function RichInput({ value, onChange, style, className, editorClassName, ...options }: Props) {
+export function RichInput({
+	value,
+	onChange,
+	style,
+	className,
+	editorClassName,
+	"aria-label": ariaLabel,
+	...options
+}: Props) {
 	const { i18n } = useLingui();
 	const textDirection = isRTL(i18n.locale) ? "rtl" : undefined;
 	const [isFullscreen, setIsFullscreen] = useState(false);
@@ -110,6 +121,7 @@ export function RichInput({ value, onChange, style, className, editorClassName, 
 		shouldRerenderOnTransaction: false,
 		editorProps: {
 			attributes: {
+				...(ariaLabel ? { "aria-label": ariaLabel } : {}),
 				spellcheck: "false",
 				"data-editor": "true",
 				"data-fullscreen": isFullscreen ? "true" : "false",
@@ -298,13 +310,13 @@ function useEditorToolbarState(editor: Editor) {
 				canOrderedList: ctx.editor.can().chain().toggleOrderedList().run() ?? false,
 				toggleOrderedList: () => ctx.editor.chain().focus().toggleOrderedList().run(),
 
-				// Outdent List Item
-				canLiftListItem: ctx.editor.can().chain().liftListItem("listItem").run() ?? false,
-				liftListItem: () => ctx.editor.chain().focus().liftListItem("listItem").run(),
+				// Outdent block or list item
+				canDecreaseIndent: ctx.editor.can().chain().decreaseIndent().run() ?? false,
+				decreaseIndent: () => ctx.editor.chain().focus().decreaseIndent().run(),
 
-				// Indent List Item
-				canSinkListItem: ctx.editor.can().chain().sinkListItem("listItem").run() ?? false,
-				sinkListItem: () => ctx.editor.chain().focus().sinkListItem("listItem").run(),
+				// Indent block or list item
+				canIncreaseIndent: ctx.editor.can().chain().increaseIndent().run() ?? false,
+				increaseIndent: () => ctx.editor.chain().focus().increaseIndent().run(),
 
 				// Link
 				isLink: ctx.editor.isActive("link") ?? false,
@@ -707,8 +719,8 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 				variant="ghost"
 				className="rounded-none"
 				title={t`Decrease indent`}
-				disabled={!state.canLiftListItem}
-				onClick={state.liftListItem}
+				disabled={!state.canDecreaseIndent}
+				onClick={state.decreaseIndent}
 			>
 				<TextOutdentIcon className="size-3.5" />
 			</Button>
@@ -719,8 +731,8 @@ function renderEditorToolbar(state: EditorToolbarState, isFullscreen: boolean) {
 				variant="ghost"
 				className="rounded-none"
 				title={t`Increase indent`}
-				disabled={!state.canSinkListItem}
-				onClick={state.sinkListItem}
+				disabled={!state.canIncreaseIndent}
+				onClick={state.increaseIndent}
 			>
 				<TextIndentIcon className="size-3.5" />
 			</Button>

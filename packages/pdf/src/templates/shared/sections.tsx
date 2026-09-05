@@ -188,8 +188,8 @@ const defaultSectionHeadingContainerStyle = {
 	columnGap: 4,
 } satisfies Style;
 
-const getSectionHeadingTextStyle = (...styles: StyleInput[]): Style[] =>
-	composeStyles(...styles).map(
+export const getSectionHeadingTextStyle = (...styles: StyleInput[]): Style[] => {
+	const textStyles = composeStyles(...styles).map(
 		({
 			borderBottomWidth: _borderBottomWidth,
 			borderLeftWidth: _borderLeftWidth,
@@ -210,6 +210,13 @@ const getSectionHeadingTextStyle = (...styles: StyleInput[]): Style[] =>
 			...textStyle
 		}) => textStyle,
 	);
+
+	if (textStyles.length === 0) return [{ paddingLeft: 1 }];
+
+	const lastIndex = textStyles.length - 1;
+	const lastTextStyle: Style = { ...textStyles[lastIndex], paddingLeft: 1 };
+	return [...textStyles.slice(0, lastIndex), lastTextStyle];
+};
 
 const useSectionItemsContext = () => use(SectionItemsContext);
 
@@ -366,7 +373,13 @@ const SectionShell = ({ sectionId, title, showHeading = true, children }: Sectio
 						/>
 						<Heading
 							bindSemanticNode={false}
-							style={getSectionHeadingTextStyle(sectionHeadingStyle, sectionHeadingRuleStyle)}
+							style={getSectionHeadingTextStyle(
+								sectionHeadingStyle,
+								sectionHeadingRuleStyle,
+								sectionHeadingResolved.style?.color === undefined
+									? undefined
+									: { color: sectionHeadingResolved.style.color },
+							)}
 						>
 							{sectionTitle}
 						</Heading>
@@ -605,6 +618,14 @@ const useSectionSplitRowStyle = () => {
 		splitRowStyle,
 		stackSidebarItemHeader && placement === "sidebar" ? stackedSidebarSplitRowStyle : undefined,
 	);
+};
+
+// A single child in a space-between row otherwise falls back to the leading edge.
+// Only adjust horizontal split rows; sidebar templates may intentionally stack the cells.
+const getTrailingOnlySplitRowStyle = (style: StyleInput) => {
+	const { flexDirection, justifyContent } = mergeStyles(style);
+	const isSplitRow = (flexDirection === "row" || flexDirection === "row-reverse") && justifyContent === "space-between";
+	return composeStyles(style, isSplitRow ? { justifyContent: "flex-end" } : undefined);
 };
 
 type ItemHeaderRowProps = {
@@ -898,7 +919,7 @@ const ExperienceSection = ({ sectionId = "experience", sectionData }: ItemSectio
 							</View>
 
 							{(hasPosition || hasSplitRowText(headerPeriod)) && (
-								<View style={composeStyles(splitRowStyle)}>
+								<View style={hasPosition ? splitRowStyle : getTrailingOnlySplitRowStyle(splitRowStyle)}>
 									{hasPosition && <Text semanticField="position">{item.position}</Text>}
 									{hasSplitRowText(headerPeriod) && (
 										<SemanticTextRuns
@@ -1074,7 +1095,7 @@ const EducationSection = ({ sectionId = "education", sectionData }: ItemSectionP
 							</View>
 
 							{(hasArea || (hasDegreeOrGrade && hasLocationOrPeriod)) && (
-								<View style={composeStyles(splitRowStyle)}>
+								<View style={hasArea ? splitRowStyle : getTrailingOnlySplitRowStyle(splitRowStyle)}>
 									{hasArea && <Text semanticField="area">{item.area}</Text>}
 									{hasDegreeOrGrade && hasLocationOrPeriod && (
 										<SemanticTextRuns
@@ -1143,6 +1164,28 @@ const ProjectsSection = ({ sectionId = "projects", sectionData }: ItemSectionPro
 	);
 };
 
+const inlineSkillsItemStyle = {
+	flexDirection: "row",
+	alignItems: "flex-start",
+	columnGap: 4,
+} satisfies Style;
+
+export const getSkillsItemStyle = (
+	isInline: boolean,
+	item: SkillItem,
+	metrics: ReturnType<typeof getTemplateMetrics>,
+) => {
+	if (isInline) {
+		return composeStyles(
+			inlineSkillsItemStyle,
+			[hasSplitRowText(item.proficiency), Boolean(item.level), item.keywords.length > 0].filter(Boolean).length === 1
+				? { alignItems: "center" }
+				: undefined,
+		);
+	}
+	return { rowGap: metrics.gapY(0.25) };
+};
+
 const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<SkillItem> = {}) => {
 	const data = useRender();
 	const skills = sectionData ?? data.sections.skills;
@@ -1152,26 +1195,28 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 
 	if (items.length === 0) return null;
 
+	const isInlineSkillsItem = "layout" in skills && skills.layout === "inline";
+
 	return (
 		<SectionShell sectionId={sectionId} title={skills.title}>
 			<SectionItems columns={skills.columns}>
 				{items.map((item) => (
-					<SectionItem key={item.id} itemId={item.id} style={{ rowGap: metrics.gapY(0.25) }}>
+					<SectionItem key={item.id} itemId={item.id} style={getSkillsItemStyle(isInlineSkillsItem, item, metrics)}>
 						<SectionItemHeader>
 							<View style={composeStyles(inlineStyle)}>
 								<Icon name={item.icon as IconName} />
-								<Bold semanticField="name" style={{ flex: 1 }}>
+								<Bold semanticField="name" style={composeStyles(isInlineSkillsItem ? undefined : { flex: 1 })}>
 									{item.name}
 								</Bold>
 							</View>
 						</SectionItemHeader>
 
-						<View>
+						<View style={{ flexGrow: skills.columns > 1 ? 1 : 0 }}>
 							{hasSplitRowText(item.proficiency) && <Text semanticField="proficiency">{item.proficiency}</Text>}
 							<Small semanticField="keywords">{item.keywords.join(", ")}</Small>
+							{isInlineSkillsItem && <LevelDisplay level={item.level} />}
 						</View>
-
-						<LevelDisplay level={item.level} />
+						{!isInlineSkillsItem && <LevelDisplay level={item.level} />}
 					</SectionItem>
 				))}
 			</SectionItems>
@@ -1191,10 +1236,12 @@ const LanguagesSection = ({ sectionId = "languages", sectionData }: ItemSectionP
 			<SectionItems columns={languages.columns}>
 				{items.map((item) => (
 					<SectionItem key={item.id} itemId={item.id}>
-						<SectionItemHeader>
-							<Bold semanticField="language">{item.language}</Bold>
-							<Text semanticField="fluency">{item.fluency}</Text>
-						</SectionItemHeader>
+						<View style={{ flexGrow: languages.columns > 1 ? 1 : 0 }}>
+							<SectionItemHeader>
+								<Bold semanticField="language">{item.language}</Bold>
+								<Text semanticField="fluency">{item.fluency}</Text>
+							</SectionItemHeader>
+						</View>
 						<LevelDisplay level={item.level} />
 					</SectionItem>
 				))}
