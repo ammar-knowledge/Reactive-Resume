@@ -122,7 +122,7 @@ export const RichText = ({ children, semanticField }: RichTextProps) => {
 		element.getAttribute(richTextSemanticNodeKeyAttribute) ??
 		(richTextNodeKey ? getRichTextSemanticNodeKey(richTextNodeKey, element, richTextMarkClassName) : undefined);
 	const resolvedFor = (element: Parameters<typeof getRichTextSemanticNodeKey>[1]) => resolveNode(keyFor(element));
-
+	const listLengths = new WeakMap<object, number>();
 	const renderText = ({
 		element,
 		style,
@@ -251,6 +251,35 @@ export const RichText = ({ children, semanticField }: RichTextProps) => {
 					const contentResolved = resolveNode(contentNodeKey);
 					const isOrderedList = isRichTextElementInsideOrderedList(element);
 					const marker = isOrderedList ? `${element.indexOfType + 1}.` : "•";
+					// Reserve the same gutter throughout a list, then let Yoga measure wider
+					// glyphs. An explicit authored width keeps its ordinary CSS geometry.
+					let orderedMarkerStyle: Style | undefined;
+					if (
+						isOrderedList &&
+						markerResolved.style?.width === undefined &&
+						markerResolved.style?.flexBasis === undefined
+					) {
+						const parent = element.parentNode;
+						const listLength = parent
+							? (listLengths.get(parent) ??
+								parent.childNodes.filter((child) => child.rawTagName?.toLowerCase() === "li").length)
+							: 1;
+						if (parent) listLengths.set(parent, listLength);
+						const markerFontSize =
+							typeof markerResolved.style?.fontSize === "number"
+								? markerResolved.style.fontSize
+								: metadata.typography.body.fontSize;
+						const markerLetterSpacing =
+							typeof markerResolved.style?.letterSpacing === "number"
+								? Math.max(0, markerResolved.style.letterSpacing)
+								: 0;
+						const markerDigits = String(listLength).length;
+						orderedMarkerStyle = {
+							width: "auto",
+							minWidth: markerDigits * markerFontSize + (markerDigits + 1) * markerLetterSpacing,
+							flexShrink: 0,
+						};
+					}
 					const itemStyles = toRichTextStyleArray(style);
 					const contentItemStyles = itemStyles.map(stripRichTextVerticalMargins);
 
@@ -261,7 +290,12 @@ export const RichText = ({ children, semanticField }: RichTextProps) => {
 							key="marker"
 							data-resume-list-marker
 							{...resolvedPdfTextProps(markerResolved)}
-							style={composeStyles(richListItemMarkerStyle, { alignSelf: "flex-start" }, markerResolved.style)}
+							style={composeStyles(
+								richListItemMarkerStyle,
+								orderedMarkerStyle,
+								{ alignSelf: "flex-start" },
+								markerResolved.style,
+							)}
 						>
 							{marker}
 						</PdfText>
