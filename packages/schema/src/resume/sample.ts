@@ -3,6 +3,7 @@ import type { ResumeData } from "./data";
 export const sampleResumeData: ResumeData = {
 	picture: {
 		hidden: false,
+		fit: "cover",
 		url: "/photos/sample-picture.jpg",
 		size: 100,
 		rotation: 0,
@@ -43,6 +44,7 @@ export const sampleResumeData: ResumeData = {
 		icon: "article",
 		columns: 1,
 		hidden: false,
+		showHeading: true,
 		keepTogether: false,
 		startOnNewPage: false,
 		content:
@@ -54,6 +56,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "messenger-logo",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -90,6 +93,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "briefcase",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -116,6 +120,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "graduation-cap",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -143,6 +148,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "code-simple",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -192,7 +198,9 @@ export const sampleResumeData: ResumeData = {
 			icon: "compass-tool",
 			columns: 1,
 			layout: "default",
+			keywordLayout: "inline",
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -263,6 +271,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "translate",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -287,6 +296,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "football",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -329,6 +339,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "trophy",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -367,6 +378,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "certificate",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -403,6 +415,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "books",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -441,6 +454,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "hand-heart",
 			columns: 2,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -479,6 +493,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "phone",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			items: [
@@ -504,6 +519,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "briefcase",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			id: "019becaf-0b87-769d-98a6-46ccf558c0e8",
@@ -548,6 +564,7 @@ export const sampleResumeData: ResumeData = {
 			icon: "envelope-simple",
 			columns: 1,
 			hidden: false,
+			showHeading: true,
 			keepTogether: false,
 			startOnNewPage: false,
 			id: "019bef5b-0b3d-7e2a-8a7c-12d9e23a4f6b",

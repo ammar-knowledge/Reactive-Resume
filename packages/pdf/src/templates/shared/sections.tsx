@@ -320,6 +320,11 @@ const SectionShell = ({ sectionId, title, showHeading = true, children }: Sectio
 	const sectionHeadingContainerStyle = useTemplateStyle("sectionHeadingContainer");
 	const sectionHeadingRuleStyle = useSectionStyleRule("heading");
 	const sectionTitle = getResumeSectionTitle(data, sectionId, title);
+	const sectionHeadingEnabled = (() => {
+		if (sectionId === "summary") return data.summary.showHeading !== false;
+		if (sectionId in data.sections) return data.sections[sectionId as SectionType].showHeading !== false;
+		return data.customSections.find((section) => section.id === sectionId)?.showHeading !== false;
+	})();
 	const sectionHeadingNodeKey = semanticNodeKeys.sectionHeading(sectionNodeKey);
 	const sectionHeadingResolved = useResolvedNode(sectionHeadingNodeKey);
 	const sectionHeadingVisible = useSemanticNodeVisible(sectionHeadingNodeKey);
@@ -343,7 +348,7 @@ const SectionShell = ({ sectionId, title, showHeading = true, children }: Sectio
 		return (
 			<SemanticNodeKeyProvider nodeKey={sectionNodeKey}>
 				<View style={resolvedSectionStyle} {...flowProps}>
-					{showHeading && (
+					{showHeading && sectionHeadingEnabled && (
 						<Heading style={composeStyles(sectionHeadingStyle, sectionHeadingRuleStyle)}>{sectionTitle}</Heading>
 					)}
 					{children}
@@ -356,7 +361,7 @@ const SectionShell = ({ sectionId, title, showHeading = true, children }: Sectio
 	return (
 		<SemanticNodeKeyProvider nodeKey={sectionNodeKey}>
 			<View style={resolvedSectionStyle} {...flowProps}>
-				{showHeading && sectionHeadingVisible && (
+				{showHeading && sectionHeadingEnabled && sectionHeadingVisible && (
 					<View
 						{...resolvedPdfFlowProps(sectionHeadingResolved)}
 						style={composeStyles(
@@ -1192,6 +1197,7 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 	const items = getVisibleItems(skills, "skills");
 	const inlineStyle = useTemplateStyle("inline");
 	const metrics = getTemplateMetrics(data.metadata.page);
+	const skillLevelAfterName = useTemplateFeature("skillLevelAfterName");
 
 	if (items.length === 0) return null;
 
@@ -1211,12 +1217,19 @@ const SkillsSection = ({ sectionId = "skills", sectionData }: ItemSectionProps<S
 							</View>
 						</SectionItemHeader>
 
+						{skillLevelAfterName && <LevelDisplay level={item.level} />}
 						<View style={{ flexGrow: skills.columns > 1 ? 1 : 0 }}>
 							{hasSplitRowText(item.proficiency) && <Text semanticField="proficiency">{item.proficiency}</Text>}
-							<Small semanticField="keywords">{item.keywords.join(", ")}</Small>
-							{isInlineSkillsItem && <LevelDisplay level={item.level} />}
+							{"keywordLayout" in skills && skills.keywordLayout === "list" ? (
+								item.keywords.map((keyword, index) => (
+									<Small key={index} semanticField="keywords">{`• ${keyword}`}</Small>
+								))
+							) : (
+								<Small semanticField="keywords">{item.keywords.join(", ")}</Small>
+							)}
+							{!skillLevelAfterName && isInlineSkillsItem && <LevelDisplay level={item.level} />}
 						</View>
-						{!isInlineSkillsItem && <LevelDisplay level={item.level} />}
+						{!skillLevelAfterName && !isInlineSkillsItem && <LevelDisplay level={item.level} />}
 					</SectionItem>
 				))}
 			</SectionItems>

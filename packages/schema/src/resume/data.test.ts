@@ -103,6 +103,42 @@ const customSectionFixture = (type: CustomSectionType, item: Record<string, unkn
 });
 
 describe("resumeDataSchema", () => {
+	it("defaults heading visibility to true for legacy summary and section data", () => {
+		const legacySummary = {
+			title: "",
+			icon: "article",
+			columns: 1,
+			hidden: false,
+			keepTogether: false,
+			startOnNewPage: false,
+			content: "<p>Summary</p>",
+		};
+		const legacySection = {
+			title: "",
+			icon: "briefcase",
+			columns: 1,
+			hidden: false,
+			keepTogether: false,
+			startOnNewPage: false,
+			items: [],
+		};
+
+		expect(
+			parseResumeData({
+				...defaultResumeData,
+				summary: legacySummary,
+				sections: { ...defaultResumeData.sections, experience: legacySection },
+			}).summary.showHeading,
+		).toBe(true);
+		expect(
+			parseResumeData({
+				...defaultResumeData,
+				summary: legacySummary,
+				sections: { ...defaultResumeData.sections, experience: legacySection },
+			}).sections.experience.showHeading,
+		).toBe(true);
+	});
+
 	it("validates the default resume", () => {
 		expect(resumeDataSchema.safeParse(defaultResumeData).success).toBe(true);
 	});
@@ -239,6 +275,20 @@ describe("websiteSchema", () => {
 describe("pictureSchema", () => {
 	it("accepts the default picture config", () => {
 		expect(pictureSchema.safeParse(defaultResumeData.picture).success).toBe(true);
+	});
+
+	it("defaults missing and invalid legacy fit values to cover", () => {
+		const { fit: _fit, ...legacyPicture } = defaultResumeData.picture;
+
+		expect(pictureSchema.parse(legacyPicture).fit).toBe("cover");
+		expect(pictureSchema.parse({ ...legacyPicture, fit: "stretch" }).fit).toBe("cover");
+	});
+
+	it("preserves contain through parsing and JSON round-trip", () => {
+		const picture = pictureSchema.parse({ ...defaultResumeData.picture, fit: "contain" });
+		const roundTripped = pictureSchema.parse(JSON.parse(JSON.stringify(picture)));
+
+		expect(roundTripped.fit).toBe("contain");
 	});
 
 	it("rejects size below 32", () => {

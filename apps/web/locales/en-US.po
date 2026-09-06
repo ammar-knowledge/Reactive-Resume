@@ -813,6 +813,10 @@ msgstr "Attachment uploaded."
 msgid "Authentication"
 msgstr "Authentication"
 
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
+msgid "Authored pages and PDF overflow"
+msgstr "Authored pages and PDF overflow"
+
 #: src/features/applications/components/application-form-sheet.tsx
 msgid "Auto-fill failed."
 msgstr "Auto-fill failed."
@@ -1260,6 +1264,10 @@ msgstr "Content"
 msgid "Content is laid out in a grid."
 msgstr "Content is laid out in a grid."
 
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
+msgid "Contain"
+msgstr "Contain"
+
 #. Button label to continue to dashboard after successful registration
 #. Final action button after saving backup codes
 #. Primary action button to proceed to next step in two-factor setup
@@ -1405,6 +1413,11 @@ msgstr "Could not save the cover letter. Please try again."
 msgid "Could not set up two-factor authentication."
 msgstr "Could not set up two-factor authentication."
 
+#. placeholder {0}: unresolvedLabels.join(", ")
+#: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
+msgid "Could not sort these items; they stayed at the end: {0}."
+msgstr "Could not sort these items; they stayed at the end: {0}."
+
 #: src/features/settings/integrations/components/ai-section.tsx
 msgid "Could not verify provider connection."
 msgstr "Could not verify provider connection."
@@ -1457,6 +1470,14 @@ msgstr "Count by source"
 #: src/features/ats-checker/report/jd-coverage.tsx
 msgid "Counted separately from the parse score. Coverage does not predict anything."
 msgstr "Counted separately from the parse score. Coverage does not predict anything."
+
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
+msgid "Cover"
+msgstr "Cover"
+
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
+msgid "Cover crops the image to fill the frame. Contain shows the whole image. Reupload the original to restore edges removed by an earlier crop."
+msgstr "Cover crops the image to fill the frame. Contain shows the whole image. Reupload the original to restore edges removed by an earlier crop."
 
 #: src/features/applications/components/application-detail-sheet.tsx
 #: src/features/applications/components/application-form-sheet.tsx
@@ -2505,6 +2526,10 @@ msgstr "Finnish"
 msgid "Fireworks"
 msgstr "Fireworks"
 
+#: src/routes/builder/$resumeId/-sidebar/left/sections/picture.tsx
+msgid "Fit"
+msgstr "Fit"
+
 #: src/routes/builder/$resumeId/-components/dock.tsx
 msgid "Fit to view"
 msgstr "Fit to view"
@@ -2552,6 +2577,10 @@ msgstr "Font Weight"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/typography.tsx
 msgid "Font Weights"
 msgstr "Font Weights"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
+msgid "For a controlled continuation, open a section's menu and choose Move to → New Page, then turn on Full Width for that authored page."
+msgstr "For a controlled continuation, open a section's menu and choose Move to → New Page, then turn on Full Width for that authored page."
 
 #: src/routes/builder/$resumeId/-sidebar/right/sections/notes.tsx
 msgid "For example, note which companies you sent this resume to, or links to the job descriptions."
@@ -2761,6 +2790,11 @@ msgstr "Here's your new API key"
 msgid "Hidden"
 msgstr "Hidden"
 
+#: src/features/resume/builder/section-recovery.tsx
+msgid "Hidden sections"
+msgstr "Hidden sections"
+
+#: src/features/resume/builder/section-recovery.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/sections/custom.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-item.tsx
 #: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
@@ -2905,8 +2939,8 @@ msgid "Imported {0} application(s)."
 msgstr "Imported {0} application(s)."
 
 #: src/dialogs/resume/import.tsx
-msgid "Importing from PDF or Word requires a connected AI provider."
-msgstr "Importing from PDF or Word requires a connected AI provider."
+msgid "Importing from Word requires a connected AI provider."
+msgstr "Importing from Word requires a connected AI provider."
 
 #: src/dialogs/resume/import.tsx
 msgid "Importing your resume..."
@@ -3616,6 +3650,10 @@ msgstr "No Advertising, No Tracking"
 msgid "No AI provider connected"
 msgstr "No AI provider connected"
 
+#: src/dialogs/resume/import.tsx
+msgid "No AI provider is connected, so we will read the text out of the PDF here in your browser and fill in what we can recognize. Expect to tidy up the result."
+msgstr "No AI provider is connected, so we will read the text out of the PDF here in your browser and fill in what we can recognize. Expect to tidy up the result."
+
 #: src/routes/dashboard/applications/index.tsx
 msgid "No applications match your filters."
 msgstr "No applications match your filters."
@@ -3943,6 +3981,10 @@ msgstr "Page"
 #: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
 msgid "Page {0}"
 msgstr "Page {0}"
+
+#: src/routes/builder/$resumeId/-sidebar/right/sections/layout/pages.tsx
+msgid "Pages listed here are authored pages saved with your resume. A long authored page may continue onto extra PDF pages automatically; those overflow pages are not saved or editable separately."
+msgstr "Pages listed here are authored pages saved with your resume. A long authored page may continue onto extra PDF pages automatically; those overflow pages are not saved or editable separately."
 
 #: src/components/input/rich-input.tsx
 msgid "Paragraph"
@@ -4794,6 +4836,10 @@ msgstr "Save the file with every page upright."
 msgid "Saved"
 msgstr "Saved"
 
+#: src/features/resume/builder/draft.ts
+msgid "Saving is taking longer than expected. Your changes are still open."
+msgstr "Saving is taking longer than expected. Your changes are still open."
+
 #: src/routes/builder/$resumeId/-components/header.tsx
 msgid "Saving…"
 msgstr "Saving…"
@@ -5037,6 +5083,10 @@ msgstr "Show"
 msgid "Show {0} more"
 msgstr "Show {0} more"
 
+#: src/features/resume/builder/section-recovery.tsx
+msgid "Show {title} section"
+msgstr "Show {title} section"
+
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Show Download Buttons"
 msgstr "Show Download Buttons"
@@ -5267,6 +5317,10 @@ msgstr "Something went wrong while signing you in. Please try again."
 #: src/routes/builder/$resumeId/-sidebar/right/sections/sharing.tsx
 msgid "Something went wrong. Please try again."
 msgstr "Something went wrong. Please try again."
+
+#: src/routes/builder/$resumeId/-sidebar/left/shared/section-menu.tsx
+msgid "Sort by date"
+msgstr "Sort by date"
 
 #: src/routes/dashboard/applications/index.tsx
 #: src/routes/dashboard/resumes/index.tsx
@@ -5881,6 +5935,10 @@ msgstr "This link is missing its protocol."
 msgid "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 msgstr "This may take a few minutes, depending on the response of the AI provider. Please do not close the window or refresh the page."
 
+#: src/dialogs/resume/import.tsx
+msgid "This may take a moment. Please do not close the window or refresh the page."
+msgstr "This may take a moment. Please do not close the window or refresh the page."
+
 #: src/features/ats-checker/report/report-view.tsx
 msgid "This measures how faithfully software can extract this file's text. It does not predict whether an application will be rejected, and no tool can. Your file was read in this browser and never uploaded."
 msgstr "This measures how faithfully software can extract this file's text. It does not predict whether an application will be rejected, and no tool can. Your file was read in this browser and never uploaded."
@@ -5892,6 +5950,11 @@ msgstr "This page is in columns, and the text extracts out of order."
 #: src/features/ats-checker/messages.ts
 msgid "This page is very densely packed."
 msgstr "This page is very densely packed."
+
+#. Error shown when a PDF has no extractable text layer during import
+#: src/dialogs/resume/import.tsx
+msgid "This PDF has no readable text. It is likely a scan, so there is nothing to import."
+msgstr "This PDF has no readable text. It is likely a scan, so there is nothing to import."
 
 #: src/features/ats-checker/tool.tsx
 msgid "This PDF is password protected. Save an unprotected copy and try again."
@@ -6929,3 +6992,15 @@ msgstr "Zoom out"
 #: src/libs/locale.ts
 msgid "Zulu"
 msgstr "Zulu"
+
+#: src/routes/builder/$resumeId/-sidebar/left/shared/skill-keyword-layout-menu.tsx
+msgid "Keyword layout"
+msgstr "Keyword layout"
+
+#: src/routes/builder/$resumeId/-sidebar/left/shared/skill-keyword-layout-menu.tsx
+msgid "Bulleted list"
+msgstr "Bulleted list"
+
+#: src/routes/builder/$resumeId/-sidebar/left/shared/skill-keyword-layout-menu.tsx
+msgid "Inline"
+msgstr "Inline"
