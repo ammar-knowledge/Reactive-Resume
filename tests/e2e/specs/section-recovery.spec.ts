@@ -184,9 +184,14 @@ test("recovers hidden printable sections without changing authored placement", a
 	await page.getByRole("button", { name: "Redo", exact: true }).click();
 	await expect(page.getByRole("button", { name: "Show Recovery Custom section" })).toHaveCount(0);
 
-	const saved = waitForResumeSave(page);
 	await page.getByRole("button", { name: "Undo", exact: true }).click();
-	await saved;
+	await expect
+		.poll(
+			async () =>
+				(await readRecoveryState(resumeId)).customSections.find((section) => section.title === "Recovery Custom")
+					?.hidden,
+		)
+		.toBe(true);
 	await openResumeCardMenu(page, resumeName);
 	const locked = page.waitForResponse((response) => (response.request().postData() ?? "").includes('"isLocked":true'));
 	await page.getByRole("menuitem", { name: "Lock" }).click();
