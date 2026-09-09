@@ -38,7 +38,7 @@
 		"react-pdf-html": "^2.1.5"
 	},
 	"devDependencies": {
-		"@napi-rs/canvas": "1.0.9",
+		"@napi-rs/canvas": "1.0.8",
 		"@react-pdf/types": "^2.14.0",
 		"@reactive-resume/config": "workspace:*",
 		"@types/react": "^19.3.0",
