@@ -57,7 +57,7 @@
 		"@vitest/coverage-v8": "^5.0.0",
 		"github-actionlint": "1.7.12",
 		"happy-dom": "^20.14.0",
-		"knip": "^6.34.0",
+		"knip": "^6.35.1",
 		"lefthook": "^2.1.12",
 		"markdownlint-cli2": "0.23.2",
 		"pdfjs-dist": "6.3.289",
@@ -65,5 +65,18 @@
 		"turbo": "^2.10.12",
 		"typescript": "^7.0.2",
 		"vitest": "^5.0.0"
+	},
+	"overrides": {
+		"esbuild@>=0.17.0 <0.28.1": "^0.28.1",
+		"esbuild@>=0.27.3 <0.28.1": "^0.28.1",
+		"postcss@<8.5.10": "^8.5.14",
+		"samlify@<2.13.0": "^2.13.0",
+		"uuid@<11.1.1": "^11.1.1"
+	},
+	"patchedDependencies": {
+		"@react-pdf/layout@5.2.0": "patches/@react-pdf__layout@5.2.0.patch",
+		"@react-pdf/textkit@7.0.1": "patches/@react-pdf__textkit.patch",
+		"fontkit@2.0.4": "patches/fontkit@2.0.4.patch",
+		"react-pdf-html@2.1.5": "patches/react-pdf-html@2.1.5.patch"
 	}
 }
