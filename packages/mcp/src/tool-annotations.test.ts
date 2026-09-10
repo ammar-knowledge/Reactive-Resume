@@ -30,9 +30,12 @@ describe("MCP_TOOL_NAME", () => {
 });
 
 describe("tool annotations", () => {
-	it("provides annotations for every registered tool", () => {
+	it("provides explicit submission hints for every registered tool", () => {
 		for (const name of Object.values(MCP_TOOL_NAME)) {
-			expect(TOOL_META[name].annotations).toBeDefined();
+			const annotations = TOOL_META[name].annotations;
+			expect(typeof annotations.readOnlyHint, name).toBe("boolean");
+			expect(typeof annotations.destructiveHint, name).toBe("boolean");
+			expect(typeof annotations.openWorldHint, name).toBe("boolean");
 		}
 	});
 
@@ -82,8 +85,9 @@ describe("tool annotations", () => {
 			MCP_TOOL_NAME.createResume,
 			MCP_TOOL_NAME.importResume,
 			MCP_TOOL_NAME.duplicateResume,
-			MCP_TOOL_NAME.patchResume,
-			MCP_TOOL_NAME.updateResume,
+			MCP_TOOL_NAME.createApplication,
+			MCP_TOOL_NAME.importApplications,
+			MCP_TOOL_NAME.draftApplicationMessage,
 		]) {
 			const annotations = TOOL_META[name].annotations;
 			expect(annotations.readOnlyHint, name).toBe(false);
@@ -101,9 +105,39 @@ describe("tool annotations", () => {
 		}
 	});
 
-	it("declares no tools as open-world", () => {
+	it("marks tools that replace or remove existing data as destructive", () => {
+		for (const name of [
+			MCP_TOOL_NAME.patchResume,
+			MCP_TOOL_NAME.updateResume,
+			MCP_TOOL_NAME.updateApplication,
+			MCP_TOOL_NAME.updateApplicationTimelineEntry,
+			MCP_TOOL_NAME.bulkUpdateApplications,
+			MCP_TOOL_NAME.attachApplicationDocument,
+			MCP_TOOL_NAME.removeApplicationDocument,
+			MCP_TOOL_NAME.scoreApplicationMatch,
+			MCP_TOOL_NAME.tailorResumeForApplication,
+		]) {
+			expect(TOOL_META[name].annotations.readOnlyHint, name).toBe(false);
+			expect(TOOL_META[name].annotations.destructiveHint, name).toBe(true);
+		}
+	});
+
+	it("marks public content changes and external AI calls as open-world", () => {
+		const openWorldTools = new Set<string>([
+			MCP_TOOL_NAME.patchResume,
+			MCP_TOOL_NAME.updateResume,
+			MCP_TOOL_NAME.deleteResume,
+			MCP_TOOL_NAME.attachApplicationDocument,
+			MCP_TOOL_NAME.removeApplicationDocument,
+			MCP_TOOL_NAME.deleteApplication,
+			MCP_TOOL_NAME.bulkDeleteApplications,
+			MCP_TOOL_NAME.autofillApplicationFromJob,
+			MCP_TOOL_NAME.scoreApplicationMatch,
+			MCP_TOOL_NAME.tailorResumeForApplication,
+			MCP_TOOL_NAME.draftApplicationMessage,
+		]);
 		for (const [name, { annotations }] of Object.entries(TOOL_META)) {
-			expect(annotations.openWorldHint, name).toBe(false);
+			expect(annotations.openWorldHint, name).toBe(openWorldTools.has(name));
 		}
 	});
 });
