@@ -121,6 +121,25 @@ describe("handleAuth", () => {
 		},
 	);
 
+	it.each(["client_secret_basic", "client_secret_post"])(
+		"keeps an explicitly registered %s so the client receives a client secret",
+		async (method) => {
+			const { handleAuth } = await import("./auth");
+			await handleAuth(
+				new Request("http://localhost:3000/api/auth/oauth2/register", {
+					method: "POST",
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({
+						redirect_uris: ["https://example.com/callback"],
+						token_endpoint_auth_method: method,
+					}),
+				}),
+			);
+			const forwarded = mocks.handler.mock.calls[0]?.[0] as Request;
+			await expect(forwarded.json()).resolves.toMatchObject({ token_endpoint_auth_method: method });
+		},
+	);
+
 	it.each([
 		{ redirect_uris: ["https://example.com/callback"] },
 		{ redirect_uris: ["http://localhost.evil.example/callback"] },
