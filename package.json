@@ -56,7 +56,7 @@
 		"@types/pg": "^8.23.1",
 		"@vitest/coverage-v8": "^5.0.0",
 		"github-actionlint": "1.7.12",
-		"happy-dom": "^20.14.0",
+		"happy-dom": "^20.14.1",
 		"knip": "^6.35.1",
 		"lefthook": "^2.1.12",
 		"markdownlint-cli2": "0.23.2",
