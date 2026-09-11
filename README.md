@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > **Repository moved:** Reactive Resume now lives at **[`reactive-resume/app`](https://github.com/reactive-resume/app)** on GitHub.
-> **Docker Hub stays at `amruthpillai/reactive-resume`.** The new GitHub Container Registry image will be `ghcr.io/reactive-resume/app`.
-> Keep your current image configuration until availability is confirmed in the [pinned migration announcement](https://github.com/reactive-resume/app/issues/3503).
+> **Docker Hub stays at `amruthpillai/reactive-resume`.** GHCR is now available at `ghcr.io/reactive-resume/app`.
+> Verified GHCR tags: `latest`, `v5`, `v5.3`, and `v5.3.0` (AMD64 and ARM64). Future GHCR updates use the new namespace; historical images remain at the old address. See [migration details](https://github.com/reactive-resume/app/issues/3503).
 > GitHub Sponsors and Open Collective funding links remain unchanged.
 
 <div align="center">
@@ -203,7 +203,7 @@ Pull the latest image from Docker Hub or GitHub Container Registry:
 docker pull amruthpillai/reactive-resume:latest
 
 # GitHub Container Registry
-docker pull ghcr.io/amruthpillai/reactive-resume:latest
+docker pull ghcr.io/reactive-resume/app:latest
 ```
 
 See the [self-hosting guide](https://docs.rxresu.me/self-hosting/docker) for complete instructions.

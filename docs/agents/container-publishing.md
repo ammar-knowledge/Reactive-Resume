@@ -31,15 +31,23 @@ repository linkage, and Actions access before consumers can pull anonymously.
 ## Verification and historical images
 
 Check the manifest for `linux/amd64` and `linux/arm64`, then pull both using an empty
-Docker configuration to prove anonymous access:
+Docker configuration with explicit empty registry credentials to prove anonymous access
+(a completely empty directory can still discover a system credential helper):
 
 ```bash
 docker buildx imagetools inspect ghcr.io/reactive-resume/app:v5.3.0
 registry_config=$(mktemp -d)
+printf '%s\n' '{"auths":{"ghcr.io":{}}}' > "$registry_config/config.json"
 docker --config "$registry_config" pull --platform linux/amd64 ghcr.io/reactive-resume/app:v5.3.0
 docker --config "$registry_config" pull --platform linux/arm64 ghcr.io/reactive-resume/app:v5.3.0
 rm -r "$registry_config"
 ```
+
+On September 11, 2026, `latest`, `v5`, `v5.3`, and `v5.3.0` were copied to the new public
+GHCR package. Both architectures were pulled anonymously; the original Cosign signature,
+SBOMs, provenance, and image digest were verified. The signed Blacksmith canary
+[`canary-34582818410-1`](https://github.com/reactive-resume/app/actions/runs/34582818410)
+also passed on both registries without deploying production.
 
 Historical v5.3.0 has digest
 `sha256:c487ec5edcfe054bcb312fcd498f868e56f274756d0046b01c83f210855017ab`.

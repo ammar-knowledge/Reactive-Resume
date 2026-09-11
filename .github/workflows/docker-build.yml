@@ -271,6 +271,8 @@ jobs:
           set -euo pipefail
           registry_config=$(mktemp -d)
           trap 'rm -rf "$registry_config"' EXIT
+          # Prevent Docker from discovering a system credential helper.
+          printf '%s\n' '{"auths":{"ghcr.io":{},"https://index.docker.io/v1/":{}}}' > "$registry_config/config.json"
           for image in "$GHCR_IMAGE" "$DOCKER_IMAGE"; do
             for platform in linux/amd64 linux/arm64; do
               docker --config "$registry_config" pull --quiet --platform "$platform" \
