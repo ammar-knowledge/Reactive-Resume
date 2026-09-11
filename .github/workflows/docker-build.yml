@@ -266,6 +266,18 @@ jobs:
           docker buildx imagetools inspect ${{ env.GHCR_IMAGE }}:${{ steps.manifest.outputs.final_tag }}
           docker buildx imagetools inspect ${{ env.DOCKER_IMAGE }}:${{ steps.manifest.outputs.final_tag }}
 
+      - name: Verify anonymous pulls on both architectures
+        run: |
+          set -euo pipefail
+          registry_config=$(mktemp -d)
+          trap 'rm -rf "$registry_config"' EXIT
+          for image in "$GHCR_IMAGE" "$DOCKER_IMAGE"; do
+            for platform in linux/amd64 linux/arm64; do
+              docker --config "$registry_config" pull --quiet --platform "$platform" \
+                "$image:${{ steps.manifest.outputs.final_tag }}"
+            done
+          done
+
       - name: Redeploy Stack
         if: ${{ needs.mode.outputs.release == 'true' }}
         uses: appleboy/ssh-action@v1
