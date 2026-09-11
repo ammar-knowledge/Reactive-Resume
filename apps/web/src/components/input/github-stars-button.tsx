@@ -20,7 +20,7 @@ export function GithubStarsButton() {
 			render={
 				<a
 					target="_blank"
-					href="https://github.com/reactive-resume/app"
+					href="https://github.com/amruthpillai/reactive-resume"
 					aria-label={ariaLabel}
 					rel="noopener noreferrer"
 				>

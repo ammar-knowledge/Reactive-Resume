@@ -21,7 +21,7 @@ import "./styles.css";
 
 const ExportPlayground = lazy(() => import("./export-playground"));
 const AtsPlayground = lazy(() => import("./ats-playground"));
-const githubUrl = "https://github.com/reactive-resume/app";
+const githubUrl = "https://github.com/amruthpillai/reactive-resume";
 const buttonClass =
 	"inline-flex min-h-[52px] items-center justify-center gap-3 rounded-[4px] border border-[#f1f0eb] bg-[#f1f0eb] px-[19px] py-[14px] text-[14px] font-[550] text-[#151516] [transition:background-color_150ms_ease,transform_150ms_cubic-bezier(0.23,1,0.32,1)] hover:bg-[#d9d8d2] active:transform-[scale(0.97)] max-[540px]:min-h-[49px] max-[540px]:gap-[18px] max-[540px]:px-[15px] max-[540px]:py-3 max-[540px]:text-[13px]";
 const brandClass = "inline-flex shrink-0 items-center gap-[11px] font-[550] tracking-[-0.04em] max-[540px]:gap-2";
