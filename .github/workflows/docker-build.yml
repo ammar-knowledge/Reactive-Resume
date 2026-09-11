@@ -18,7 +18,7 @@ env:
 
 jobs:
   mode:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-32vcpu-ubuntu-2404
 
     outputs:
       nightly: ${{ steps.mode.outputs.nightly }}
@@ -44,7 +44,14 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.mode.outputs.matrix) }}
+      matrix:
+        include:
+          - platform: linux/amd64
+            runner: blacksmith-32vcpu-ubuntu-2404
+            arch: amd64
+          - platform: linux/arm64
+            runner: blacksmith-32vcpu-ubuntu-2404-arm
+            arch: arm64
 
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 30
@@ -119,7 +126,7 @@ jobs:
       - mode
       - build
     timeout-minutes: 30
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-32vcpu-ubuntu-2404
 
     permissions:
       contents: read
