@@ -229,6 +229,10 @@ Other ways to support:
 - Improve documentation
 - Help with translations
 
+<a href="https://blacksmith.sh/">
+  <img width="368" height="126" alt="powered-by-blacksmith" src="https://github.com/user-attachments/assets/3e95d11b-4579-4082-8d0c-6b574f925625" />
+</a>
+
 ## Star History
 
 <a href="https://www.star-history.com/?repos=reactive-resume%2Fapp&type=date&legend=top-left">
