@@ -20,9 +20,9 @@
   </p>
 
   <p>
-    <img src="https://img.shields.io/github/package-json/v/amruthpillai/reactive-resume?style=flat-square" alt="Reactive Resume Version">
-    <img src="https://img.shields.io/github/stars/amruthpillai/Reactive-Resume?style=flat-square" alt="GitHub Stars">
-    <img src="https://img.shields.io/github/license/amruthpillai/Reactive-Resume?style=flat-square" alt="License" />
+    <img src="https://img.shields.io/github/package-json/v/reactive-resume/app?style=flat-square" alt="Reactive Resume Version">
+    <img src="https://img.shields.io/github/stars/reactive-resume/app?style=flat-square" alt="GitHub Stars">
+    <img src="https://img.shields.io/github/license/reactive-resume/app?style=flat-square" alt="License" />
     <img src="https://img.shields.io/docker/pulls/amruthpillai/reactive-resume?style=flat-square" alt="Docker Pulls" />
     <a href="https://discord.gg/aSyA5ZSxpb"><img src="https://img.shields.io/discord/1173518977851473940?style=flat-square&label=discord" alt="Discord" /></a>
     <a href="https://crowdin.com/project/reactive-resume"><img src="https://badges.crowdin.net/reactive-resume/localized.svg?style=flat-square" alt="Crowdin" /></a>
@@ -149,7 +149,7 @@ The quickest way to run Reactive Resume locally:
 
 ```bash
 # Clone the repository
-git clone --depth=1  https://github.com/amruthpillai/reactive-resume.git
+git clone --depth=1 https://github.com/reactive-resume/app.git reactive-resume
 cd reactive-resume
 
 # Start all services
@@ -202,8 +202,8 @@ Pull the latest image from Docker Hub or GitHub Container Registry:
 # Docker Hub
 docker pull amruthpillai/reactive-resume:latest
 
-# GitHub Container Registry
-docker pull ghcr.io/amruthpillai/reactive-resume:latest
+# GitHub Container Registry (after migration availability is confirmed)
+docker pull ghcr.io/reactive-resume/app:latest
 ```
 
 See the [self-hosting guide](https://docs.rxresu.me/self-hosting/docker) for complete instructions.
@@ -225,17 +225,17 @@ Other ways to support:
 
 - Star this repository
 - Report reproducible bugs and suggest actionable features
-- Help other users in [GitHub Discussions](https://github.com/amruthpillai/reactive-resume/discussions/categories/q-a)
+- Help other users in [GitHub Discussions](https://github.com/reactive-resume/app/discussions/categories/q-a)
 - Improve documentation
 - Help with translations
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=amruthpillai%2Freactive-resume&type=date&legend=top-left">
+<a href="https://www.star-history.com/?repos=reactive-resume/app&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=amruthpillai/reactive-resume&type=date&theme=dark&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=amruthpillai/reactive-resume&type=date&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=amruthpillai/reactive-resume&type=date&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=reactive-resume/app&type=date&theme=dark&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=reactive-resume/app&type=date&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=reactive-resume/app&type=date&legend=top-left&sealed_token=QmaOn4Ech499R6kpQe8ONn911UjGUaJfQBT0MXlQLU9hTo-Ie7lTxIILWbBvmtzDGHk7ziWKN_N5iM5mgP8widn_FGHd9-PHNokPtSji8XLgbFpqatgyqIDPnOys-IhO40W3J0HeH07FL-Q8Bq6ArRk3LDtJDwjh4m0ya-2L59ULb7BaqxkSDuCytkCr" />
  </picture>
 </a>
 
@@ -251,7 +251,7 @@ Every contribution helps, whether it is a typo fix or a new feature.
 
 See the [development setup guide](https://docs.rxresu.me/contributing/development) for how to run the project locally.
 
-Maintainers review the [`status: needs triage` queue](https://github.com/amruthpillai/reactive-resume/issues?q=is%3Aissue+is%3Aopen+label%3A%22status%3A+needs+triage%22)
+Maintainers review the [`status: needs triage` queue](https://github.com/reactive-resume/app/issues?q=is%3Aissue+is%3Aopen+label%3A%22status%3A+needs+triage%22)
 weekly. Triaged bugs become `status: confirmed`; feature proposals become `status: accepted`; reports that need details become
 `status: needs info`.
 

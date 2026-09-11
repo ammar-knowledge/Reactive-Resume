@@ -48,7 +48,7 @@ LABEL org.opencontainers.image.description="A free and open-source resume builde
 LABEL org.opencontainers.image.vendor="Amruth Pillai"
 LABEL org.opencontainers.image.url="https://rxresu.me"
 LABEL org.opencontainers.image.documentation="https://docs.rxresu.me"
-LABEL org.opencontainers.image.source="https://github.com/amruthpillai/reactive-resume"
+LABEL org.opencontainers.image.source="https://github.com/reactive-resume/app"
 
 ENV NODE_ENV="production" \
     PORT=3000 \

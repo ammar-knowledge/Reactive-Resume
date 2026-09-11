@@ -3,6 +3,13 @@ title: "Self-hosting with Docker"
 description: "How to self-host Reactive Resume with Docker (Postgres only), with an environment variable reference and troubleshooting tips."
 ---
 
+<Warning>
+  **Repository migration planned.** The GitHub repository is moving to `reactive-resume/app`.
+  Docker Hub stays at `amruthpillai/reactive-resume`; GHCR is moving to `ghcr.io/reactive-resume/app`.
+  The GHCR examples below use the new address. Keep your current image configuration until the
+  [pinned migration announcement](https://github.com/amruthpillai/reactive-resume/issues/3503) confirms availability.
+</Warning>
+
 <Info>
   **From v5.1.0 onwards** — PDF generation now runs entirely client-side via `@react-pdf/renderer`. New deployments no longer require Browserless, Chromium, or any external print service as a dependency. The `PRINTER_*` and `BROWSERLESS_*` environment variables are no longer read and can be removed from your `.env`.
 </Info>
@@ -28,7 +35,18 @@ planned. Follow the [Docker Compose quickstart](#quickstart-using-docker-compose
 You can pull the latest app image from:
 
 - Docker Hub: `amruthpillai/reactive-resume:latest`
-- GitHub Container Registry: `ghcr.io/amruthpillai/reactive-resume:latest`
+- GitHub Container Registry: `ghcr.io/reactive-resume/app:latest`
+
+### Switching an existing GHCR installation
+
+After the new GHCR image is confirmed available, replace `ghcr.io/amruthpillai/reactive-resume` with
+`ghcr.io/reactive-resume/app` in your deployment configuration. Keep your current version tag only if that tag
+exists at the new address. Historical tags are not copied automatically, and the old GHCR address does not redirect.
+
+Docker Hub users need no image-name change. Changing registries does not require deleting containers' persistent
+volumes, resetting the database, or migrating resumes. Normal upgrade instructions still apply if you also change
+the application version. If you verify image signatures, update the accepted workflow identity for new releases
+to the workflow under `reactive-resume/app`; retain the old identity when verifying historical releases.
 
 ## Minimum requirements
 
@@ -191,7 +209,7 @@ services:
 
   reactive-resume:
     image: amruthpillai/reactive-resume:latest
-    # image: ghcr.io/amruthpillai/reactive-resume:latest
+    # image: ghcr.io/reactive-resume/app:latest
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -216,7 +234,7 @@ volumes:
     </CodeGroup>
 
     <Tip>
-      Prefer pulling from Docker Hub? Keep <code>amruthpillai/reactive-resume:latest</code>. Prefer GHCR? Swap it to <code>ghcr.io/amruthpillai/reactive-resume:latest</code>.
+      Prefer pulling from Docker Hub? Keep <code>amruthpillai/reactive-resume:latest</code>. Prefer GHCR? Swap it to <code>ghcr.io/reactive-resume/app:latest</code>.
     </Tip>
 
     <Note>
@@ -254,7 +272,7 @@ docker compose logs -f reactive-resume
 Use your platform's generic container configuration to create two separately managed containers: one for Reactive
 Resume and one for PostgreSQL. No official Unraid Community Applications template is provided.
 
-- Use the official `amruthpillai/reactive-resume:latest` or `ghcr.io/amruthpillai/reactive-resume:latest` image for the
+- Use the official `amruthpillai/reactive-resume:latest` or `ghcr.io/reactive-resume/app:latest` image for the
   app container.
 - Map the app's container port `3000` to the host port you want to use.
 - Connect both containers to a private container network. Set the host in `DATABASE_URL` to the PostgreSQL container or
