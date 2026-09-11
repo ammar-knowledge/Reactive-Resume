@@ -127,13 +127,13 @@ function createRootSeoMarkup(canonicalUrl: string) {
 					price: "0",
 					priceCurrency: "USD",
 				},
-				codeRepository: "https://github.com/amruthpillai/reactive-resume",
+				codeRepository: "https://github.com/reactive-resume/app",
 			},
 			{
 				"@type": "Project",
 				name: "Reactive Resume",
 				url: canonicalUrl,
-				sameAs: ["https://github.com/amruthpillai/reactive-resume"],
+				sameAs: ["https://github.com/reactive-resume/app"],
 			},
 			{
 				"@type": "FAQPage",
