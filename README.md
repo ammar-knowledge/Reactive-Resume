@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> **Repository migration planned:** Reactive Resume is moving from `amruthpillai/reactive-resume` to **`reactive-resume/app`** on GitHub.
+> **Docker Hub stays at `amruthpillai/reactive-resume`.** The new GitHub Container Registry image will be `ghcr.io/reactive-resume/app`.
+> Keep your current image configuration until availability is confirmed in the [pinned migration announcement](https://github.com/amruthpillai/reactive-resume/issues/3503).
+> GitHub Sponsors and Open Collective funding links remain unchanged.
+
 <div align="center">
   <a href="https://rxresu.me">
     <img src="apps/web/public/opengraph/banner.jpg" alt="Reactive Resume" />
