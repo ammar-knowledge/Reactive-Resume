@@ -16,6 +16,10 @@ the architecture-specific cache keys keep the two builders separate.
 | Manual dispatch, default `release=false` | `sha-*`, `canary-<run-id>-<attempt>` | No |
 | Push of a `v*` tag or explicit `release=true` | `sha-*`, `latest`, version/major/minor | Yes: SSH redeploy and Cloudflare purge |
 
+Manual `release=true` republishes the version already in `package.json` and redeploys
+production. It does not create a Git tag, GitHub release, or version bump. Use this for
+an approved current-version rebuild; it replaces the existing stable image aliases.
+
 Manual canaries first run a cache-only build on each architecture, then publish, merge,
 and sign both registry images. Run one with:
 
@@ -29,6 +33,19 @@ Both registries retain SBOMs, maximum provenance, and Cosign signatures. Publish
 repository linkage, and Actions access before consumers can pull anonymously.
 
 ## Verification and historical images
+
+The September 12, 2026 rename rebuild used commit `f89acb436865cf536fffed2b23d4d72a7ecff0db`
+in [workflow run 34685606073](https://github.com/reactive-resume/reactive-resume/actions/runs/34685606073).
+Both registries' `latest`, `v5`, `v5.3`, and `v5.3.0` aliases were verified at:
+
+```text
+sha256:7c7b7824785d1386fa6e0e6132c1abe43e3c281f90dbf3b1474b60bffb64d89e
+```
+
+The workflow built both architectures, generated SBOMs and provenance, signed the images,
+passed anonymous AMD64/ARM64 pulls from both registries, redeployed production, and purged
+Cloudflare. The live health endpoint reported healthy version `5.3.0`, and the homepage
+served the new repository URL. No new GitHub release or version bump was made.
 
 Check the manifest for `linux/amd64` and `linux/arm64`, then pull both using an empty
 Docker configuration with explicit empty registry credentials to prove anonymous access

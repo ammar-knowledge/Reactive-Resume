@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > **Repository moved:** Reactive Resume now lives at **[`reactive-resume/reactive-resume`](https://github.com/reactive-resume/reactive-resume)** on GitHub.
 > **Docker Hub stays at `amruthpillai/reactive-resume`.** GHCR builds now publish to `ghcr.io/reactive-resume/reactive-resume`.
-> Release GHCR tags: `latest`, `v5`, `v5.3`, and `v5.3.0` (AMD64 and ARM64). Future GHCR updates use the new namespace; historical images remain at the old address. See [migration details](https://github.com/reactive-resume/reactive-resume/issues/3503).
+> Verified image tags: `latest`, `v5`, `v5.3`, and `v5.3.0` (AMD64 and ARM64). The current version was rebuilt and production redeployed for this rename; no new GitHub release or version bump was made. See [migration details](https://github.com/reactive-resume/reactive-resume/issues/3503).
 > GitHub Sponsors and Open Collective funding links remain unchanged.
 
 <div align="center">
