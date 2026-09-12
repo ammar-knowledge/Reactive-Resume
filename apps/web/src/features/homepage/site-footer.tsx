@@ -14,7 +14,7 @@ import { m } from "motion/react";
 import { cn } from "@reactive-resume/utils/style";
 import { wrap } from "./classes";
 
-const githubUrl = "https://github.com/reactive-resume/app";
+const githubUrl = "https://github.com/reactive-resume/reactive-resume";
 const licenseUrl = `${githubUrl}/blob/main/LICENSE`;
 
 type FooterLink = { label: string } & (
