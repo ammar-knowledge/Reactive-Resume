@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/reactive-resume/app.git"
+		"url": "https://github.com/reactive-resume/reactive-resume.git"
 	},
 	"engines": {
 		"node": ">=24"

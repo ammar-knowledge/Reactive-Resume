@@ -10,7 +10,7 @@ export function Copyright({ className, ...props }: Props) {
 				<Trans>
 					Licensed under{" "}
 					<a
-						href="https://github.com/reactive-resume/app/blob/main/LICENSE"
+						href="https://github.com/reactive-resume/reactive-resume/blob/main/LICENSE"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="font-medium underline underline-offset-2"
